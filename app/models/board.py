@@ -17,7 +17,7 @@ class Board(db.Model):
     description = db.Column(db.Text(250))
 
     user = db.relationship('User', back_populates='board')
-    pin = db.relationship('Pin', secondary=add_prefix_for_prod('board_pins') back_populates='board')
+    pin = db.relationship('Pin', secondary=add_prefix_for_prod('board_pins'), back_populates='board')
     # board_pin = db.relationship('Board_Pin', back_populates='board', cascade='all, delete-orphan')
 
     def to_dict(self):
