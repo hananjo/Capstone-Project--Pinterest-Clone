@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User
+from app.models import User, Board, db
 
 user_routes = Blueprint('users', __name__)
 
@@ -23,3 +23,16 @@ def user(id):
     """
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('<int:id>/boards')
+def boards(id):
+    print(id, '***********')
+    boardsQuery = Board.query.filter(Board.user_id == id)
+    print(boardsQuery, '***boards****')
+    boards = boardsQuery.all()
+    boardCategories = []
+    if(len(boards) > 0):
+        for rel in boards:
+            results = rel.to_dict()
+            boardCategories.append(results)
+    return boardCategories
