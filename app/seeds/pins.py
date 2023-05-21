@@ -20,9 +20,9 @@ def seed_pins():
     money_piece = Pin(
         name='Moneypiece', description='This money piece frames the face nicely to give you more definition in your look.', keyword='moneypiece, hair, hairstyle'
     )
-    bun = Pin {
+    bun = Pin (
         name='Classy bun', description='This bun will look good on every occasian, whether you\'re out shopping or going to a formal event. This look is versatile.', keyword='bun, hair, hairstyle'
-    }
+    )
     messy_bun = Pin (
         name='Messy bun', description='The messy bun that\'s so easy and effortless to put together.', keyword='messy bun, hair, hairstyle'
     )

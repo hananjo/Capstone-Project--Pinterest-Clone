@@ -1,8 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
-from sqlalchemy.schema import Column, ForeignKey, Table
-from sqlalchemy.types import Integer, Text
+
 
 class Pin(db.Model):
     __tablename__ = 'pins'
@@ -17,7 +14,7 @@ class Pin(db.Model):
     keyword = db.Column(db.Text(250), nullable=False)
 
     user = db.relationship('User', back_populates='pin')
-    board = db.relationship('Board', secondary=add_prefix_for_prod('board_pins'), back_populates='pin', cascade='all, delete-orphan')
+    board = db.relationship('Board', secondary=add_prefix_for_prod('board_pins'), back_populates='pin')
     image = db.relationship('Image', back_populates='pin', cascade='all, delete-orphan', lazy=True)
     comment = db.relationship('Comment', back_populates='pin', cascade='all, delete-orphan')
     # board_pin = db.relationship('Board_Pin', back_populates='pin', cascade='all, delete-orphan')
