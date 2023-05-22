@@ -1,7 +1,7 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import User, Board, db
-
+from app.forms.board_form import BoardForm
 user_routes = Blueprint('users', __name__)
 
 
@@ -26,9 +26,9 @@ def user(id):
 
 @user_routes.route('<int:id>/boards')
 def boards(id):
-    print(id, '***********')
+    # print(id, '***********')
     boardsQuery = Board.query.filter(Board.user_id == id)
-    print(boardsQuery, '***boards****')
+    # print(boardsQuery, '***boards****')
     boards = boardsQuery.all()
     boardCategories = []
     if(len(boards) > 0):
@@ -36,3 +36,29 @@ def boards(id):
             results = rel.to_dict()
             boardCategories.append(results)
     return boardCategories
+
+@user_routes.route('<int:id>/boards', methods=['POST'])
+# @login_required
+def create_board(id):
+
+    user = User.query.get(id)
+    print(id, user, 'PRINT ID****************')
+    form = BoardForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        name = form.name.data
+        description = form.name.data
+        user_id = id
+        print(name, description, user_id, '*******&&&&&&&&&&&&&&&&')
+        new_board = Board(
+            name=name,
+            description=description,
+            user_id=user_id
+        )
+
+        db.session.add(new_board)
+        db.session.commit()
+        print (new_board.to_dict(), '*********NEW_BOARD******')
+        return new_board.to_dict()
+    else:
+        return None
