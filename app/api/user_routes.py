@@ -62,3 +62,24 @@ def create_board(id):
         return new_board.to_dict()
     else:
         return None
+
+@user_routes.route('<int:userId>/boards/<int:id>', methods=['PUT'])
+def update_board(userId, id):
+    board = Board.query.get(id)
+    user = User.query.get(userId)
+    print(id, userId, '******** BOARD, USER *******')
+    form = BoardForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        name = form.name.data
+        description = form.name.data
+        user_id = userId
+
+        board.name = name
+        board.description = description
+        board.user_id = user_id
+
+        db.session.commit()
+
+        return board.to_dict()

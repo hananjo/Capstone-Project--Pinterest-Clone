@@ -2,19 +2,29 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
-import { addNewBoard, getAllBoards } from "../../store/board";
-const CreateBoardModal = () => {
+import { updateBoard, getAllBoards } from "../../store/board";
+
+const UpdateBoardForm = ({ boardId, userId }) => {
+  console.log(userId, boardId, "******BOARD*****USERID******ID****");
   const history = useHistory();
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  const { id } = useParams();
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [errors, setErrors] = useState([]);
+  //   const { id } = useParams();
 
   const user = useSelector((state) => {
     return state.session.user.id;
   });
+
+  const boards = useSelector((state) => {
+    return Object.values(state?.board);
+  });
+
+  console.log(boards, "BOARDS STATE");
+  const [name, setName] = useState(boards[boardId - 1]?.name || "");
+  const [description, setDescription] = useState(
+    boards[boardId - 1]?.description || ""
+  );
+  const [errors, setErrors] = useState([]);
 
   useEffect(() => {
     const validationErrors = [];
@@ -34,21 +44,20 @@ const CreateBoardModal = () => {
       const boardFormInput = {
         name,
         description,
-        user_id: user,
+        user_id: userId,
       };
+      console.log(boardFormInput, "*****BOARDFORMINPUT****");
       //   console.log(boardFormInput, "BOARD FORM INPUT");
-      let addedNewBoard;
-      addedNewBoard = await dispatch(addNewBoard(boardFormInput, user));
-      await dispatch(getAllBoards(user));
-      closeModal();
+      let updatedBoard;
+      updatedBoard = await dispatch(
+        updateBoard(userId, boardId, boardFormInput)
+      );
 
-      //   if (addNewBoard) {
-      //     history.push(`/${user}/boards`);
-      //   }
+      if (updatedBoard) {
+        await dispatch(getAllBoards(user));
+        closeModal();
+      }
     }
-
-    // setName("");
-    // setDescription("");
   };
 
   return (
@@ -59,7 +68,7 @@ const CreateBoardModal = () => {
             <li key={error}>{error}</li>
           ))}
         </ul>
-        <h2>Create new board</h2>
+        <h2>Update your board</h2>
         <label>
           <div>Name:</div>
           <input
@@ -80,10 +89,10 @@ const CreateBoardModal = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </label>
-        <button type="submit">Create Board</button>
+        <button type="submit">Update Board</button>
       </form>
     </>
   );
 };
 
-export default CreateBoardModal;
+export default UpdateBoardForm;

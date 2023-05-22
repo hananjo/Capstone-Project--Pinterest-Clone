@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import CreateBoardModal from "../CreateBoardModal/CreateBoardModal";
+import UpdateBoardForm from "../UpdateBoardForm/UpdateBoardForm";
+
 const Boards = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -14,7 +16,7 @@ const Boards = () => {
     return Object.values(state?.board);
   });
 
-  console.log("BOARDS", boards);
+  console.log("BOARDS****", boards);
   useEffect(() => {
     dispatch(getAllBoards(id));
   }, [dispatch, id]);
@@ -23,7 +25,18 @@ const Boards = () => {
     setShowModal(true);
   };
   const handleCreateBoard = () => {
-    setModalContent(<CreateBoardModal/>);
+    setModalContent(<CreateBoardModal />);
+    openModal();
+  };
+
+  const handleUpdateBoard = (boardId, userId) => {
+    console.log(
+      userId,
+      boardId,
+
+      "111******BOARD*****USERID******ID****"
+    );
+    setModalContent(<UpdateBoardForm boardId={boardId} userId={userId} />);
     openModal();
   };
 
@@ -34,7 +47,10 @@ const Boards = () => {
         return (
           <>
             <div>{board.name}</div>
-            {/* <div>{board.description}</div> */}
+            <div>{board.description}</div>
+            <button onClick={() => handleUpdateBoard(board.id, board.user_id)}>
+              Update Board
+            </button>
           </>
         );
       })}

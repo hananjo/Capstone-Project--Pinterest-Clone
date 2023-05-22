@@ -1,3 +1,5 @@
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
+
 const LOAD_BOARD = "board/LOAD_BOARDS";
 const ADD_BOARD = "board/ADD_BOARDS";
 
@@ -34,6 +36,24 @@ export const addNewBoard = (data, id) => async (dispatch) => {
   }
 };
 
+export const updateBoard = (userId, id, data) => async (dispatch) => {
+  console.log(userId, id, data, "^^^^^^^^DATAAAAA^^^^^^^^^^");
+  const { name, description, user_id } = data;
+  console.log(description, "****DESCRIPTION***");
+  const response = await fetch(`/api/users/${userId}/boards/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  console.log(response.body, "*****RESPONSE****");
+  if (response.ok) {
+    const board = await response.json();
+    dispatch(addBoard(board));
+    console.log(board, "BOARD RESPONSE**********************");
+    return board;
+  }
+};
 const initialState = {};
 
 const boardReducer = (state = initialState, action) => {
