@@ -6,6 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Boards from "./components/Boards/Boards";
+import BoardDetails from "./components/BoardDetails/BoardDetails";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -25,6 +26,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/:id/boards" component={Boards} />
+          <Route exact path="/:userId/boards/:id" component={BoardDetails} />
         </Switch>
       )}
     </>

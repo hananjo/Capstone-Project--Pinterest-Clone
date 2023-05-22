@@ -89,7 +89,7 @@ const UpdateBoardForm = ({ boardId, userId }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </label>
-        <button type="submit">Update Board</button>
+        <button type="submit">Done</button>
       </form>
     </>
   );

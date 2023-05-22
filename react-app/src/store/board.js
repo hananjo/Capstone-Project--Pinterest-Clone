@@ -73,7 +73,7 @@ const boardReducer = (state = initialState, action) => {
       return { ...newState };
     case ADD_BOARD:
       return { ...state, [action.board.id]: action.board };
-    case LOAD_BOARD:
+    case LOAD_DETAILS:
       return { ...state, details: action.id };
     default:
       return state;
