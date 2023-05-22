@@ -37,6 +37,15 @@ def boards(id):
             boardCategories.append(results)
     return boardCategories
 
+@user_routes.route('<int:userId>/boards/<int:id>')
+def board_details(userId, id):
+    board = Board.query.get(id)
+    if not board:
+        return jsonify({'error': 'Board not found'}), 404
+    return jsonify(board.to_dict())
+
+
+
 @user_routes.route('<int:id>/boards', methods=['POST'])
 # @login_required
 def create_board(id):

@@ -1,6 +1,7 @@
 import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 const LOAD_BOARD = "board/LOAD_BOARDS";
+const LOAD_DETAILS = "board/LOAD_DETAILS";
 const ADD_BOARD = "board/ADD_BOARDS";
 
 const loadBoard = (list) => ({
@@ -8,6 +9,10 @@ const loadBoard = (list) => ({
   list,
 });
 
+const loadDetails = (id) => ({
+  type: LOAD_DETAILS,
+  id,
+});
 const addBoard = (board) => ({
   type: ADD_BOARD,
   board,
@@ -22,6 +27,13 @@ export const getAllBoards = (id) => async (dispatch) => {
   }
 };
 
+export const getBoardDetails = (userId, id) => async (dispatch) => {
+  const response = await fetch(`/api/users/${userId}/boards/${id}`);
+  if (response.ok) {
+    const board = await response.json();
+    dispatch(loadDetails(board));
+  }
+};
 export const addNewBoard = (data, id) => async (dispatch) => {
   const response = await fetch(`/api/users/${id}/boards`, {
     method: "POST",
@@ -61,6 +73,8 @@ const boardReducer = (state = initialState, action) => {
       return { ...newState };
     case ADD_BOARD:
       return { ...state, [action.board.id]: action.board };
+    case LOAD_BOARD:
+      return { ...state, details: action.id };
     default:
       return state;
   }
