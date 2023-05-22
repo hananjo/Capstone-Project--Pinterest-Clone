@@ -47,7 +47,7 @@ def create_board(id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         name = form.name.data
-        description = form.name.data
+        description = form.description.data
         user_id = id
         print(name, description, user_id, '*******&&&&&&&&&&&&&&&&')
         new_board = Board(
