@@ -37,20 +37,15 @@ export const addNewBoard = (data, id) => async (dispatch) => {
 };
 
 export const updateBoard = (userId, id, data) => async (dispatch) => {
-  console.log(userId, id, data, "^^^^^^^^DATAAAAA^^^^^^^^^^");
   const { name, description, user_id } = data;
-  console.log(description, "****DESCRIPTION***");
   const response = await fetch(`/api/users/${userId}/boards/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
+    body: JSON.stringify({ name, description, user_id }),
   });
-
-  console.log(response.body, "*****RESPONSE****");
   if (response.ok) {
     const board = await response.json();
     dispatch(addBoard(board));
-    console.log(board, "BOARD RESPONSE**********************");
     return board;
   }
 };

@@ -73,7 +73,7 @@ def update_board(userId, id):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         name = form.name.data
-        description = form.name.data
+        description = form.description.data
         user_id = userId
 
         board.name = name
