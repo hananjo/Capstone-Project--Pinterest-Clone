@@ -92,3 +92,13 @@ def update_board(userId, id):
         db.session.commit()
 
         return board.to_dict()
+
+@user_routes.route('<int:userId>/boards/<int:id>', methods=['DELETE'])
+def delete_board(userId, id):
+    print(userId, id, '********BACKEND*******ID******')
+    board = Board.query.get(id)
+    print(board, '******BACKEND******DELETE*******')
+    if board:
+        db.session.delete(board)
+        db.session.commit()
+        return jsonify({'message': 'Successfully deleted board'})

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import CreateBoardModal from "../CreateBoardModal/CreateBoardModal";
 import UpdateBoardForm from "../UpdateBoardForm/UpdateBoardForm";
-
+import DeleteBoardModal from "../DeleteBoardModal/DeleteBoardModal";
 const Boards = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -30,16 +30,20 @@ const Boards = () => {
   };
 
   const handleUpdateBoard = (boardId, userId) => {
-    console.log(
-      userId,
-      boardId,
+    // console.log(
+    //   userId,
+    //   boardId,
 
-      "111******BOARD*****USERID******ID****"
-    );
+    //   "111******BOARD*****USERID******ID****"
+    // );
     setModalContent(<UpdateBoardForm boardId={boardId} userId={userId} />);
     openModal();
   };
 
+  const handleDeleteBoard = (boardId, userId) => {
+    setModalContent(<DeleteBoardModal boardId={boardId} userId={userId} />);
+    openModal();
+  };
   return (
     <div>
       <button onClick={() => handleCreateBoard()}>Add new board</button>
@@ -50,6 +54,9 @@ const Boards = () => {
             {/* <div>{board.description}</div> */}
             <button onClick={() => handleUpdateBoard(board.id, board.user_id)}>
               Update Board
+            </button>
+            <button onClick={() => handleDeleteBoard(board.id, board.user_id)}>
+              Delete Board
             </button>
           </>
         );

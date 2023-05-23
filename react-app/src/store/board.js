@@ -3,6 +3,7 @@ import { unstable_renderSubtreeIntoContainer } from "react-dom";
 const LOAD_BOARD = "board/LOAD_BOARDS";
 const LOAD_DETAILS = "board/LOAD_DETAILS";
 const ADD_BOARD = "board/ADD_BOARDS";
+const REMOVE_BOARD = "/board/REMOVE_BOARD";
 
 const loadBoard = (list) => ({
   type: LOAD_BOARD,
@@ -18,6 +19,10 @@ const addBoard = (board) => ({
   board,
 });
 
+const removeBoard = (board) => ({
+  type: REMOVE_BOARD,
+  board,
+});
 export const getAllBoards = (id) => async (dispatch) => {
   const response = await fetch(`/api/users/${id}/boards`);
   if (response.ok) {
@@ -61,6 +66,17 @@ export const updateBoard = (userId, id, data) => async (dispatch) => {
     return board;
   }
 };
+
+export const deleteBoard = (userId, id) => async (dispatch) => {
+  console.log(userId, id, "THUNK DELETE");
+  const response = await fetch(`/api/users/${userId}/boards/${id}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    const board = await response.json();
+    dispatch(removeBoard(board));
+  }
+};
 const initialState = {};
 
 const boardReducer = (state = initialState, action) => {
@@ -75,6 +91,10 @@ const boardReducer = (state = initialState, action) => {
       return { ...state, [action.board.id]: action.board };
     case LOAD_DETAILS:
       return { ...state, details: action.id };
+    case REMOVE_BOARD:
+      const deleteNewState = { ...state };
+      delete deleteNewState[action.board.id];
+      return deleteNewState;
     default:
       return state;
   }
