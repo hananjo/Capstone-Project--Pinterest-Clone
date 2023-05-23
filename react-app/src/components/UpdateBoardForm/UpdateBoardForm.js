@@ -16,13 +16,16 @@ const UpdateBoardForm = ({ boardId, userId }) => {
   });
 
   const boards = useSelector((state) => {
-    return Object.values(state?.board);
+    return state?.board;
   });
 
-  console.log(boards, "BOARDS STATE");
-  const [name, setName] = useState(boards[boardId - 1]?.name || "");
+  // const boards = useSelector((state) => {
+  //   return Object.values(state?.board);
+  // });
+
+  const [name, setName] = useState(boards[boardId]?.name || "");
   const [description, setDescription] = useState(
-    boards[boardId - 1]?.description || ""
+    boards[boardId]?.description || ""
   );
   const [errors, setErrors] = useState([]);
 
