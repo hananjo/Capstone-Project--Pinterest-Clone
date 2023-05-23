@@ -7,6 +7,8 @@ import { authenticate } from "./store/session";
 import Navigation from "./components/Navigation";
 import Boards from "./components/Boards/Boards";
 import BoardDetails from "./components/BoardDetails/BoardDetails";
+import LandingPage from "./components/LandingPage/LandingPage";
+
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -25,6 +27,7 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
+          <Route exact path="/" component={LandingPage} />
           <Route exact path="/:id/boards" component={Boards} />
           <Route exact path="/:userId/boards/:id" component={BoardDetails} />
         </Switch>
