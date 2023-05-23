@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import Boards from "./components/Boards/Boards";
 import BoardDetails from "./components/BoardDetails/BoardDetails";
 import LandingPage from "./components/LandingPage/LandingPage";
+import PinDetails from "./components/PinDetails/PinDetails";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
             <SignupFormPage />
           </Route>
           <Route exact path="/" component={LandingPage} />
+          <Route exact path="/pins/:id" component={PinDetails} />
           <Route exact path="/:id/boards" component={Boards} />
           <Route exact path="/:userId/boards/:id" component={BoardDetails} />
         </Switch>
