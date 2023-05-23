@@ -22,7 +22,12 @@ const LandingPage = () => {
     <div>
       <div>
         {pins?.map((pin) => {
-          return <NavLink to={`/pins/${pin.id}`}>{pin.name}</NavLink>;
+          return (
+            <NavLink to={`/pins/${pin.id}`}>
+              {pin?.images[0]?.image_url}
+              {pin?.name}
+            </NavLink>
+          );
         })}
       </div>
     </div>

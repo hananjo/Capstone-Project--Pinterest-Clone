@@ -22,5 +22,6 @@ class Board(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'name': self.name,
-            'description': self.description
+            'description': self.description,
+            'pins': [pin.id for pin in self.pin]
         }

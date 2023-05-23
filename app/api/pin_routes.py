@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request, abort, redirect, url_for
-from app.models import Pin, db
+from app.models import Pin, Image, db
 from flask_login import login_required, current_user
 
 pin_routes = Blueprint('pins', __name__)
@@ -20,3 +20,9 @@ def get_pin_details(id):
     if not pin:
         return jsonify({'error': 'Product not found'}), 404
     return jsonify(pin.to_dict())
+
+@pin_routes.route('/<int:id>/images')
+def get_all_images(id):
+    images = Image.query.filter_by(pin_id = id).all()
+    if images:
+        return jsonify([image.to_dict() for image in images])

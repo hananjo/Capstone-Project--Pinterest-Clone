@@ -25,5 +25,6 @@ class Pin(db.Model):
             'name': self.name,
             'description': self.description,
             'user_id': self.user_id,
-            'keyword': self.keyword
+            'keyword': self.keyword,
+            'images': [image.to_dict() for image in self.image],
         }
