@@ -16,6 +16,9 @@ const LandingPage = () => {
   //   });
   //   console.log(pins, "PINS****");
 
+  const pins = useSelector((state) => {
+    return Object.values(state?.pin);
+  });
   const boards = useSelector((state) => {
     return Object.values(state?.board);
   });
@@ -31,15 +34,19 @@ const LandingPage = () => {
       dispatch(getAllBoards(user));
     }
   }, [dispatch, user]);
-  const pins = useSelector((state) => {
-    return Object.values(state?.pin);
-  });
 
   const openModal = () => {
     setShowModal(true);
   };
-  const handleBoardOptions = (pin) => {
-    console.log(pin, "pin selected in handler");
+  //   const handleBoardOptions = (pin) => {
+  //     console.log(pin, "pin selected in handler******");
+  //     setSelectedPin(pin);
+  //     // setModalContent(<AddToBoardOptionsModal pin={selectedPin} user={user} />);
+  //     openModal();
+  //   };
+
+  const handlePinClick = (pin) => {
+    console.log(pin, "pin selected button *****");
     setSelectedPin(pin);
     setModalContent(<AddToBoardOptionsModal pin={selectedPin} user={user} />);
     openModal();
@@ -50,10 +57,11 @@ const LandingPage = () => {
         {pins?.map((pin) => {
           return (
             <div>
-              <button onClick={handleBoardOptions}>Add Pin to Board</button>
+              {/* <button onClick={handleBoardOptions()}>Add Pin to Board</button> */}
               {/* <button onClick={() => setShowModal(true)}>
                 Add Pin to Board
               </button> */}
+              <button onClick={() => handlePinClick(pin)}>Add to Board</button>
               <NavLink to={`/pins/${pin.id}`}>
                 {pin?.images[0]?.image_url}
                 {pin?.name}

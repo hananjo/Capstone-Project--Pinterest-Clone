@@ -1,6 +1,6 @@
 const LOAD = "/pins/LOAD";
 const LOAD_DETAILS = "/pins/LOAD_DETAILS";
-
+const ADD_PIN = "/pins/ADD_PIN";
 const load = (list) => ({
   type: LOAD,
   list,
@@ -9,6 +9,11 @@ const load = (list) => ({
 const loadDetails = (id) => ({
   type: LOAD_DETAILS,
   id,
+});
+
+const addPin = (pin) => ({
+  type: ADD_PIN,
+  pin,
 });
 
 export const getAllPins = () => async (dispatch) => {
@@ -21,13 +26,26 @@ export const getAllPins = () => async (dispatch) => {
 };
 
 export const getPinDetails = (id) => async (dispatch) => {
-    const response = await fetch(`/api/pins/${id}`);
-    if(response.ok) {
-        const pin = await response.json();
-        dispatch(loadDetails(pin))
-    }
-}
+  const response = await fetch(`/api/pins/${id}`);
+  if (response.ok) {
+    const pin = await response.json();
+    dispatch(loadDetails(pin));
+  }
+};
 
+export const addNewPin = (data) => async (dispatch) => {
+  const response = await fetch("/api/pins/", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+
+  if (response.ok) {
+    const pin = await response.json();
+    dispatch(addNewPin(pin));
+    return pin;
+  }
+};
 const initialState = {};
 
 const pinReducer = (state = initialState, action) => {
@@ -40,10 +58,12 @@ const pinReducer = (state = initialState, action) => {
       return {
         ...newState,
       };
-    default:
-      return state;
     case LOAD_DETAILS:
       return { ...state, details: action.id };
+    case ADD_PIN:
+      return { ...state, [action.pin.id]: action.pin };
+    default:
+      return state;
   }
 };
 
