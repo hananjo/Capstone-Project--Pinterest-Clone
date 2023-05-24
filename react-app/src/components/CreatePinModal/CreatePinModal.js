@@ -44,15 +44,11 @@ const CreatePinModal = () => {
         keyword,
         user_id: user,
       };
-      //   console.log(boardFormInput, "BOARD FORM INPUT");
+
       let addedNewPin;
       addedNewPin = await dispatch(addNewPin(pinFormInput, user));
       await dispatch(getAllBoards(user));
       closeModal();
-
-      //   if (addNewBoard) {
-      //     history.push(`/${user}/boards`);
-      //   }
     }
 
     setName("");
