@@ -6,6 +6,7 @@ import { useModal } from "../../context/Modal";
 import CreateBoardModal from "../CreateBoardModal/CreateBoardModal";
 import UpdateBoardForm from "../UpdateBoardForm/UpdateBoardForm";
 import DeleteBoardModal from "../DeleteBoardModal/DeleteBoardModal";
+import CreatePinModal from "../CreatePinModal/CreatePinModal";
 const Boards = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -44,9 +45,15 @@ const Boards = () => {
     setModalContent(<DeleteBoardModal boardId={boardId} userId={userId} />);
     openModal();
   };
+
+  const handleCreatePin = () => {
+    setModalContent(<CreatePinModal />);
+    openModal();
+  };
   return (
     <div>
-      <button onClick={() => handleCreateBoard()}>Add new board</button>
+      <button onClick={() => handleCreatePin()}>Create new pin </button>
+      <button onClick={() => handleCreateBoard()}>Create new board</button>
       {boards?.map((board) => {
         return (
           <>
