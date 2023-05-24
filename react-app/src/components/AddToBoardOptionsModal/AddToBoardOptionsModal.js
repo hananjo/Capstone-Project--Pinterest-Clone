@@ -7,7 +7,6 @@ import { useModal } from "../../context/Modal";
 const AddToBoardOptionsModal = ({ pin, user }) => {
   console.log(pin, user, "pin select****");
   const { closeModal } = useModal();
-  const [board, setBoard] = useState("");
   const [selectedBoard, setSelectedBoard] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();

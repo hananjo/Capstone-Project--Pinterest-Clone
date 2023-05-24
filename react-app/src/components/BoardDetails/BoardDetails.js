@@ -31,6 +31,7 @@ const BoardDetails = () => {
             return (
               <div>
                 <p>{pin?.images[0]?.image_url}</p>
+                <p>{pin?.name}</p>
               </div>
             );
           })}

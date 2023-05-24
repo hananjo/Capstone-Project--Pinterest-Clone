@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { getAllBoards } from "../../store/board";
-import { addNewPin } from "../../store/pin";
+import { addNewPin, getAllPins } from "../../store/pin";
+import { addPinToBoard } from "../../store/board";
+
 const CreatePinModal = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -13,10 +15,22 @@ const CreatePinModal = () => {
   const [description, setDescription] = useState("");
   const [keyword, setKeyword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [selectedBoard, setSelectedBoard] = useState(null);
+  const boards = useSelector((state) => {
+    return Object.values(state?.board);
+  });
 
   const user = useSelector((state) => {
     return state.session.user.id;
   });
+
+  const handleBoardOptions = (e) => {
+    setSelectedBoard(e.target.value);
+  };
+
+  useEffect(() => {
+    dispatch(getAllBoards(user));
+  }, [dispatch, user]);
 
   useEffect(() => {
     const validationErrors = [];
@@ -47,13 +61,18 @@ const CreatePinModal = () => {
 
       let addedNewPin;
       addedNewPin = await dispatch(addNewPin(pinFormInput, user));
-      await dispatch(getAllBoards(user));
-      closeModal();
-    }
+      //   closeModal();
+      if (selectedBoard) {
+        dispatch(addPinToBoard(user, selectedBoard, addedNewPin.id));
+        closeModal();
+      } else {
+        alert("Select a board first");
+      }
 
-    setName("");
-    setDescription("");
-    setKeyword("");
+      if (addedNewPin) {
+        history.push(`/pins/${addedNewPin.id}`);
+      }
+    }
   };
 
   return (
@@ -65,6 +84,7 @@ const CreatePinModal = () => {
           ))}
         </ul>
         <h2>Create new Pin</h2>
+
         <label>
           {/* <div>Name:</div> */}
           <input
@@ -99,6 +119,16 @@ const CreatePinModal = () => {
             onChange={(e) => setKeyword(e.target.value)}
           />
         </label>
+        <select onChange={(e) => handleBoardOptions(e)}>
+          <option value="">Select a board</option>
+          {boards?.map((board) => {
+            return (
+              <option key={board.id} value={board.id}>
+                {board?.name}
+              </option>
+            );
+          })}
+        </select>
         <button type="submit">Save</button>
       </form>
     </>

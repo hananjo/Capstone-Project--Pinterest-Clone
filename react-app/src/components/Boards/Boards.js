@@ -7,11 +7,13 @@ import CreateBoardModal from "../CreateBoardModal/CreateBoardModal";
 import UpdateBoardForm from "../UpdateBoardForm/UpdateBoardForm";
 import DeleteBoardModal from "../DeleteBoardModal/DeleteBoardModal";
 import CreatePinModal from "../CreatePinModal/CreatePinModal";
+import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 const Boards = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { setModalContent } = useModal();
   const [showModal, setShowModal] = useState(false);
+  const history = useHistory();
 
   const boards = useSelector((state) => {
     return Object.values(state?.board);
@@ -47,12 +49,16 @@ const Boards = () => {
   };
 
   const handleCreatePin = () => {
-    setModalContent(<CreatePinModal />);
-    openModal();
+    history.push("/create-pin");
   };
+  // const handleCreatePin = () => {
+  //   setModalContent(<CreatePinModal />);
+  //   openModal();
+  // };
   return (
     <div>
-      <button onClick={() => handleCreatePin()}>Create new pin </button>
+      <button onClick={() => handleCreatePin()}>Create new pin</button>
+      {/* <button onClick={() => handleCreatePin()}>Create new pin </button> */}
       <button onClick={() => handleCreateBoard()}>Create new board</button>
       {boards?.map((board) => {
         return (
