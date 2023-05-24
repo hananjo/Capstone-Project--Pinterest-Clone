@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from app.models import User, Board, db
+from app.models import User, Board, Pin, db
 from app.forms.board_form import BoardForm
 user_routes = Blueprint('users', __name__)
 
@@ -71,6 +71,18 @@ def create_board(id):
         return new_board.to_dict()
     else:
         return None
+
+@user_routes.route('<int:userId>/boards/<int:boardId>/pins/<int:pinId>', methods=['POST'])
+def add_pin_to_board(userId, boardId, pinId):
+    user = User.query.get(userId)
+    board = Board.query.get(boardId)
+    added_pin = Pin.query.get(pinId)
+
+    if added_pin not in board.pin:
+        board.pin.append(added_pin)
+        # db.session.add(board)
+        db.session.commit()
+        return board.to_dict()
 
 @user_routes.route('<int:userId>/boards/<int:id>', methods=['PUT'])
 def update_board(userId, id):

@@ -50,7 +50,7 @@ const Boards = () => {
       {boards?.map((board) => {
         return (
           <>
-            <div>{board.name}</div>
+            <div>{board?.name}</div>
             {/* <div>{board.description}</div> */}
             <button onClick={() => handleUpdateBoard(board.id, board.user_id)}>
               Update Board

@@ -23,5 +23,5 @@ class Board(db.Model):
             'user_id': self.user_id,
             'name': self.name,
             'description': self.description,
-            'pins': [pin.id for pin in self.pin]
+            'pins': [pin.to_dict() for pin in self.pin]
         }

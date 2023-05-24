@@ -4,6 +4,7 @@ const LOAD_BOARD = "board/LOAD_BOARDS";
 const LOAD_DETAILS = "board/LOAD_DETAILS";
 const ADD_BOARD = "board/ADD_BOARDS";
 const REMOVE_BOARD = "/board/REMOVE_BOARD";
+const ADD_PIN_TO_BOARD = "/board/ADD_PIN_TO_BOARD";
 
 const loadBoard = (list) => ({
   type: LOAD_BOARD,
@@ -23,6 +24,25 @@ const removeBoard = (board) => ({
   type: REMOVE_BOARD,
   board,
 });
+
+const addPinBoard = (pinId, boardId) => ({
+  type: ADD_PIN_TO_BOARD,
+  pinId,
+  boardId,
+});
+
+export const addPinToBoard = (userId, boardId, pinId) => async (dispatch) => {
+  const response = await fetch(
+    `/api/users/${userId}/boards/${boardId}/pins/${pinId}`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    }
+  );
+  if (response.ok) {
+    dispatch(addPinBoard(pinId, boardId));
+  }
+};
 export const getAllBoards = (id) => async (dispatch) => {
   const response = await fetch(`/api/users/${id}/boards`);
   if (response.ok) {
@@ -95,6 +115,14 @@ const boardReducer = (state = initialState, action) => {
       const deleteNewState = { ...state };
       delete deleteNewState[action.board.id];
       return deleteNewState;
+    case ADD_PIN_TO_BOARD:
+      return {
+        ...state,
+        [action.boardId]: {
+          ...state[action.boardId],
+          pins: [...state[action.boardId].pins, action.pinId],
+        },
+      };
     default:
       return state;
   }

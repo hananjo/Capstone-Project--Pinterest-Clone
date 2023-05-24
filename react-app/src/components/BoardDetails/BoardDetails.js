@@ -27,6 +27,13 @@ const BoardDetails = () => {
         <div>
           <p>{board.name}</p>
           <p>{board.description}</p>
+          {board?.pins?.map((pin) => {
+            return (
+              <div>
+                <p>{pin?.images[0]?.image_url}</p>
+              </div>
+            );
+          })}
         </div>
       ) : (
         "Page not Found"
