@@ -3,6 +3,7 @@ from app.models import Pin, Image, Comment, db
 from flask_login import login_required, current_user
 from app.forms.pin_form import PinForm
 from app.forms.image_form import ImageForm
+from app.forms.comment_form import CommentForm
 pin_routes = Blueprint('pins', __name__)
 
 @pin_routes.route('/')
@@ -91,3 +92,23 @@ def get_pin_comments(id):
     comments = Comment.query.filter_by(pin_id = id).all()
     if comments:
         return jsonify([comment.to_dict() for comment in comments])
+
+@pin_routes.route('/<int:id>/comments', methods=['POST'])
+def add_comment(id):
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    comment = form.comment.data
+    user_id = form.user_id.data
+    pin_id = form.pin_id.data
+
+    new_comment = Comment (
+        comment=comment,
+        user_id=user_id,
+        pin_id=pin_id
+    )
+
+    db.session.add(new_comment)
+    db.session.commit()
+
+    return new_comment.to_dict();

@@ -1,10 +1,15 @@
 const LOAD_COMMENTS = "/comments/LOAD_COMMENTS";
+const ADD_COMMENT = "/comments/ADD_COMMENT";
 
 const load = (list) => ({
   type: LOAD_COMMENTS,
   list,
 });
 
+const addComment = (comment) => ({
+  type: ADD_COMMENT,
+  comment,
+});
 export const getAllComments = (id) => async (dispatch) => {
   const response = await fetch(`/api/pins/${id}/comments`);
   if (response.ok) {
@@ -13,6 +18,19 @@ export const getAllComments = (id) => async (dispatch) => {
   }
 };
 
+export const addNewComment = (data, id) => async (dispatch) => {
+  console.log(id, data, "DATA AND ID *********");
+  const response = await fetch(`/api/pins/${id}/comments`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (response.ok) {
+    const comment = await response.json();
+    dispatch(addComment(comment));
+    return comment;
+  }
+};
 const initialState = {};
 
 const commentReducer = (state = initialState, action) => {
@@ -25,6 +43,8 @@ const commentReducer = (state = initialState, action) => {
       return {
         ...newState,
       };
+    case ADD_COMMENT:
+      return { ...state, [action.comment.id]: action.comment };
     default:
       return state;
   }

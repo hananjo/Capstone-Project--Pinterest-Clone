@@ -3,10 +3,15 @@ import { getPinDetails } from "../../store/pin";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { getAllComments } from "../../store/comments";
+import { useModal } from "../../context/Modal";
+import AddCommentModal from "../AddCommentModal/AddCommentModal";
+// import { getAllComments } from "../../store/comments";
 
 const PinDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const { setModalContent } = useModal();
+  const [showModal, setShowModal] = useState(false);
 
   const pin = useSelector((state) => {
     return state?.pin?.details;
@@ -27,7 +32,15 @@ const PinDetails = () => {
   //   const pins = useSelector((state) => {
   //     return Object.values(state?.pin);
   //   });
+  const openModal = () => {
+    setShowModal(true);
+  };
 
+  const handleAddComment = () => {
+    setModalContent(<AddCommentModal id={id} />);
+    openModal();
+    // dispatch(getAllComments(id));
+  };
   return (
     <div>
       <p>{pin?.name}</p>
@@ -42,7 +55,7 @@ const PinDetails = () => {
             </div>
           );
         })}
-
+      <button onClick={() => handleAddComment()}>Add Comment</button>
       <div>
         <NavLink to={`/pins/${id}/update`}>
           <button>Edit</button>
