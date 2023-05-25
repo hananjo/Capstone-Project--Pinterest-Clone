@@ -25,7 +25,7 @@ const LandingPage = () => {
 
   console.log(boards, "*****BOARDS OPTIONS***");
   const user = useSelector((state) => {
-    return state.session.user.id;
+    return state?.session.user.id;
   });
 
   useEffect(() => {

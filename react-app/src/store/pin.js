@@ -56,7 +56,7 @@ export const updatePin = (id, data) => async (dispatch) => {
   });
   if (response.ok) {
     const pin = await response.json();
-    dispatch(addNewPin(pin));
+    dispatch(addPin(pin));
     return pin;
   }
 };

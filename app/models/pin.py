@@ -8,7 +8,7 @@ class Pin(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Text(50), nullable=False)
+    name = db.Column(db.Text(50), nullable=False, unique=True)
     description = db.Column(db.Text(250))
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     keyword = db.Column(db.Text(250), nullable=False)
