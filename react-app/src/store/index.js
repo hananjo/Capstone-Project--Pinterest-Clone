@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import session from "./session";
 import boardReducer from "./board";
 import pinReducer from "./pin";
+import commentReducer from "./comments";
 
 const rootReducer = combineReducers({
   session,
   board: boardReducer,
   pin: pinReducer,
+  comment: commentReducer,
 });
 
 let enhancer;

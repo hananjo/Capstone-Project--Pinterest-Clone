@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getPinDetails } from "../../store/pin";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { getAllComments } from "../../store/comments";
 
 const PinDetails = () => {
   const dispatch = useDispatch();
@@ -10,13 +11,19 @@ const PinDetails = () => {
   const pin = useSelector((state) => {
     return state?.pin?.details;
   });
+
   console.log(pin, "PINS****");
   console.log(pin?.description, "PIN.NAME");
 
   useEffect(() => {
     dispatch(getPinDetails(id));
+    dispatch(getAllComments(id));
   }, [dispatch, id]);
 
+  const comments = useSelector((state) => {
+    return Object.values(state?.comment);
+  });
+  console.log(comments, "COMMENTS");
   //   const pins = useSelector((state) => {
   //     return Object.values(state?.pin);
   //   });
@@ -26,6 +33,15 @@ const PinDetails = () => {
       <p>{pin?.name}</p>
       <p>{pin?.description}</p>
       <p>{pin?.images[0]?.image_url}</p>
+      <p>Comments:</p>
+      {comments &&
+        comments.map((comment) => {
+          return (
+            <div key={comment.id}>
+              <p>{comment.comment}</p>
+            </div>
+          );
+        })}
 
       <div>
         <NavLink to={`/pins/${id}/update`}>

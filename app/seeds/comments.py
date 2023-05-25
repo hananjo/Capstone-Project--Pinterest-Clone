@@ -9,115 +9,115 @@ def seed_comments():
         comment='Very beautiful', user_id=2, pin_id=1
     )
     comment2 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=2
     )
     comment3 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=3
     )
     comment4 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=4
     )
     comment5 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=5
     )
     comment6 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=6
     )
     comment7 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=7
     )
     comment8 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=8
     )
     comment9 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=9
     )
     comment10 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=10
     )
     comment11 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=11
     )
     comment12 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=12
     )
     comment13 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=13
     )
     comment14 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=14
     )
     comment15 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=15
     )
     comment16 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=16
     )
     comment17 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=17
     )
     comment18 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=18
     )
     comment19 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=19
     )
     comment20 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=20
     )
     comment21 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=21
     )
     comment22 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=22
     )
     comment23 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=23
     )
     comment24 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=24
     )
     comment25 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=25
     )
     comment26 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=26
     )
     comment27 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=27
     )
     comment28 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=28
     )
     comment29 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=29
     )
     comment30 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=30
     )
     comment31 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=31
     )
     comment32 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=32
     )
     comment33 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=33
     )
     comment34 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=34
     )
     comment35 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=35
     )
     comment36 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=36
     )
     comment37 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=37
     )
     comment38 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Very beautiful', user_id=2, pin_id=38
     )
 
 

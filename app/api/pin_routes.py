@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request, abort, redirect, url_for
-from app.models import Pin, Image, db
+from app.models import Pin, Image, Comment, db
 from flask_login import login_required, current_user
 from app.forms.pin_form import PinForm
 from app.forms.image_form import ImageForm
@@ -14,6 +14,8 @@ def get_all_pins():
         pin_dict = pin.to_dict()
         pin_list.append(pin_dict)
     return jsonify({'pins': pin_list})
+
+
 
 @pin_routes.route('/', methods=['POST'])
 def add_new_pin():
@@ -83,3 +85,9 @@ def get_all_images(id):
     images = Image.query.filter_by(pin_id = id).all()
     if images:
         return jsonify([image.to_dict() for image in images])
+
+@pin_routes.route('/<int:id>/comments')
+def get_pin_comments(id):
+    comments = Comment.query.filter_by(pin_id = id).all()
+    if comments:
+        return jsonify([comment.to_dict() for comment in comments])
