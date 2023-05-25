@@ -5,8 +5,8 @@ import { NavLink, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { getAllComments } from "../../store/comments";
 import { useModal } from "../../context/Modal";
 import AddCommentModal from "../AddCommentModal/AddCommentModal";
-// import { getAllComments } from "../../store/comments";
-
+import UpdateCommentModal from "../UpdateCommentModal/UpdateCommentModal";
+import DeleteCommentModal from "../DeleteCommentModal/DeleteCommentModal";
 const PinDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -41,6 +41,17 @@ const PinDetails = () => {
     openModal();
     // dispatch(getAllComments(id));
   };
+  const handleEditComment = (pinId, id) => {
+    console.log(pinId, id, "@@@@PINID AND ID @@@@@");
+    setModalContent(<UpdateCommentModal pinId={pinId} id={id} />);
+    openModal();
+  };
+
+  const handleDeleteComment = (pinId, id) => {
+    setModalContent(<DeleteCommentModal pinId={pinId} id={id} />);
+
+    openModal();
+  };
   return (
     <div>
       <p>{pin?.name}</p>
@@ -52,6 +63,12 @@ const PinDetails = () => {
           return (
             <div key={comment.id}>
               <p>{comment.comment}</p>
+              <button onClick={() => handleEditComment(pin.id, comment.id)}>
+                Edit Comment
+              </button>
+              <button onClick={() => handleDeleteComment(pin.id, comment.id)}>
+                Delete Comment
+              </button>
             </div>
           );
         })}

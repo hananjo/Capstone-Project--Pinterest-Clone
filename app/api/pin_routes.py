@@ -111,4 +111,31 @@ def add_comment(id):
     db.session.add(new_comment)
     db.session.commit()
 
-    return new_comment.to_dict();
+    return new_comment.to_dict()
+
+@pin_routes.route('/<int:pinId>/comments/<int:id>', methods=['PUT'])
+def update_comment(pinId, id):
+    pin = Pin.query.get(pinId)
+    selectedComment = Comment.query.get(id)
+    print(selectedComment, '******COMMENT********')
+    form = CommentForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        comment = form.comment.data
+        user_id = form.user_id.data
+        pin_id = pinId
+
+        selectedComment.comment = comment
+        selectedComment.user_id = user_id
+        selectedComment.pin_id = pin_id
+
+        db.session.commit()
+        return selectedComment.to_dict()
+
+@pin_routes.route('/<int:pinId>/comments/<int:id>', methods=['DELETE'])
+def delete_comment(pinId, id):
+    comment = Comment.query.get(id)
+    if comment or comment.pin_id == pinId:
+        db.session.delete(comment)
+        db.session.commit()
+        return jsonify({'message': 'Successfully deleted comment'})
