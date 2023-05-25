@@ -1,6 +1,7 @@
 const LOAD = "/pins/LOAD";
 const LOAD_DETAILS = "/pins/LOAD_DETAILS";
 const ADD_PIN = "/pins/ADD_PIN";
+
 const load = (list) => ({
   type: LOAD,
   list,
@@ -43,6 +44,19 @@ export const addNewPin = (data) => async (dispatch) => {
   if (response.ok) {
     const pin = await response.json();
     dispatch(addPin(pin));
+    return pin;
+  }
+};
+
+export const updatePin = (id, data) => async (dispatch) => {
+  const response = await fetch(`/api/pins/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (response.ok) {
+    const pin = await response.json();
+    dispatch(addNewPin(pin));
     return pin;
   }
 };

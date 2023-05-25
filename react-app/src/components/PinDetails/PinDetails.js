@@ -26,6 +26,12 @@ const PinDetails = () => {
       <p>{pin?.name}</p>
       <p>{pin?.description}</p>
       <p>{pin?.images[0]?.image_url}</p>
+
+      <div>
+        <NavLink to={`/pins/${id}/update`}>
+          <button>Edit</button>
+        </NavLink>
+      </div>
     </div>
   );
 };

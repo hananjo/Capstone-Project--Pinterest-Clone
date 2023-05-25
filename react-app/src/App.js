@@ -10,7 +10,7 @@ import BoardDetails from "./components/BoardDetails/BoardDetails";
 import LandingPage from "./components/LandingPage/LandingPage";
 import PinDetails from "./components/PinDetails/PinDetails";
 import CreatePinModal from "./components/CreatePinModal/CreatePinModal";
-
+import UpdatePin from "./components/UpdatePin/UpdatePin";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,6 +32,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/create-pin" component={CreatePinModal} />
           <Route exact path="/pins/:id" component={PinDetails} />
+          <Route exact path="/pins/:id/update" component={UpdatePin} />
           <Route exact path="/:id/boards" component={Boards} />
           <Route exact path="/:userId/boards/:id" component={BoardDetails} />
         </Switch>

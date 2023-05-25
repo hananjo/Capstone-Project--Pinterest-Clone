@@ -3,7 +3,7 @@ from sqlalchemy.sql import text
 
 def seed_pins():
     curly = Pin(
-        name='Curly hair', description='Curly girl method to get those bouncy curls you\'ve always wanted', keyword='hair, curly, hairstyle'
+        name='Curly hair', description='Curly girl method to get those bouncy curls you\'ve always wanted', keyword='hair, curly, hairstyle',
     )
     updo = Pin(
         name='Updo', description='This updo is perfect for any formal occasian, its so easy to do, you don\'t need a stylist to get this look!', keyword='updo, bridal, wedding hair'

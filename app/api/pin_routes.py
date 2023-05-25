@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, session, request, abort, redirect, url_for
 from app.models import Pin, Image, db
 from flask_login import login_required, current_user
 from app.forms.pin_form import PinForm
-
+from app.forms.image_form import ImageForm
 pin_routes = Blueprint('pins', __name__)
 
 @pin_routes.route('/')
@@ -38,6 +38,38 @@ def add_new_pin():
         return new_pin.to_dict()
     return None
 
+@pin_routes.route('/<int:id>', methods=['PUT'])
+
+def update_pin(id):
+    pin = Pin.query.get(id)
+
+    # image = Image.query.get(id)
+    # print(image, '@@@@@@@@@@@@@@ IMAGE @@@@@@@@@@@@@')
+    form = PinForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        name = form.name.data
+        description = form.description.data
+        keyword = form.keyword.data
+        user_id = form.user_id.data
+        # image_url = form.image_url.data
+
+        pin.name = name
+        pin.description = description
+        pin.keyword = keyword
+        pin.user_id = user_id
+
+        # image.image_url = image_url
+
+
+        db.session.commit()
+        # pin.images.image_url = image_url
+        # db.session.commit()
+        # print(pin.to_dict(), '************PIN.IMAGES.IMAGE_URL****************')
+        return pin.to_dict()
+    else:
+        return None
 
 @pin_routes.route('/<int:id>')
 def get_pin_details(id):
