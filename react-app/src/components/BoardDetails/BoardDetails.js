@@ -1,10 +1,10 @@
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getBoardDetails } from "../../store/board";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 const BoardDetails = () => {
-  const history = useHistory();
+  //   const history = useHistory();
   const dispatch = useDispatch();
   const { userId, id } = useParams();
   console.log(userId, id, "USERID");

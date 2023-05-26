@@ -1,5 +1,3 @@
-import { unstable_renderSubtreeIntoContainer } from "react-dom";
-
 const LOAD_BOARD = "board/LOAD_BOARDS";
 const LOAD_DETAILS = "board/LOAD_DETAILS";
 const ADD_BOARD = "board/ADD_BOARDS";

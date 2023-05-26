@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
 import { getAllBoards } from "../../store/board";
-
+import SearchBar from "../SearchBar/SearchBar";
 const LandingPage = () => {
   const dispatch = useDispatch();
   const { setModalContent } = useModal();
@@ -52,9 +52,15 @@ const LandingPage = () => {
     setModalContent(<AddToBoardOptionsModal pin={pin} user={user} />);
     openModal();
   };
+
+  const handleSearchClick = () => {
+    setModalContent(<SearchBar />);
+    openModal();
+  };
   return (
     <div>
       <div>
+        <button onClick={() => handleSearchClick()}>Search</button>
         {pins?.map((pin) => {
           return (
             <div>
@@ -63,7 +69,10 @@ const LandingPage = () => {
                 Add Pin to Board
               </button> */}
               <button onClick={() => handlePinClick(pin)}>Add to Board</button>
-              <NavLink to={`/pins/${pin.id}`}>
+              <NavLink
+                //   key={pin?.id}
+                to={`/pins/${pin.id}`}
+              >
                 {pin?.images[0]?.image_url}
                 {pin?.name}
               </NavLink>

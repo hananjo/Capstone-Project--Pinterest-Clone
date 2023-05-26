@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { updateBoard, getAllBoards } from "../../store/board";
 
 const UpdateBoardForm = ({ boardId, userId }) => {
   console.log(userId, boardId, "******BOARD*****USERID******ID****");
-  const history = useHistory();
+  // const history = useHistory();
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   //   const { id } = useParams();

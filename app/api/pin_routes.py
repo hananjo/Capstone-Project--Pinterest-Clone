@@ -41,6 +41,25 @@ def add_new_pin():
         return new_pin.to_dict()
     return None
 
+# @pin_routes.route('/search', methods=['POST'])
+# def search_pins():
+#     keyword = request.form.get('keyword')
+#     if not keyword:
+#         return jsonify({'error': 'No keyword'})
+#     keywords = [keyword.strip() for keyword in keyword.split(',')]
+#     pins = Pin.query.filter(Pin.keyword.ilike(f'%{keyword}%')).all()
+
+#     return jsonify([pin.to_dict() for pin in pins])
+
+@pin_routes.route('/search', methods=['POST'])
+def serach_pins():
+    data = request.get_json()
+    keyword = data.get('keyword')
+    if not keyword:
+        return jsonify({'error': 'No keyword given'})
+    pins = Pin.query.filter(Pin.keyword.ilike(f'%{keyword}%')).all()
+    return jsonify([pin.to_dict() for pin in pins])
+
 @pin_routes.route('/<int:id>', methods=['PUT'])
 
 def update_pin(id):

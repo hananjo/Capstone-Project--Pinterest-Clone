@@ -9,7 +9,7 @@ const AddToBoardOptionsModal = ({ pin, user }) => {
   const { closeModal } = useModal();
 
   const [selectedBoard, setSelectedBoard] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  //   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const boards = useSelector((state) => {
     return Object.values(state?.board);
