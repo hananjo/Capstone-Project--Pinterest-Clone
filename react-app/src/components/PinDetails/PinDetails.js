@@ -7,6 +7,7 @@ import { useModal } from "../../context/Modal";
 import AddCommentModal from "../AddCommentModal/AddCommentModal";
 import UpdateCommentModal from "../UpdateCommentModal/UpdateCommentModal";
 import DeleteCommentModal from "../DeleteCommentModal/DeleteCommentModal";
+import DeletePinModal from "../DeletePinModal/DeletePinModal";
 const PinDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -49,7 +50,11 @@ const PinDetails = () => {
 
   const handleDeleteComment = (pinId, id) => {
     setModalContent(<DeleteCommentModal pinId={pinId} id={id} />);
+    openModal();
+  };
 
+  const handleDeletePin = (id) => {
+    setModalContent(<DeletePinModal id={id} />);
     openModal();
   };
   return (
@@ -57,6 +62,7 @@ const PinDetails = () => {
       <p>{pin?.name}</p>
       <p>{pin?.description}</p>
       <p>{pin?.images[0]?.image_url}</p>
+      <button onClick={() => handleDeletePin(id)}>Delete Pin</button>
       <p>Comments:</p>
       {comments &&
         comments.map((comment) => {

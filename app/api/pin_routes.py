@@ -132,6 +132,15 @@ def update_comment(pinId, id):
         db.session.commit()
         return selectedComment.to_dict()
 
+
+@pin_routes.route('/<int:id>', methods=['DELETE'])
+def delete_pin(id):
+    pin = Pin.query.get(id)
+    if pin:
+        db.session.delete(pin)
+        db.session.commit()
+        return jsonify({'message': 'Succesfully delete pin'})
+
 @pin_routes.route('/<int:pinId>/comments/<int:id>', methods=['DELETE'])
 def delete_comment(pinId, id):
     comment = Comment.query.get(id)

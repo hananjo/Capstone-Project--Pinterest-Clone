@@ -1,7 +1,7 @@
 const LOAD = "/pins/LOAD";
 const LOAD_DETAILS = "/pins/LOAD_DETAILS";
 const ADD_PIN = "/pins/ADD_PIN";
-
+const REMOVE_PIN = "/pins/REMOVE_PIN";
 const load = (list) => ({
   type: LOAD,
   list,
@@ -17,6 +17,10 @@ const addPin = (pin) => ({
   pin,
 });
 
+const removePin = (pin) => ({
+  type: REMOVE_PIN,
+  pin,
+});
 export const getAllPins = () => async (dispatch) => {
   const response = await fetch("/api/pins");
 
@@ -60,6 +64,16 @@ export const updatePin = (id, data) => async (dispatch) => {
     return pin;
   }
 };
+
+export const deletePin = (id) => async (dispatch) => {
+  const response = await fetch(`/api/pins/${id}`, {
+    method: "DELETE",
+  });
+  if (response.ok) {
+    const pin = await response.json();
+    dispatch(removePin(pin));
+  }
+};
 const initialState = {};
 
 const pinReducer = (state = initialState, action) => {
@@ -76,6 +90,10 @@ const pinReducer = (state = initialState, action) => {
       return { ...state, details: action.id };
     case ADD_PIN:
       return { ...state, [action.pin.id]: action.pin };
+    case REMOVE_PIN:
+      const deleteNewState = { ...state };
+      delete deleteNewState[action.pin.id];
+      return deleteNewState;
     default:
       return state;
   }

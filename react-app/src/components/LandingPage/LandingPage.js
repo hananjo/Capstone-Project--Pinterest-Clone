@@ -47,8 +47,9 @@ const LandingPage = () => {
 
   const handlePinClick = (pin) => {
     console.log(pin, "pin selected button *****");
-    setSelectedPin(pin);
-    setModalContent(<AddToBoardOptionsModal pin={selectedPin} user={user} />);
+    // setSelectedPin(pin);
+    // console.log(selectedPin, "SELECTED PIN LANDING PAGE***");
+    setModalContent(<AddToBoardOptionsModal pin={pin} user={user} />);
     openModal();
   };
   return (
