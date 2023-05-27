@@ -59,31 +59,39 @@ const PinDetails = () => {
   };
   return (
     <div>
-      <p>{pin?.name}</p>
-      <p>{pin?.description}</p>
-      <p>{pin?.images[0]?.image_url}</p>
-      <button onClick={() => handleDeletePin(id)}>Delete Pin</button>
-      <p>Comments:</p>
-      {comments &&
-        comments.map((comment) => {
-          return (
-            <div key={comment.id}>
-              <p>{comment.comment}</p>
-              <button onClick={() => handleEditComment(pin.id, comment.id)}>
-                Edit Comment
-              </button>
-              <button onClick={() => handleDeleteComment(pin.id, comment.id)}>
-                Delete Comment
-              </button>
-            </div>
-          );
-        })}
-      <button onClick={() => handleAddComment()}>Add Comment</button>
-      <div>
-        <NavLink to={`/pins/${id}/update`}>
-          <button>Edit</button>
-        </NavLink>
-      </div>
+      {pin && pin?.id ? (
+        <div>
+          <p>{pin?.name}</p>
+          <p>{pin?.description}</p>
+          <p>{pin?.images[0]?.image_url}</p>
+          <button onClick={() => handleDeletePin(id)}>Delete Pin</button>
+          <p>Comments:</p>
+          {comments &&
+            comments.map((comment) => {
+              return (
+                <div key={comment.id}>
+                  <p>{comment.comment}</p>
+                  <button onClick={() => handleEditComment(pin.id, comment.id)}>
+                    Edit Comment
+                  </button>
+                  <button
+                    onClick={() => handleDeleteComment(pin.id, comment.id)}
+                  >
+                    Delete Comment
+                  </button>
+                </div>
+              );
+            })}
+          <button onClick={() => handleAddComment()}>Add Comment</button>
+          <div>
+            <NavLink to={`/pins/${id}/update`}>
+              <button>Edit</button>
+            </NavLink>
+          </div>
+        </div>
+      ) : (
+        "Page not found"
+      )}
     </div>
   );
 };

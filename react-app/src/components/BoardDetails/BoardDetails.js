@@ -23,10 +23,10 @@ const BoardDetails = () => {
 
   return (
     <div>
-      {board && board?.id ? (
+      {board && board?.pins && board?.id ? (
         <div>
-          <p>{board.name}</p>
-          <p>{board.description}</p>
+          <p>{board?.name}</p>
+          <p>{board?.description}</p>
           {board?.pins?.map((pin) => {
             return (
               <div>

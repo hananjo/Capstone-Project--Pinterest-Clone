@@ -14,6 +14,18 @@ const AddToBoardOptionsModal = ({ pin, user }) => {
   const boards = useSelector((state) => {
     return Object.values(state?.board);
   });
+  const boardChosen = useSelector((state) => {
+    return state?.board[selectedBoard];
+  });
+
+  console.log(boardChosen, "BOARDCHOSEN*******");
+
+  // const boards_index = useSelector((state) => {
+  //   const pins = state?.board[selectedBoard]?.pins;
+  //   return pins;
+  // });
+
+  // console.log(boards_index, "BOARDS_INDEX");
   console.log(setSelectedBoard, "SET BOARD STATE");
   console.log(boards, "*****BOARDS OPTIONS***");
   //   const user = useSelector((state) => {
@@ -28,14 +40,59 @@ const AddToBoardOptionsModal = ({ pin, user }) => {
     dispatch(getAllBoards(user));
   }, [dispatch, user]);
 
+  // const handleAddToBoard = (pin) => {
+  //   if (selectedBoard) {
+  //     dispatch(addPinToBoard(user, selectedBoard, pin.id));
+  //     closeModal();
+  //   } else {
+  //     alert("Select a board first");
+  //   }
+  // };
+
   const handleAddToBoard = (pin) => {
-    if (selectedBoard) {
-      dispatch(addPinToBoard(user, selectedBoard, pin.id));
-      closeModal();
+    let isPinOnBoard = false;
+    if (boardChosen && boardChosen.pins) {
+      for (const pinIndex in boardChosen.pins) {
+        const pinsObj = boardChosen.pins[pinIndex];
+
+        if (pinsObj.id === pin.id) {
+          isPinOnBoard = true;
+        }
+      }
+    }
+    if (isPinOnBoard) {
+      alert("This pin is already in the board");
     } else {
-      alert("Select a board first");
+      if (selectedBoard) {
+        dispatch(addPinToBoard(user, selectedBoard, pin.id));
+        closeModal();
+      } else {
+        alert("Select a board first");
+      }
     }
   };
+  // const handleAddToBoard = (pin) => {
+  //   console.log(
+  //     boards_index[selectedBoard],
+  //     "SELECTED BOARD HANDLE SUBMIT%%%%%%%"
+  //   );
+  //   const pins_in_board = Object.values(boards_index).map((pin_in_board) => {
+  //     if (pin_in_board.id === pin.id) {
+  //       return true;
+  //     }
+  //   });
+  //   console.log(pins_in_board, "PINS IN BOARDS ########");
+  //   if (pins_in_board) {
+  //     alert(`This pin is already in the board`);
+  //   } else {
+  //     if (selectedBoard && !pins_in_board) {
+  //       dispatch(addPinToBoard(user, selectedBoard, pin.id));
+  //       closeModal();
+  //     } else {
+  //       alert("Select a board first");
+  //     }
+  //   }
+  // };
   return (
     <div>
       <select onChange={(e) => handleBoardOptions(e)}>
