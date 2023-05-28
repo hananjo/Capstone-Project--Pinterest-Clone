@@ -68,7 +68,10 @@ const PinDetails = () => {
         <div>
           <p>{pin?.name}</p>
           <p>{pin?.description}</p>
-          <p>{pin?.images[0]?.image_url}</p>
+          <img
+            src={pin && pin?.images && pin?.images[0]?.image_url}
+            style={{ width: "450px", height: "400px" }}
+          />
           {sessionUser && pin && user === pin?.user_id ? (
             <button onClick={() => handleDeletePin(id)}>Delete Pin</button>
           ) : (

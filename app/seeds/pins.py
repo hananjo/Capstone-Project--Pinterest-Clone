@@ -48,7 +48,7 @@ def seed_pins():
         name='Bridal ball gown dress', description='', keyword='white dress, bridal dresses, wedding gown, ball gown', user_id=2
     )
     bridesmaid_dress1 = Pin (
-        name='Bridesmaid teal dress', description='', keyword='white dress, bridal dresses, wedding gown, teal bridesmaid dress, bridesmaid dress teal ', user_id=3
+        name='Bridesmaid black dress', description='', keyword='dress, bridal dresses, wedding gown, black bridesmaid dress, bridesmaid dress teal ', user_id=3
     )
     bridesmaid_dress2 = Pin (
         name='Bridesmaid champagne color dress', description='', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=2
@@ -57,10 +57,10 @@ def seed_pins():
         name='Bridesmaid teal dress', description='', keyword='white dress, bridal dresses, wedding gown, teal bridesmaid dress, bridesmaid dress teal', user_id=3
     )
     bridesmaid_dress4 = Pin (
-        name='Bridal cream color dress', description='', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=2
+        name='Bridal champagne color dress', description='', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=2
     )
     bridesmaid_dress5 = Pin (
-        name='Bridal beige dress', description='', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=3
+        name='Bridal soft pink dress', description='', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=3
     )
     paris_honeymoon = Pin (
         name='Paris', description='How to plan a romantic honeymoon in Paris', keyword='Paris, honeymoon destinations', user_id=2

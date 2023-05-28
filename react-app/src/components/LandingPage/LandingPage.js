@@ -89,7 +89,11 @@ const LandingPage = () => {
                 //   key={pin?.id}
                 to={`/pins/${pin.id}`}
               >
-                {pin?.images[0]?.image_url}
+                <img
+                  src={pin && pin?.images && pin?.images[0]?.image_url}
+                  style={{ width: "450px", height: "400px" }}
+                />
+
                 {pin?.name}
               </NavLink>
               {/*
