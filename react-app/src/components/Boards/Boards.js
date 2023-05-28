@@ -15,6 +15,12 @@ const Boards = () => {
   const [showModal, setShowModal] = useState(false);
   const history = useHistory();
 
+  const user = useSelector((state) => {
+    return state?.session?.user;
+  });
+  const sessionUser = useSelector((state) => {
+    return state?.session?.user?.id;
+  });
   const boards = useSelector((state) => {
     return Object.values(state?.board);
   });
@@ -57,23 +63,33 @@ const Boards = () => {
   // };
   return (
     <div>
-      <button onClick={() => handleCreatePin()}>Create new pin</button>
-      {/* <button onClick={() => handleCreatePin()}>Create new pin </button> */}
-      <button onClick={() => handleCreateBoard()}>Create new board</button>
-      {boards?.map((board) => {
-        return (
-          <>
-            <div>{board?.name}</div>
-            {/* <div>{board.description}</div> */}
-            <button onClick={() => handleUpdateBoard(board.id, board.user_id)}>
-              Update Board
-            </button>
-            <button onClick={() => handleDeleteBoard(board.id, board.user_id)}>
-              Delete Board
-            </button>
-          </>
-        );
-      })}
+      {sessionUser && user ? (
+        <div>
+          <button onClick={() => handleCreatePin()}>Create new pin</button>
+          {/* <button onClick={() => handleCreatePin()}>Create new pin </button> */}
+          <button onClick={() => handleCreateBoard()}>Create new board</button>
+          {boards?.map((board) => {
+            return (
+              <>
+                <div>{board?.name}</div>
+                {/* <div>{board.description}</div> */}
+                <button
+                  onClick={() => handleUpdateBoard(board.id, board.user_id)}
+                >
+                  Update Board
+                </button>
+                <button
+                  onClick={() => handleDeleteBoard(board.id, board.user_id)}
+                >
+                  Delete Board
+                </button>
+              </>
+            );
+          })}
+        </div>
+      ) : (
+        "Please log in to view this page"
+      )}
     </div>
   );
 };

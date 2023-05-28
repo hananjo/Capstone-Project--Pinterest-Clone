@@ -15,7 +15,9 @@ const LandingPage = () => {
   //     return state?.pin;
   //   });
   //   console.log(pins, "PINS****");
-
+  const sessionUser = useSelector((state) => {
+    return state?.session?.user;
+  });
   const pins = useSelector((state) => {
     return Object.values(state?.pin);
   });
@@ -25,7 +27,7 @@ const LandingPage = () => {
 
   console.log(boards, "*****BOARDS OPTIONS***");
   const user = useSelector((state) => {
-    return state?.session.user.id;
+    return state?.session?.user?.id;
   });
 
   useEffect(() => {
@@ -59,6 +61,14 @@ const LandingPage = () => {
   };
   return (
     <div>
+      {sessionUser && user ? (
+        <div>
+          <NavLink to={`/${user}/boards`}>Profile</NavLink>
+        </div>
+      ) : (
+        <br />
+      )}
+
       <div>
         <button onClick={() => handleSearchClick()}>Search</button>
         {pins?.map((pin) => {
@@ -68,7 +78,13 @@ const LandingPage = () => {
               {/* <button onClick={() => setShowModal(true)}>
                 Add Pin to Board
               </button> */}
-              <button onClick={() => handlePinClick(pin)}>Add to Board</button>
+              {sessionUser ? (
+                <button onClick={() => handlePinClick(pin)}>
+                  Add to Board
+                </button>
+              ) : (
+                <br />
+              )}
               <NavLink
                 //   key={pin?.id}
                 to={`/pins/${pin.id}`}

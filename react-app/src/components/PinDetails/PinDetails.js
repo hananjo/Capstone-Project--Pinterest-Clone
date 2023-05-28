@@ -17,7 +17,12 @@ const PinDetails = () => {
   const pin = useSelector((state) => {
     return state?.pin?.details;
   });
-
+  const sessionUser = useSelector((state) => {
+    return state?.session?.user;
+  });
+  const user = useSelector((state) => {
+    return state?.session?.user?.id;
+  });
   console.log(pin, "PINS****");
   console.log(pin?.description, "PIN.NAME");
 
@@ -64,30 +69,46 @@ const PinDetails = () => {
           <p>{pin?.name}</p>
           <p>{pin?.description}</p>
           <p>{pin?.images[0]?.image_url}</p>
-          <button onClick={() => handleDeletePin(id)}>Delete Pin</button>
+          {sessionUser && pin && user === pin?.user_id ? (
+            <button onClick={() => handleDeletePin(id)}>Delete Pin</button>
+          ) : (
+            <br />
+          )}
           <p>Comments:</p>
           {comments &&
             comments.map((comment) => {
               return (
                 <div key={comment.id}>
                   <p>{comment.comment}</p>
-                  <button onClick={() => handleEditComment(pin.id, comment.id)}>
-                    Edit Comment
-                  </button>
-                  <button
-                    onClick={() => handleDeleteComment(pin.id, comment.id)}
-                  >
-                    Delete Comment
-                  </button>
+                  {sessionUser && comment && user === comment.user_id ? (
+                    <div>
+                      <button
+                        onClick={() => handleEditComment(pin.id, comment.id)}
+                      >
+                        Edit Comment
+                      </button>
+                      <button
+                        onClick={() => handleDeleteComment(pin.id, comment.id)}
+                      >
+                        Delete Comment
+                      </button>
+                    </div>
+                  ) : (
+                    <br />
+                  )}
                 </div>
               );
             })}
           <button onClick={() => handleAddComment()}>Add Comment</button>
-          <div>
-            <NavLink to={`/pins/${id}/update`}>
-              <button>Edit</button>
-            </NavLink>
-          </div>
+          {sessionUser && pin && user === pin.user_id ? (
+            <div>
+              <NavLink to={`/pins/${id}/update`}>
+                <button>Edit</button>
+              </NavLink>
+            </div>
+          ) : (
+            <br />
+          )}
         </div>
       ) : (
         "Page not found"
