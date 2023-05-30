@@ -14,6 +14,8 @@ const CreatePinModal = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [keyword, setKeyword] = useState("");
+  const [image, setImage] = useState("");
+  const [size, setSize] = useState("");
   const [errors, setErrors] = useState([]);
   const [selectedBoard, setSelectedBoard] = useState(null);
   const boards = useSelector((state) => {
@@ -57,6 +59,8 @@ const CreatePinModal = () => {
         description,
         keyword,
         user_id: user,
+        image_url: image,
+        size: size,
       };
 
       let addedNewPin;
@@ -118,6 +122,33 @@ const CreatePinModal = () => {
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
           />
+        </label>
+        <label>
+          <div>Upload an image</div>
+          <input
+            style={{ height: "40px" }}
+            type="text"
+            name="image"
+            placeholder="Post an image for your pin"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            // className="image-input-area"
+          />
+        </label>
+        <label>
+          <div>Please type one of the following: small, medium, or large</div>
+          <select
+            type="text"
+            name="size"
+            placeholder="Image size"
+            value={size}
+            onChange={(e) => setSize(e.target.value)}
+          >
+            <option value="">Select an option</option>
+            <option value="small">small</option>
+            <option value="medium">medium</option>
+            <option value="large">large</option>
+          </select>
         </label>
         <select onChange={(e) => handleBoardOptions(e)}>
           <option value="">Select a board</option>

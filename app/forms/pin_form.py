@@ -7,5 +7,6 @@ class PinForm(FlaskForm):
     description = TextAreaField('Description', validators=[DataRequired()])
     user_id = IntegerField('User_id', validators=[DataRequired()])
     keyword = StringField('Keyword', validators=[DataRequired()])
-    # image_url = StringField('Image_url', validators=[DataRequired()])
+    image_url = StringField('Image_url', validators=[DataRequired()])
+    size = StringField('Size', validators=[DataRequired()])
     submit = SubmitField('Submit')

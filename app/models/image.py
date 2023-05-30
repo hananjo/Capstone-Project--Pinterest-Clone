@@ -11,7 +11,7 @@ class Image(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     image_url = db.Column(db.String(255), nullable=False)
     pin_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('pins.id')))
-    size = db.Column(db.String(50), nullable=False)
+    size = db.Column(db.String(50))
 
     pin = db.relationship('Pin', back_populates='image')
 

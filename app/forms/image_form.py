@@ -5,5 +5,5 @@ from wtforms.validators import DataRequired
 
 class ImageForm(FlaskForm):
     image_url = StringField("Image", validators=[DataRequired()])
-    user_id = IntegerField("User_id", validators=[DataRequired()])
+    pin_id = IntegerField("Pin_id", validators=[DataRequired()])
     size = StringField('Size', validators=[DataRequired()])

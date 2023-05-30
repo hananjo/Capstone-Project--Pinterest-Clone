@@ -18,6 +18,29 @@ def get_all_pins():
 
 
 
+# @pin_routes.route('/', methods=['POST'])
+# def add_new_pin():
+#     form = PinForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     if form.validate_on_submit():
+#         name = form.name.data
+#         description = form.description.data
+#         user_id = form.user_id.data
+#         keyword = form.keyword.data
+
+#         new_pin = Pin (
+#             name=name,
+#             description=description,
+#             user_id=user_id,
+#             keyword=keyword
+#         )
+
+#         db.session.add(new_pin)
+#         db.session.commit()
+
+#         return new_pin.to_dict()
+#     return None
+
 @pin_routes.route('/', methods=['POST'])
 def add_new_pin():
     form = PinForm()
@@ -35,6 +58,15 @@ def add_new_pin():
             keyword=keyword
         )
 
+        image_url = form.image_url.data
+        size = form.size.data
+        if image_url:
+            new_image = Image(
+                image_url=image_url,
+                size=size
+                )
+            db.session.add(new_image)
+            new_pin.image.append(new_image)
         db.session.add(new_pin)
         db.session.commit()
 
