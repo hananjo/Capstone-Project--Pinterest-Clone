@@ -30,7 +30,11 @@ const BoardDetails = () => {
           {board?.pins?.map((pin) => {
             return (
               <div>
-                <p>{pin?.images[0]?.image_url}</p>
+                <img
+                  src={pin && pin?.images && pin?.images[0]?.image_url}
+                  style={{ width: "450px", height: "400px" }}
+                />
+                {/* <p>{pin?.images[0]?.image_url}</p> */}
                 <p>{pin?.name}</p>
               </div>
             );

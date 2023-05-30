@@ -97,7 +97,7 @@ def serach_pins():
 def update_pin(id):
     pin = Pin.query.get(id)
 
-    # image = Image.query.get(id)
+    image = Image.query.get(id)
     # print(image, '@@@@@@@@@@@@@@ IMAGE @@@@@@@@@@@@@')
     form = PinForm()
 
@@ -107,20 +107,23 @@ def update_pin(id):
         description = form.description.data
         keyword = form.keyword.data
         user_id = form.user_id.data
-        # image_url = form.image_url.data
+        image_url = form.image_url.data
+        size = form.size.data
 
         pin.name = name
         pin.description = description
         pin.keyword = keyword
         pin.user_id = user_id
 
-        # image.image_url = image_url
+        image.image_url = image_url
+        image.size = size
 
 
         db.session.commit()
-        # pin.images.image_url = image_url
-        # db.session.commit()
-        # print(pin.to_dict(), '************PIN.IMAGES.IMAGE_URL****************')
+        pin.image.image_url = image_url
+        pin.image.size = size
+        db.session.commit()
+        print(pin.to_dict(), '************PIN.IMAGES.IMAGE_URL****************')
         return pin.to_dict()
     else:
         return None

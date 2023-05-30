@@ -8,6 +8,7 @@ import AddCommentModal from "../AddCommentModal/AddCommentModal";
 import UpdateCommentModal from "../UpdateCommentModal/UpdateCommentModal";
 import DeleteCommentModal from "../DeleteCommentModal/DeleteCommentModal";
 import DeletePinModal from "../DeletePinModal/DeletePinModal";
+import UpdatePin from "../UpdatePin/UpdatePin";
 const PinDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -58,6 +59,9 @@ const PinDetails = () => {
     openModal();
   };
 
+  const handleUpdatePin = (id) => {
+    setModalContent(<UpdatePin id={id} />);
+  };
   const handleDeletePin = (id) => {
     setModalContent(<DeletePinModal id={id} />);
     openModal();
@@ -72,6 +76,11 @@ const PinDetails = () => {
             src={pin && pin?.images && pin?.images[0]?.image_url}
             style={{ width: "450px", height: "400px" }}
           />
+          {sessionUser && pin && user === pin?.user_id ? (
+            <button onClick={() => handleUpdatePin(id)}>Update Pin</button>
+          ) : (
+            <br />
+          )}
           {sessionUser && pin && user === pin?.user_id ? (
             <button onClick={() => handleDeletePin(id)}>Delete Pin</button>
           ) : (
