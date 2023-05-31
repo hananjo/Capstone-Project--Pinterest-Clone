@@ -1,12 +1,16 @@
 import { useParams } from "react-router-dom";
 import { getBoardDetails } from "../../store/board";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+// import { deleteBoard } from "../../store/board";
+// import { useModal } from "../../context/Modal";
+
 const BoardDetails = () => {
-  //   const history = useHistory();
+  const history = useHistory();
   const dispatch = useDispatch();
   const { userId, id } = useParams();
+  // const { setModalContent } = useModal();
   console.log(userId, id, "USERID");
 
   //   const user = useSelector((state) => {
@@ -21,6 +25,11 @@ const BoardDetails = () => {
     dispatch(getBoardDetails(userId, id));
   }, [dispatch, userId, id]);
 
+  // const handleDeleteBoard = () => {
+  //   setModalContent(<DeleteBoardDetailModal />);
+  //   dispatch(deleteBoard(userId, id));
+  //   history.push(`/${userId}/boards`);
+  // };
   return (
     <div>
       {board && board?.pins && board?.id ? (
@@ -39,6 +48,7 @@ const BoardDetails = () => {
               </div>
             );
           })}
+          {/* <button onClick={() => handleDeleteBoard()}>Delete Board</button> */}
         </div>
       ) : (
         "Page not Found"

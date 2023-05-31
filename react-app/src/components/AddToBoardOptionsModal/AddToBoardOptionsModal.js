@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { addPinToBoard, getAllBoards } from "../../store/board";
+import CreateBoardLandingPage from "../CreateBoardLandingPage/CreateBoardLandingPage";
 import { useModal } from "../../context/Modal";
 
 const AddToBoardOptionsModal = ({ pin, user }) => {
   console.log(pin, user, "pin select****");
   const { closeModal } = useModal();
-
+  const { setModalContent } = useModal();
   const [selectedBoard, setSelectedBoard] = useState(null);
   //   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
@@ -48,6 +49,9 @@ const AddToBoardOptionsModal = ({ pin, user }) => {
   //     alert("Select a board first");
   //   }
   // };
+  const handleCreateBoard = () => {
+    setModalContent(<CreateBoardLandingPage pin={pin} />);
+  };
 
   const handleAddToBoard = (pin) => {
     let isPinOnBoard = false;
@@ -64,8 +68,10 @@ const AddToBoardOptionsModal = ({ pin, user }) => {
       alert("This pin is already in the board");
     } else {
       if (selectedBoard) {
+        console.log(selectedBoard, "SELECTED BOARD OPTIONS");
         dispatch(addPinToBoard(user, selectedBoard, pin.id));
         closeModal();
+        // setModalContent(<CreateBoard)
       } else {
         alert("Select a board first");
       }
@@ -104,6 +110,13 @@ const AddToBoardOptionsModal = ({ pin, user }) => {
             </option>
           );
         })}
+        {selectedBoard === "createNewBoard" ? null : (
+          <option value="createNewBoard">Create new board</option>
+        )}
+        {selectedBoard === "createNewBoard" && (
+          <button onClick={handleCreateBoard()}>Create New Board</button>
+        )}
+        ;
       </select>
       <button onClick={() => handleAddToBoard(pin)}>Save</button>
     </div>

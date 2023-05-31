@@ -48,13 +48,15 @@ def board_details(userId, id):
 
 @user_routes.route('<int:id>/boards', methods=['POST'])
 # @login_required
-def create_board(id):
 
+def create_board(id):
+    # data=request.json
     user = User.query.get(id)
     print(id, user, 'PRINT ID****************')
     form = BoardForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
+
         name = form.name.data
         description = form.description.data
         user_id = id
@@ -74,9 +76,11 @@ def create_board(id):
 
 @user_routes.route('<int:userId>/boards/<int:boardId>/pins/<int:pinId>', methods=['POST'])
 def add_pin_to_board(userId, boardId, pinId):
+
     user = User.query.get(userId)
     board = Board.query.get(boardId)
     added_pin = Pin.query.get(pinId)
+
 
     if added_pin not in board.pin:
         board.pin.append(added_pin)

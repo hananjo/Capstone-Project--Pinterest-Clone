@@ -64,6 +64,7 @@ const LandingPage = () => {
       {sessionUser && user ? (
         <div>
           <NavLink to={`/${user}/boards`}>Profile</NavLink>
+          <NavLink to={`/create-pin`}>Create new pin</NavLink>
         </div>
       ) : (
         <br />

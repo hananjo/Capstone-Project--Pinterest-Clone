@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { addNewBoard, getAllBoards } from "../../store/board";
-const CreateBoardModal = () => {
+import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
+const CreateBoardLandingPage = ({ pin }) => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { closeModal } = useModal();
@@ -40,7 +41,8 @@ const CreateBoardModal = () => {
       let addedNewBoard;
       addedNewBoard = await dispatch(addNewBoard(boardFormInput, user));
       await dispatch(getAllBoards(user));
-      closeModal();
+      //   closeModal();
+      setModalContent(<AddToBoardOptionsModal user={user} pin={pin} />);
 
       //   if (addNewBoard) {
       //     history.push(`/${user}/boards`);
@@ -86,4 +88,4 @@ const CreateBoardModal = () => {
   );
 };
 
-export default CreateBoardModal;
+export default CreateBoardLandingPage;

@@ -26,6 +26,8 @@ const UpdatePin = ({ id }) => {
 
   useEffect(() => {
     const validationErrors = [];
+    const acceptedExtensions = [".png", ".jpg", ".jpeg"];
+    const extension = image.split(".").pop().toLowerCase();
     if (!name.length) {
       validationErrors.push("Name is required");
     }
@@ -37,8 +39,14 @@ const UpdatePin = ({ id }) => {
         "To make your pin accessable for other users, have at least one keyword for your pin"
       );
     }
+    if (size === "") {
+      validationErrors.push("Image sizing is required");
+    }
+    if (!acceptedExtensions.includes("." + extension)) {
+      validationErrors.push("Image URL must end in .png, .jpg, or .jpeg");
+    }
     setErrors(validationErrors);
-  }, [name, description, keyword]);
+  }, [name, description, keyword, size, image]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
