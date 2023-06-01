@@ -1,14 +1,18 @@
 import { useEffect, useState } from "react";
 import { getAllPins } from "../../store/pin";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
+import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
 import { getAllBoards } from "../../store/board";
-import SearchBar from "../SearchBar/SearchBar";
+import "./LandingPage.css";
+// import SearchBar from "../SearchBar/SearchBar";
+// import { searchPins } from "../../store/search";
 const LandingPage = () => {
   const dispatch = useDispatch();
   const { setModalContent } = useModal();
+  // const history = useHistory()
+  // const [keyword, setKeyword] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [selectedPin, setSelectedPin] = useState(null);
   //   const pins = useSelector((state) => {
@@ -55,48 +59,74 @@ const LandingPage = () => {
     openModal();
   };
 
-  const handleSearchClick = () => {
-    setModalContent(<SearchBar />);
-    openModal();
-  };
+  // const handleSearchClick = () => {
+  //   setModalContent(<SearchBar />);
+  //   openModal();
+  // };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(searchPins(keyword));
+  //   history.push("/search");
+  //   // closeModal();
+  // };
   return (
-    <div>
+    <div className="landing-page">
       {sessionUser && user ? (
         <div>
-          <NavLink to={`/${user}/boards`}>Profile</NavLink>
+          {/* <NavLink to={`/${user}/boards`}>Profile</NavLink> */}
           <NavLink to={`/create-pin`}>Create new pin</NavLink>
         </div>
       ) : (
         <br />
       )}
 
-      <div>
-        <button onClick={() => handleSearchClick()}>Search</button>
+      {/* <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={keyword}
+            placeholder="Search pins"
+            onChange={(e) => setKeyword(e.target.value)}
+          ></input>
+          <button>Search</button>
+        </form> */}
+      {/* <button onClick={() => handleSearchClick()}>Search</button> */}
+      <div className="pins-container">
         {pins?.map((pin) => {
           return (
-            <div>
+            <div className="pins">
               {/* <button onClick={handleBoardOptions()}>Add Pin to Board</button> */}
               {/* <button onClick={() => setShowModal(true)}>
                 Add Pin to Board
               </button> */}
               {sessionUser ? (
-                <button onClick={() => handlePinClick(pin)}>
-                  Add to Board
-                </button>
+                <div className="pin-to-board">
+                  <button
+                    className="pin-to-board-button"
+                    onClick={() => handlePinClick(pin)}
+                  >
+                    Add to Board
+                  </button>
+                </div>
               ) : (
                 <br />
               )}
+
               <NavLink
                 //   key={pin?.id}
                 to={`/pins/${pin.id}`}
               >
-                <img
-                  src={pin && pin?.images && pin?.images[0]?.image_url}
-                  style={{ width: "450px", height: "400px" }}
-                />
-
-                {pin?.name}
+                <div className="grid-wrapper">
+                  <div className="pin-photos">
+                    <img
+                      src={pin && pin?.images && pin?.images[0]?.image_url}
+                      // style={{ width: "250px", height: "280px" }}
+                      className="pin-images"
+                    />
+                  </div>
+                  {/* {pin?.name} */}
+                </div>
               </NavLink>
+
               {/*
               {showModal && (
                 <div>
