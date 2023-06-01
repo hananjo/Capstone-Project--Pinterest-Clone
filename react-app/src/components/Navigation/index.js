@@ -43,6 +43,15 @@ function Navigation({ isLoaded }) {
               <form onSubmit={handleSubmit}>
                 <div className="search-container">
                   <div className="search-input">
+                    <img
+                      style={{
+                        width: "20px",
+                        marginLeft: "20px",
+                        marginTop: "10px",
+                      }}
+                      src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685578694/search_icon_mqwhqc.png"
+                    />
+
                     <input
                       type="text"
                       value={keyword}

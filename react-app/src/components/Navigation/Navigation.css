@@ -63,7 +63,10 @@ height: 40px;
 background-color: rgb(235, 237, 239);
 box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 
+
 }
+
+
 .search-input input {
   outline: none;
   border: none;
@@ -73,7 +76,7 @@ box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   border-radius: 18px;
   height: 40px;
   background-color: rgb(235, 237, 239);
-  margin-left: 30px;
+  margin-left: 10px;
 
 }
 
