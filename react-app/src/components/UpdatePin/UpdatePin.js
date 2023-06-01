@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { getPinDetails, updatePin } from "../../store/pin";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
+import "./UpdatePin.css";
 const UpdatePin = ({ id }) => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -80,17 +81,19 @@ const UpdatePin = ({ id }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="edit-pin-form-container">
+      <form className="edit-pin-form" onSubmit={handleSubmit}>
         <ul className="errors">
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
         </ul>
-        <h2>Create new Pin</h2>
+        <div className="edit-pin-title">
+          <h2>Edit your pin</h2>
+        </div>
 
-        <label>
-          {/* <div>Name:</div> */}
+        <label className="edit-pin-name-input">
+          <div>Name of pin:</div>
           <input
             type="text"
             name="name"
@@ -99,9 +102,9 @@ const UpdatePin = ({ id }) => {
             onChange={(e) => setName(e.target.value)}
           />
         </label>
-        <label>
+        <label className="edit-pin-description-input">
           <div>Description:</div>
-          <input
+          <textarea
             type="text"
             name="description"
             placeholder="Tell everyone what your pin is about"
@@ -109,12 +112,13 @@ const UpdatePin = ({ id }) => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </label>
-        <label>
+        <label className="edit-keyword-pin-input">
           <div>Keywords:</div>
           <div>
             For search purposes, list some keywords that users might use to
             discover your picture
           </div>
+
           <input
             type="text"
             name="keyword"
@@ -122,35 +126,36 @@ const UpdatePin = ({ id }) => {
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
           />
-          <label>
-            <div>Upload an image</div>
-            <input
-              style={{ height: "40px" }}
-              type="text"
-              name="image"
-              placeholder="Post an image for your pin"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              // className="image-input-area"
-            />
-          </label>
-          <label>
-            <div>Please type one of the following: small, medium, or large</div>
-            <select
-              type="text"
-              name="size"
-              placeholder="Image size"
-              value={size}
-              onChange={(e) => setSize(e.target.value)}
-            >
-              <option value="">Select an option</option>
-              <option value="small">small</option>
-              <option value="medium">medium</option>
-              <option value="large">large</option>
-            </select>
-          </label>
-          <button type="submit">Save</button>
         </label>
+        <label className="edit-upload-pin-input">
+          <div>Upload an image:</div>
+          <input
+            style={{ height: "40px" }}
+            type="text"
+            name="image"
+            placeholder="Post an image for your pin"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            // className="image-input-area"
+          />
+        </label>
+        <label className="edit-image-file-size-select">
+          <div>Image file size:</div>
+
+          <select
+            type="text"
+            name="size"
+            placeholder="Image size"
+            value={size}
+            onChange={(e) => setSize(e.target.value)}
+          >
+            <option value="">Select an option</option>
+            <option value="small">small</option>
+            <option value="medium">medium</option>
+            <option value="large">large</option>
+          </select>
+        </label>
+        <button type="submit">Save</button>
       </form>
     </div>
   );

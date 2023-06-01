@@ -1,0 +1,58 @@
+.edit-pin-form-container {
+    border: 2px solid black;
+    /* border-radius: 20px; */
+}
+
+.edit-pin-title {
+    margin-top: -50px;
+}
+
+.edit-pin-form {
+    padding: 50px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.edit-keyword-pin-input input {
+    width: 400px;
+    border-radius: 5px;
+}
+
+.edit-keyword-pin-input {
+    margin-top: 10px;
+}
+.edit-upload-pin-input input {
+    width: 400px;
+    border-radius: 5px;
+}
+
+.edit-upload-pin-input {
+    margin-top: 10px;
+}
+
+.edit-image-file-size-select select {
+    width: 400px;
+    border-radius: 5px;
+}
+
+.edit-image-file-size-select {
+    margin-top: 10px;
+}
+
+.edit-pin-description-input textarea {
+    width: 400px;
+    border-radius: 5px;
+    height: 100px;
+}
+
+.edit-pin-description-input {
+    margin-top: 10px;
+}
+.edit-pin-name-input input {
+    width: 400px;
+    border-radius: 5px;
+}

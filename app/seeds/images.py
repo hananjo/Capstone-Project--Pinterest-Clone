@@ -3,7 +3,7 @@ from sqlalchemy.sql import text
 
 def seed_images():
     curly_image = Image(
-        image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1685307145/curly_hair_tpxfvs.jpg', pin_id=1, size='medium'
+        image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1685646768/curly_hair_wedding_vej9jk.jpg', pin_id=1, size='medium'
     )
     updo_image = Image(
         image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1685307147/updo_yrdskv.jpg', pin_id=2, size='medium'
