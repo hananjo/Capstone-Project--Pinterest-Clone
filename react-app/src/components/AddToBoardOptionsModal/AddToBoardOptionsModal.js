@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { addPinToBoard, getAllBoards } from "../../store/board";
 import CreateBoardLandingPage from "../CreateBoardLandingPage/CreateBoardLandingPage";
 import { useModal } from "../../context/Modal";
-
+import "./AddToBoardOptionsModal.css";
 const AddToBoardOptionsModal = ({ pin, user }) => {
   console.log(pin, user, "pin select****");
   const { closeModal } = useModal();
@@ -100,25 +100,40 @@ const AddToBoardOptionsModal = ({ pin, user }) => {
   //   }
   // };
   return (
-    <div>
-      <select onChange={(e) => handleBoardOptions(e)}>
-        <option value="">Select a board</option>
-        {boards?.map((board) => {
-          return (
-            <option key={board.id} value={board.id}>
-              {board?.name}
-            </option>
-          );
-        })}
-        {selectedBoard === "createNewBoard" ? null : (
-          <option value="createNewBoard">Create new board</option>
-        )}
-        {selectedBoard === "createNewBoard" && (
-          <button onClick={handleCreateBoard()}>Create New Board</button>
-        )}
-        ;
-      </select>
-      <button onClick={() => handleAddToBoard(pin)}>Save</button>
+    <div className="options-container">
+      <div className="board-options-container">
+        <div>
+          <select
+            size="5"
+            className="board-selections"
+            onChange={(e) => handleBoardOptions(e)}
+          >
+            <option value="">Select a board</option>
+            {boards?.map((board) => {
+              return (
+                <option key={board.id} value={board.id}>
+                  {board?.name}
+                </option>
+              );
+            })}
+            {selectedBoard === "createNewBoard" ? null : (
+              <option value="createNewBoard">+ Create new board</option>
+            )}
+            {selectedBoard === "createNewBoard" && (
+              <button onClick={handleCreateBoard()}> + Create New Board</button>
+            )}
+            ;
+          </select>
+        </div>
+        <div className="save-to-board-button">
+          <button
+            className="save-to-board-button-2"
+            onClick={() => handleAddToBoard(pin)}
+          >
+            Save
+          </button>
+        </div>
+      </div>
     </div>
   );
 };

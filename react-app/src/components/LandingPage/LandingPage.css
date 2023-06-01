@@ -37,8 +37,8 @@
 }
 
 .pin-to-board {
-margin-top: 20px;
-margin-left: 180px;
+margin-top: 30px;
+margin-left: 200px;
 position: absolute;
 transform: translate(-50%, -50%);
 opacity: 0;
@@ -46,6 +46,19 @@ transition: opacity 0.3s ease;
 z-index: 1;
 }
 
+.pin-to-board-button {
+   border-radius: 20px;
+   background-color: red;
+   color: white;
+   font-weight: bold;
+   border: none;
+   height: 40px;
+   width: 70px;
+}
+
+.pin-to-board-button:hover {
+    background-color: rgb(136, 42, 42);
+}
 .pins:hover .pin-to-board {
     opacity: 1;
 
@@ -53,6 +66,19 @@ z-index: 1;
 
 .pins:hover .pin-photos{
     filter: brightness(50%)
+}
+
+.pin-create-button:hover {
+    background-color: rgb(245, 243, 243);
+    border-radius: 45px;
+}
+
+.pin-create-button-container{
+ display: flex;
+justify-content: flex-end;
+margin-right: 20px;
+margin-top: -30px;
+margin-bottom: 30px;
 }
 @media (min-width: 500px) and (max-width: 700px) {
     .pins-container {

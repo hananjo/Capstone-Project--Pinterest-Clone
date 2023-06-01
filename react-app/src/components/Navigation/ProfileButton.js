@@ -4,6 +4,7 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import "./Navigation.css";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -39,9 +40,17 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
-        <i className="fas fa-user-circle" />
-      </button>
+      {/* <button > */}
+      <div className="profile-icon">
+        <img
+          // className="profile-button"
+          style={{ width: "40px" }}
+          onClick={openMenu}
+          src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685590785/profile-icon_ozzohk.png"
+        />
+        {/* <i className="fas fa-user-circle" /> */}
+      </div>
+      {/* </button> */}
       <ul className={ulClassName} ref={ulRef}>
         {user ? (
           <>

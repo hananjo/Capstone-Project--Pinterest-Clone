@@ -14,6 +14,7 @@ const LandingPage = () => {
   // const history = useHistory()
   // const [keyword, setKeyword] = useState("");
   const [showModal, setShowModal] = useState(false);
+
   const [selectedPin, setSelectedPin] = useState(null);
   //   const pins = useSelector((state) => {
   //     return state?.pin;
@@ -71,14 +72,23 @@ const LandingPage = () => {
   // };
   return (
     <div className="landing-page">
-      {sessionUser && user ? (
-        <div>
-          {/* <NavLink to={`/${user}/boards`}>Profile</NavLink> */}
-          <NavLink to={`/create-pin`}>Create new pin</NavLink>
-        </div>
-      ) : (
-        <br />
-      )}
+      <div>
+        {sessionUser && user ? (
+          <div className="pin-create-button-container">
+            {/* <NavLink to={`/${user}/boards`}>Profile</NavLink> */}
+
+            <NavLink to={`/create-pin`}>
+              <img
+                className="pin-create-button"
+                style={{ width: "50px" }}
+                src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685586576/add_button_icon_pc5nvr.png"
+              />
+            </NavLink>
+          </div>
+        ) : (
+          <br />
+        )}
+      </div>
 
       {/* <form onSubmit={handleSubmit}>
           <input
@@ -104,7 +114,7 @@ const LandingPage = () => {
                     className="pin-to-board-button"
                     onClick={() => handlePinClick(pin)}
                   >
-                    Add to Board
+                    Save
                   </button>
                 </div>
               ) : (
