@@ -87,6 +87,20 @@ const Boards = () => {
     <div>
       {sessionUser && user ? (
         <div>
+          <div className="image-profile">
+            <img
+              className="profile-image-board"
+              style={{
+                width: "100px",
+                clipPath: "circle(41%)",
+              }}
+              src={
+                "https://res.cloudinary.com/dwphwqyrn/image/upload/v1685589599/16147095-2CE2-4AA6-AA9E-D2F1B47D7CE6_qpx5kd.png"
+              }
+            />
+          </div>
+          <div className="my-name">Hanan Jomaa</div>
+          <div className="demo-username">username: demo@aa.io</div>
           <div className="adding-pins-and-boards-container">
             <div className="create-button">
               <img
@@ -167,18 +181,22 @@ const Boards = () => {
                     {/* <div>{board.description}</div> */}
                     <div className="edit-board-button">
                       <img
-                        style={{ width: "30px" }}
-                        src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685734560/edit_pen_bbwcgf.png"
+                        style={{ width: "35px", clipPath: "circle(40%)" }}
+                        src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685746933/79-793180_edit-round-icon-png-png-download-round-edit_zjqt74.jpg"
                         onClick={() =>
                           handleUpdateBoard(board.id, board.user_id)
                         }
                       />
                     </div>
-                    <img
-                      style={{ width: "37px" }}
-                      src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685734970/trash_icon_gd02pe.jpg"
-                      onClick={() => handleDeleteBoard(board.id, board.user_id)}
-                    />
+                    <div className="delete-board-button">
+                      <img
+                        style={{ width: "30px", clipPath: "circle(50%)" }}
+                        src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685734970/trash_icon_gd02pe.jpg"
+                        onClick={() =>
+                          handleDeleteBoard(board.id, board.user_id)
+                        }
+                      />
+                    </div>
                   </div>
                 </>
               );

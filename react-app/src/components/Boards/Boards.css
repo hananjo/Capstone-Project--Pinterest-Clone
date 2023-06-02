@@ -88,14 +88,45 @@ margin-top: 20px;
 }
 
 .board-images:hover .edit-board-button {
-    opacity: 1;
+    /* opacity: 1; */
 }
 .edit-board-button {
     position: absolute;
-    margin-top: -90px;
+    margin-top: -92px;
     margin-left: 160px;
     /* transform: translate(-50%, -50%); */
-    opacity: 0;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+
+
+}
+
+.my-name {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+
+}
+.demo-username {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    color: gray
+}
+
+.image-profile {
+    display: flex;
+    justify-content: center;
+
+}
+.delete-board-button {
+    position: absolute;
+    margin-top: -90px;
+    margin-left: 15px;
+    /* margin-right: 140px; */
+    /* transform: translate(-50%, -50%); */
+    opacity: 1;
     transition: opacity 0.3s ease;
     z-index: 1;
 
