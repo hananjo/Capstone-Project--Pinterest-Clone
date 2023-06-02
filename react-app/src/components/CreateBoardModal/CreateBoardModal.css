@@ -1,0 +1,49 @@
+.create-board-container {
+    padding: 25px;
+}
+
+.create-board-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-board-name input {
+    width: 300px;
+    height: 20px;
+    font-size: 15px;
+    margin-bottom: 5px;
+    border-radius: 7px;
+}
+
+.create-board-name-title {
+    font-size: 20px;
+}
+.create-board-description textarea {
+    width: 300px;
+    height: 100px;
+    font-size: 15px;
+    border-radius: 7px;
+
+}
+
+.create-board-description-title {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.create-board-submit-button {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    padding: 8px;
+    color: black;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.create-board-submit-button:hover {
+    background-color: red;
+    color: white;
+}

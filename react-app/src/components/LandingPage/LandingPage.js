@@ -8,6 +8,7 @@ import { getAllBoards } from "../../store/board";
 import "./LandingPage.css";
 // import SearchBar from "../SearchBar/SearchBar";
 // import { searchPins } from "../../store/search";
+
 const LandingPage = () => {
   const dispatch = useDispatch();
   const { setModalContent } = useModal();
@@ -70,9 +71,27 @@ const LandingPage = () => {
   //   history.push("/search");
   //   // closeModal();
   // };
+
   return (
     <div className="landing-page">
       <div>
+        {/* {boards?.map((board) => {
+          return (
+            <div>
+              {board.name}
+              {board && board.pins[0] ? (
+                board?.pins[0]?.images[0]?.image_url
+              ) : (
+                <div>
+                  <img
+                    style={{ width: "100px" }}
+                    src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685677596/placeholder_image_e63dos.jpg"
+                  />
+                </div>
+              )}
+            </div>
+          );
+        })} */}
         {sessionUser && user ? (
           <div className="pin-create-button-container">
             {/* <NavLink to={`/${user}/boards`}>Profile</NavLink> */}
@@ -133,7 +152,7 @@ const LandingPage = () => {
                       className="pin-images"
                     />
                   </div>
-                  {/* {pin?.name} */}
+                  <div className="pin-name-landing-page">{pin?.name}</div>
                 </div>
               </NavLink>
 

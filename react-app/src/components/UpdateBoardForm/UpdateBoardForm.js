@@ -65,35 +65,49 @@ const UpdateBoardForm = ({ boardId, userId }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <ul className="errors">
+      <div className="create-board-container">
+        <form className="create-board-form" onSubmit={handleSubmit}>
+          {/* <ul className="errors">
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
-        </ul>
-        <h2>Update your board</h2>
-        <label>
-          <div>Name:</div>
-          <input
-            type="text"
-            name="name"
-            placeholder="What is the name of your board"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <label>
-          <div>Description:</div>
-          <input
-            type="text"
-            name="description"
-            placeholder="What is your board about?"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <button type="submit">Done</button>
-      </form>
+        </ul> */}
+          <h2>Update your board</h2>
+          <label className="create-board-name">
+            <div className="create-board-name-title">Name:</div>
+            <input
+              type="text"
+              name="name"
+              placeholder="What is the name of your board"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <div className="errors">
+              {errors?.includes("Name is required") && (
+                <div>Name is required</div>
+              )}
+            </div>
+          </label>
+          <label className="create-board-description">
+            <div className="create-board-description-title">Description:</div>
+            <textarea
+              type="text"
+              name="description"
+              placeholder="What is your board about?"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <div className="errors">
+              {errors?.includes("Description needs 10 or more characters") && (
+                <div>Description needs 10 or more characters</div>
+              )}
+            </div>
+          </label>
+          <button className="create-board-submit-button" type="submit">
+            Done
+          </button>
+        </form>
+      </div>
     </>
   );
 };

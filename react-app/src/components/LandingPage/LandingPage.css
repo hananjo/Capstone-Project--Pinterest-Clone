@@ -46,6 +46,19 @@ transition: opacity 0.3s ease;
 z-index: 1;
 }
 
+.pin-name-landing-page {
+margin-top: -80px;
+margin-left: 20px;
+font-size: 22px;
+position: absolute;
+/* transform: translate(-50%, -50%); */
+opacity: 0;
+transition: opacity 0.3s ease;
+z-index: 1;
+color: white;
+width: 200px;
+
+}
 .pin-to-board-button {
    border-radius: 20px;
    background-color: red;
@@ -62,6 +75,9 @@ z-index: 1;
 .pins:hover .pin-to-board {
     opacity: 1;
 
+}
+.pins:hover .pin-name-landing-page {
+    opacity: 1;
 }
 
 .pins:hover .pin-photos{

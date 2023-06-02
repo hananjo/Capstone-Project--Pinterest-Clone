@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify, request
 from flask_login import login_required
 from app.models import User, Board, Pin, db
 from app.forms.board_form import BoardForm
+
 user_routes = Blueprint('users', __name__)
 
 
@@ -36,6 +37,8 @@ def boards(id):
             results = rel.to_dict()
             boardCategories.append(results)
     return boardCategories
+
+
 
 @user_routes.route('<int:userId>/boards/<int:id>')
 def board_details(userId, id):

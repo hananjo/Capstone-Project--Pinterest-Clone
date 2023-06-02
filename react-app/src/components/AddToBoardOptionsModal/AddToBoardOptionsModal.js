@@ -70,6 +70,7 @@ const AddToBoardOptionsModal = ({ pin, user }) => {
       if (selectedBoard) {
         console.log(selectedBoard, "SELECTED BOARD OPTIONS");
         dispatch(addPinToBoard(user, selectedBoard, pin.id));
+        dispatch(getAllBoards(user));
         closeModal();
         // setModalContent(<CreateBoard)
       } else {
