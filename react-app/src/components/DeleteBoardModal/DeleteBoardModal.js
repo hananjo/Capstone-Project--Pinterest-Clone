@@ -20,12 +20,12 @@ const DeleteBoardModal = ({ boardId, userId }) => {
         Are you sure you want to delete this Board?
       </p>
 
-      <div className="board-confirmation-buttons">
-        <button className="board-choices" onClick={removeBoard}>
+      <div className="confirmation-buttons">
+        <button className="delete-yes-choices" onClick={removeBoard}>
           Yes
         </button>
 
-        <button className="board-choices" onClick={closeModal}>
+        <button className="delete-no-choices" onClick={closeModal}>
           No
         </button>
       </div>

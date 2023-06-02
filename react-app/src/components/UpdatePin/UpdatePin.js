@@ -49,6 +49,7 @@ const UpdatePin = ({ id }) => {
     setErrors(validationErrors);
   }, [name, description, keyword, size, image]);
 
+  console.log(errors, "ERRORS @@@@@@");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -83,17 +84,17 @@ const UpdatePin = ({ id }) => {
   return (
     <div className="edit-pin-form-container">
       <form className="edit-pin-form" onSubmit={handleSubmit}>
-        <ul className="errors">
+        {/* <ul className="errors">
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
-        </ul>
+        </ul> */}
         <div className="edit-pin-title">
           <h2>Edit your pin</h2>
         </div>
 
         <label className="edit-pin-name-input">
-          <div>Name of pin:</div>
+          <div className="edit-pin-subtitles">Name of pin:</div>
           <input
             type="text"
             name="name"
@@ -101,9 +102,15 @@ const UpdatePin = ({ id }) => {
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
+          <div className="errors">
+            {errors?.includes("Name is required") && (
+              <div>Name is required</div>
+            )}
+          </div>
         </label>
+
         <label className="edit-pin-description-input">
-          <div>Description:</div>
+          <div className="edit-pin-subtitles">Description:</div>
           <textarea
             type="text"
             name="description"
@@ -111,12 +118,20 @@ const UpdatePin = ({ id }) => {
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />
+          <div className="errors">
+            {errors?.includes("Description needs 10 or more characters") && (
+              <div>Description needs 10 or more characters</div>
+            )}
+          </div>
         </label>
+
         <label className="edit-keyword-pin-input">
-          <div>Keywords:</div>
-          <div>
-            For search purposes, list some keywords that users might use to
-            discover your picture
+          <div className="keyword-subtitles">
+            <div className="edit-pin-subtitles">Keywords:</div>
+            <div className="edit-pin-subtitles-2">
+              For search purposes, list some keywords that users might use to
+              discover your picture
+            </div>
           </div>
 
           <input
@@ -126,9 +141,20 @@ const UpdatePin = ({ id }) => {
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
           />
+          <div className="errors">
+            {errors?.includes(
+              "To make your pin accessable for other users, have at least one keyword for your pin"
+            ) && (
+              <div>
+                To make your pin accessable for other users, have at least one
+                keyword for your pin
+              </div>
+            )}
+          </div>
         </label>
+
         <label className="edit-upload-pin-input">
-          <div>Upload an image:</div>
+          <div className="edit-pin-subtitles">Upload an image:</div>
           <input
             style={{ height: "40px" }}
             type="text"
@@ -138,9 +164,14 @@ const UpdatePin = ({ id }) => {
             onChange={(e) => setImage(e.target.value)}
             // className="image-input-area"
           />
+          <div className="errors">
+            {errors?.includes("Image URL must end in .png, .jpg, or .jpeg") && (
+              <div>Image URL must end in .png, .jpg, or .jpeg</div>
+            )}
+          </div>
         </label>
         <label className="edit-image-file-size-select">
-          <div>Image file size:</div>
+          <div className="edit-pin-subtitles">Image file size:</div>
 
           <select
             type="text"
@@ -154,8 +185,17 @@ const UpdatePin = ({ id }) => {
             <option value="medium">medium</option>
             <option value="large">large</option>
           </select>
+          <div className="errors">
+            {errors?.includes("Image sizing is required") && (
+              <div>Image sizing is required</div>
+            )}
+          </div>
         </label>
-        <button type="submit">Save</button>
+        <div className="edit-pin-save">
+          <button className="edit-pin-save-button" type="submit">
+            Save
+          </button>
+        </div>
       </form>
     </div>
   );

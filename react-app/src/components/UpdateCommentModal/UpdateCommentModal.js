@@ -3,6 +3,7 @@ import { useModal } from "../../context/Modal";
 import { useState } from "react";
 import { addNewComment, updateComment } from "../../store/comments";
 import { getPinDetails } from "../../store/pin";
+import "./UpdateCommentModal.css";
 const UpdateCommentModal = ({ pinId, id }) => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
@@ -27,17 +28,23 @@ const UpdateCommentModal = ({ pinId, id }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <p>Leave a comment for this pin:</p>
-        <textarea
-          placeholder="Type your comment here..."
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-        ></textarea>
-      </div>
-      <button type="submit">Done</button>
-    </form>
+    <div className="add-comment-modal">
+      <form onSubmit={handleSubmit}>
+        <div className="add-comment-input">
+          <p className="add-comment-title">Edit your comment for this pin:</p>
+          <textarea
+            placeholder="Type your comment here..."
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          ></textarea>
+        </div>
+        <div className="comment-submit-button">
+          <button className="submit-comment-button" type="submit">
+            Done
+          </button>
+        </div>
+      </form>
+    </div>
   );
 };
 

@@ -1,11 +1,14 @@
 .edit-pin-form-container {
     border: 2px solid black;
-    /* border-radius: 20px; */
+
 }
 
 .edit-pin-title {
-    margin-top: -50px;
+    margin-top: -40px;
+    margin-bottom: -15px;
+    font-size: 25px;
 }
+
 
 .edit-pin-form {
     padding: 50px;
@@ -55,4 +58,66 @@
 .edit-pin-name-input input {
     width: 400px;
     border-radius: 5px;
+}
+
+.errors {
+    color: rgb(187, 25, 25);
+    border-color:  red
+}
+
+.edit-pin-subtitles {
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+
+.edit-pin-name-input input {
+    height: 30px;
+    font-size: 18px;
+    background-color: rgb(243, 240, 240);
+
+}
+
+.edit-pin-description-input textarea {
+    font-size: 15px;
+    background-color: rgb(243, 240, 240);
+}
+
+.edit-pin-subtitles-2  {
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.edit-keyword-pin-input input {
+    height: 30px;
+    font-size: 18px;
+    background-color: rgb(243, 240, 240);
+}
+
+.edit-upload-pin-input input {
+    background-color: rgb(243, 240, 240);
+    font-size: 18px;
+}
+
+.edit-image-file-size-select select {
+    height: 30px;
+    font-size: 18px;
+    background-color: rgb(243, 240, 240);
+}
+
+.edit-pin-save {
+    margin-top: 20px;
+}
+
+.edit-pin-save-button {
+    background-color: red;
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.edit-pin-save-button:hover {
+    background-color: rgb(172, 170, 170);
 }

@@ -2,6 +2,7 @@ import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
 import { getPinDetails } from "../../store/pin";
 import { deleteComment, getAllComments } from "../../store/comments";
+import "./DeleteCommentModal.css";
 const DeleteCommentModal = ({ pinId, id }) => {
   console.log(pinId, "PINID*****");
   const dispatch = useDispatch();
@@ -20,12 +21,12 @@ const DeleteCommentModal = ({ pinId, id }) => {
         Are you sure you want to delete this comment?
       </p>
 
-      <div className="comment-confirmation-buttons">
-        <button className="comment-choices" onClick={removeComment}>
+      <div className="confirmation-buttons">
+        <button className="delete-yes-choices" onClick={removeComment}>
           Yes
         </button>
 
-        <button className="comment-choices" onClick={closeModal}>
+        <button className="delete-no-choices" onClick={closeModal}>
           No
         </button>
       </div>

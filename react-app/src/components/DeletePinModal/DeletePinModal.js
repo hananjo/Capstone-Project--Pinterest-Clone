@@ -23,12 +23,12 @@ const DeletePinModal = ({ id }) => {
         Are you sure you want to delete this pin?
       </p>
 
-      <div className="pin-confirmation-buttons">
-        <button className="pin-choices" onClick={removePin}>
+      <div className="confirmation-buttons">
+        <button className="delete-yes-choices" onClick={removePin}>
           Yes
         </button>
 
-        <button className="pin-choices" onClick={closeModal}>
+        <button className="delete-no-choices" onClick={closeModal}>
           No
         </button>
       </div>
