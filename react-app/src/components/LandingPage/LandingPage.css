@@ -28,6 +28,11 @@
     columns: 5;
     object-fit: cover;
     column-gap: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 1, 0.5);
+    border-radius: 40px;
+    border: 1px solid rgb(224, 224, 224);
+
+    padding: 50px;
 }
 
 .pins-container .pin-photos {

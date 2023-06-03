@@ -24,6 +24,7 @@ const SearchBar = () => {
           placeholder="Search pins"
           onChange={(e) => setKeyword(e.target.value)}
         ></input>
+
         <button>Search</button>
       </form>
     </>

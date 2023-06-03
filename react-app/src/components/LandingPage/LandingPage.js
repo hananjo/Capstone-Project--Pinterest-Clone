@@ -6,14 +6,15 @@ import { useModal } from "../../context/Modal";
 import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
 import { getAllBoards } from "../../store/board";
 import "./LandingPage.css";
+
 // import SearchBar from "../SearchBar/SearchBar";
 // import { searchPins } from "../../store/search";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
+
   const { setModalContent } = useModal();
   // const history = useHistory()
-  // const [keyword, setKeyword] = useState("");
   const [showModal, setShowModal] = useState(false);
 
   const [selectedPin, setSelectedPin] = useState(null);
@@ -38,6 +39,7 @@ const LandingPage = () => {
 
   useEffect(() => {
     dispatch(getAllPins());
+
     if (user) {
       dispatch(getAllBoards(user));
     }

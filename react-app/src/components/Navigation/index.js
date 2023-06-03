@@ -61,7 +61,12 @@ function Navigation({ isLoaded }) {
                     ></input>
                   </div>
                   <div className="search-button">
-                    <button className="search-button-2">Search</button>
+                    <button
+                      className="search-button-2"
+                      disabled={keyword === ""}
+                    >
+                      Search
+                    </button>
                   </div>
                 </div>
               </form>
