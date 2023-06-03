@@ -13,7 +13,7 @@ class Board(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     name = db.Column(db.Text, nullable=False, unique=True)
-    description = db.Column(db.Text(250))
+    description = db.Column(db.Text)
 
     user = db.relationship('User', back_populates='board')
     pin = db.relationship('Pin', secondary=add_prefix_for_prod('board_pins'), back_populates='board')

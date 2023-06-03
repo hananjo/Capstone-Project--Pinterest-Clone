@@ -13,7 +13,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
     pin_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('pins.id')))
-    comment = db.Column(db.Text(250))
+    comment = db.Column(db.Text)
 
     user = db.relationship('User', back_populates='comment')
     pin = db.relationship('Pin', back_populates='comment')

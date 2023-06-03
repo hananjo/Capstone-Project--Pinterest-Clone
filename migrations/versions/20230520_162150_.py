@@ -22,17 +22,17 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('name', sa.Text, nullable=False),
-    sa.Column('description', sa.Text(length=250), nullable=True),
+    sa.Column('description', sa.Text, nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('name')
     )
     op.create_table('pins',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('name', sa.Text(length=50), nullable=False),
-    sa.Column('description', sa.Text(length=250), nullable=True),
+    sa.Column('name', sa.Text, nullable=False),
+    sa.Column('description', sa.Text, nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
-    sa.Column('keyword', sa.Text(length=250), nullable=False),
+    sa.Column('keyword', sa.Text, nullable=False),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
@@ -48,7 +48,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('pin_id', sa.Integer(), nullable=True),
-    sa.Column('comment', sa.Text(length=250), nullable=True),
+    sa.Column('comment', sa.Text, nullable=True),
     sa.ForeignKeyConstraint(['pin_id'], ['pins.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')

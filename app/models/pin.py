@@ -11,9 +11,9 @@ class Pin(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.Text, nullable=False, unique=True)
-    description = db.Column(db.Text(250))
+    description = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')))
-    keyword = db.Column(db.Text(250), nullable=False)
+    keyword = db.Column(db.Text, nullable=False)
 
     user = db.relationship('User', back_populates='pin')
     board = db.relationship('Board', secondary=add_prefix_for_prod('board_pins'), back_populates='pin')
