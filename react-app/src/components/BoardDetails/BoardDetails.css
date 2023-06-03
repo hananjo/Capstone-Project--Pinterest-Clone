@@ -1,0 +1,63 @@
+.container-for-container {
+     margin-top: -80px;
+}
+
+.board-details-container {
+    padding: 0px 180px;
+
+    width: 100%;
+    height: auto;
+    margin: auto;
+    padding: 40px 0;
+}
+.pins-container-board-details .pin-photos {
+    /* width: 100px; */
+    margin: 0 0 20px;
+    overflow: hidden;
+   }
+
+   .pins-container-board-details {
+    width: 1300px;
+
+    margin: auto;
+    columns: 5;
+    object-fit: cover;
+    column-gap: 20px;
+    /* background-color: black; */
+    text-align: center;
+
+
+
+}
+
+
+.pin-images-2 {
+    border-radius: 20px;
+    height: auto;
+    max-width: 100%;
+
+
+}
+
+
+
+
+.board-details-name {
+    font-size: 50px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.image-profile-2 {
+    display: flex;
+    justify-content: center;
+    margin-top: -50px;
+
+}
+
+
+.board-details-description {
+    text-align: center;
+    color: gray;
+
+}
