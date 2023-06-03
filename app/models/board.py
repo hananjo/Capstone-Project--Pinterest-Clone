@@ -1,5 +1,7 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-
+# from sqlalchemy.orm import relationship
+# from sqlalchemy.schema import Column, ForeignKey, Table
+# from sqlalchemy.types import Integer, Text
 
 
 class Board(db.Model):
@@ -10,7 +12,7 @@ class Board(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
-    name = db.Column(db.Text(50), nullable=False, unique=True)
+    name = db.Column(db.Text, nullable=False, unique=True)
     description = db.Column(db.Text(250))
 
     user = db.relationship('User', back_populates='board')

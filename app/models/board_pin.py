@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
-
+# from sqlalchemy.types import Integer
+# from sqlalchemy.schema import Column, ForeignKey, table
 
 
 class Board_Pin(db.Model):

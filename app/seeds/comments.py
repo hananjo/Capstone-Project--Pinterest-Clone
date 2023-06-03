@@ -6,7 +6,7 @@ from sqlalchemy.sql import text
 def seed_comments():
 
     comment1 = Comment(
-        comment='Very beautiful', user_id=2, pin_id=1
+        comment='Wow I love this look! Def going to show my hairstylist this as reference!', user_id=1, pin_id=1
     )
     comment2 = Comment(
         comment='Very beautiful', user_id=2, pin_id=2
