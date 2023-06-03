@@ -21,7 +21,7 @@ def upgrade():
     op.create_table('boards',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('name', sa.Text(length=50), nullable=False),
+    sa.Column('name', sa.Text, nullable=False),
     sa.Column('description', sa.Text(length=250), nullable=True),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id'),
