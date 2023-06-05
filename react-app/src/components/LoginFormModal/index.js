@@ -11,13 +11,21 @@ function LoginFormModal() {
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
+  const handleDemoLogin = (e) => {
+    e.preventDefault();
+    setEmail("demo@aa.io");
+    setPassword("password");
+    dispatch(login("demo@aa.io", "password"));
+    closeModal();
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
     } else {
-        closeModal()
+      closeModal();
     }
   };
 
@@ -49,6 +57,9 @@ function LoginFormModal() {
           />
         </label>
         <button type="submit">Log In</button>
+        <a className="demo" href="#" onClick={handleDemoLogin}>
+          Demo User
+        </a>
       </form>
     </>
   );

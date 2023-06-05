@@ -115,3 +115,62 @@ box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
   width: auto;
  }
 } */
+
+.logout-container {
+  list-style-type: none;
+  position: absolute;
+  margin-left: -110px;
+  margin-top: 10px;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  background-color: white;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.logout-button {
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 17px;
+
+}
+
+.logout-button:hover {
+  background-color: red;
+  color: white;
+}
+
+.login-signup-container {
+  list-style-type: none;
+  position: absolute;
+  margin-left: -110px;
+  margin-top: 10px;
+  border: 1px solid black;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  background-color: white;
+  width: 100px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-signup-button {
+  background-color: white;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 10px;
+  font-size: 17px;
+  width: 80px;
+
+
+}
+
+.login-signup-button:hover {
+  background-color: red;
+  color: white;
+}
