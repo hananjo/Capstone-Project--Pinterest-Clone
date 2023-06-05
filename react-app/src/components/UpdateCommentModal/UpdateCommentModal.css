@@ -9,7 +9,8 @@
  width: 300px;
  font-size: 15px;
  border-radius: 10px;
- border: 1px solid black
+ border: 1px solid black;
+ background-color: rgb(239, 237, 235);
 }
 
 .add-comment-title {

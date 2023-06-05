@@ -5,6 +5,7 @@ import { useModal } from "../../context/Modal";
 import { getAllBoards } from "../../store/board";
 import { addNewPin, getAllPins } from "../../store/pin";
 import { addPinToBoard } from "../../store/board";
+import "./CreatePinModal.css";
 
 const CreatePinModal = () => {
   const history = useHistory();
@@ -91,87 +92,130 @@ const CreatePinModal = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <ul className="errors">
+      <div className="create-pin-container">
+        <form className="create-pin-form" onSubmit={handleSubmit}>
+          {/* <ul className="errors">
           {errors.map((error) => (
             <li key={error}>{error}</li>
           ))}
-        </ul>
-        <h2>Create new Pin</h2>
-
-        <label>
-          {/* <div>Name:</div> */}
-          <input
-            type="text"
-            name="name"
-            placeholder="Add your title"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </label>
-        <label>
-          <div>Description:</div>
-          <input
-            type="text"
-            name="description"
-            placeholder="Tell everyone what your pin is about"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <label>
-          <div>Keywords:</div>
-          <div>
-            For search purposes, list some keywords that users might use to
-            discover your picture
+        </ul> */}
+          <div className="post-form-title">
+            <h2>Create new pin</h2>
           </div>
-          <input
-            type="text"
-            name="keyword"
-            placeholder="List keywords here"
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-          />
-        </label>
-        <label>
-          <div>Upload an image</div>
-          <input
-            style={{ height: "40px" }}
-            type="text"
-            name="image"
-            placeholder="Post an image for your pin"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
-            // className="image-input-area"
-          />
-        </label>
-        <label>
-          <div>Please type one of the following: small, medium, or large</div>
-          <select
-            type="text"
-            name="size"
-            placeholder="Image size"
-            value={size}
-            onChange={(e) => setSize(e.target.value)}
-          >
-            <option value="">Select an option</option>
-            <option value="small">small</option>
-            <option value="medium">medium</option>
-            <option value="large">large</option>
-          </select>
-        </label>
-        <select onChange={(e) => handleBoardOptions(e)}>
-          <option value="">Select a board</option>
-          {boards?.map((board) => {
-            return (
-              <option key={board.id} value={board.id}>
-                {board?.name}
-              </option>
-            );
-          })}
-        </select>
-        <button type="submit">Save</button>
-      </form>
+
+          <label className="create-pin-name-input">
+            <div className="post-pin-input-title">Name:</div>
+            <input
+              type="text"
+              name="name"
+              placeholder="Add your title"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <div className="errors">
+              {errors?.includes("Name is required") && (
+                <div>Name is required</div>
+              )}
+            </div>
+          </label>
+          <label className="create-pin-description-input">
+            <div className="post-pin-input-title">Description:</div>
+            <input
+              type="text"
+              name="description"
+              placeholder="Tell everyone what your pin is about"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+            <div className="errors">
+              {errors?.includes("Description needs 10 or more characters") && (
+                <div>Description needs 10 or more characters</div>
+              )}
+            </div>
+          </label>
+          <label className="create-pin-keyword-input">
+            <div className="post-pin-input-title">Keywords:</div>
+            <div>
+              For search purposes, list some keywords that users might use to
+              discover your picture
+            </div>
+            <input
+              type="text"
+              name="keyword"
+              placeholder="List keywords here"
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+            />
+            <div className="errors">
+              {errors?.includes(
+                "To make your pin accessable for other users, have at least one keyword for your pin"
+              ) && (
+                <div>
+                  To make your pin accessable for other users, have at least one
+                  keyword for your pin
+                </div>
+              )}
+            </div>
+          </label>
+          <label className="create-pin-image-input">
+            <div className="post-pin-input-title">Upload an image</div>
+            <input
+              style={{ height: "40px" }}
+              type="text"
+              name="image"
+              placeholder="Post an image for your pin"
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+              // className="image-input-area"
+            />
+            <div className="errors">
+              {errors?.includes(
+                "Image URL must end in .png, .jpg, or .jpeg"
+              ) && <div>Image URL must end in .png, .jpg, or .jpeg</div>}
+            </div>
+          </label>
+          <label className="create-pin-image-size-input">
+            <div className="post-pin-input-title">
+              Please select the size of the image file:
+            </div>
+            <select
+              type="text"
+              name="size"
+              placeholder="Image size"
+              value={size}
+              onChange={(e) => setSize(e.target.value)}
+            >
+              <option value="">Select an option</option>
+              <option value="small">small</option>
+              <option value="medium">medium</option>
+              <option value="large">large</option>
+            </select>
+            <div className="errors">
+              {errors?.includes("Image sizing is required") && (
+                <div>Image sizing is required</div>
+              )}
+            </div>
+          </label>
+          <label className="create-pin-to-board-input">
+            <div className="post-pin-input-title">Pin to a board:</div>
+            <select onChange={(e) => handleBoardOptions(e)}>
+              <option value="">Select a board</option>
+              {boards?.map((board) => {
+                return (
+                  <option key={board.id} value={board.id}>
+                    {board?.name}
+                  </option>
+                );
+              })}
+            </select>
+          </label>
+          <div className="post-pin-save">
+            <button className="post-pin-save-button" type="submit">
+              Save
+            </button>
+          </div>
+        </form>
+      </div>
     </>
   );
 };
