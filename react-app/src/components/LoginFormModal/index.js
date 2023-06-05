@@ -31,36 +31,45 @@ function LoginFormModal() {
 
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
-        <a className="demo" href="#" onClick={handleDemoLogin}>
-          Demo User
-        </a>
-      </form>
+      <div className="log-in-container">
+        <div className="login-form-title">
+          <h1>Log In</h1>
+        </div>
+        <form className="form-login" onSubmit={handleSubmit}>
+          <ul className="login-errors">
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+          <div className="log-in-inputs">
+            <label className="email-and-input">
+              Email
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+            <label className="password-and-input">
+              Password
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+
+            <button className="login-form-button" type="submit">
+              Log In
+            </button>
+          </div>
+          <a className="demo" href="#" onClick={handleDemoLogin}>
+            Demo User
+          </a>
+        </form>
+      </div>
     </>
   );
 }
