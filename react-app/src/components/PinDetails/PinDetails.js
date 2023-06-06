@@ -21,6 +21,7 @@ const PinDetails = () => {
   const pin = useSelector((state) => {
     return state?.pin?.details;
   });
+
   const sessionUser = useSelector((state) => {
     return state?.session?.user;
   });
@@ -35,8 +36,11 @@ const PinDetails = () => {
     dispatch(getAllComments(id));
   }, [dispatch, id]);
 
+  // const comments = useSelector((state) => {
+  //   return Object.values(state?.comment);
+  // });
   const comments = useSelector((state) => {
-    return Object.values(state?.comment);
+    return state?.pin?.details?.comments;
   });
   console.log(comments, "COMMENTS");
   //   const pins = useSelector((state) => {
@@ -222,14 +226,18 @@ const PinDetails = () => {
                   <div>No Comments</div>
                 )}
               </div>
-              <div className="add-comment">
-                <button
-                  className="add-comment-button"
-                  onClick={() => handleAddComment()}
-                >
-                  Add Comment
-                </button>
-              </div>
+              {sessionUser ? (
+                <div className="add-comment">
+                  <button
+                    className="add-comment-button"
+                    onClick={() => handleAddComment()}
+                  >
+                    Add Comment
+                  </button>
+                </div>
+              ) : (
+                <br />
+              )}
               {/* {sessionUser && pin && user === pin.user_id ? (
               <div>
                 <NavLink to={`/pins/${id}/update`}>
@@ -243,7 +251,7 @@ const PinDetails = () => {
           </div>
         </div>
       ) : (
-        "Page not found"
+        <div className="page-not-found">Page not found</div>
       )}
     </div>
   );

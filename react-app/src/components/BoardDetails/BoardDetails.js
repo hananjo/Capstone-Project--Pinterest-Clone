@@ -119,12 +119,12 @@ const BoardDetails = () => {
                                   // style={{ width: "450px", height: "400px" }}
                                 />
                               </div>
+                              <div className="pin-name-board-details">
+                                {pin?.name}
+                              </div>
                             </div>
 
                             {/* <p>{pin?.images[0]?.image_url}</p> */}
-                            <div className="pin-name-landing-page">
-                              {pin?.name}
-                            </div>
                           </NavLink>
                         </div>
                       </div>
@@ -134,7 +134,7 @@ const BoardDetails = () => {
                 {/* <button onClick={() => handleDeleteBoard()}>Delete Board</button> */}
               </div>
             ) : (
-              "Page not Found"
+              <div className="page-not-found-board-details">Page not Found</div>
             )}
           </div>
         </div>
