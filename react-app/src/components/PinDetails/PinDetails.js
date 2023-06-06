@@ -10,6 +10,7 @@ import DeleteCommentModal from "../DeleteCommentModal/DeleteCommentModal";
 import DeletePinModal from "../DeletePinModal/DeletePinModal";
 import UpdatePin from "../UpdatePin/UpdatePin";
 import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
+
 import "./PinDetails.css";
 const PinDetails = () => {
   const dispatch = useDispatch();
@@ -135,85 +136,91 @@ const PinDetails = () => {
                 <p>Comments ({comments.length}):</p>
               </div>
               <div className="pin-comments">
-                {comments &&
-                  comments.map((comment) => {
-                    return (
-                      // <div className="pin-comments">
-                      <div key={comment.id}>
-                        <div className="avatars-and-comment">
-                          <div className="avatars">
-                            <p>
-                              {comment?.user_id === 1 && (
-                                <img
-                                  style={{
-                                    width: "40px",
-                                    clipPath: "circle(41%)",
-                                  }}
-                                  src={
-                                    "https://res.cloudinary.com/dwphwqyrn/image/upload/v1685589599/16147095-2CE2-4AA6-AA9E-D2F1B47D7CE6_qpx5kd.png"
-                                  }
-                                />
-                              )}
-                            </p>
-                            <p>
-                              {comment?.user_id === 2 && (
-                                <img
-                                  style={{ width: "40px" }}
-                                  src={
-                                    "https://res.cloudinary.com/dwphwqyrn/image/upload/v1683857034/avatar_2_rba8yf.jpg"
-                                  }
-                                />
-                              )}
-                            </p>
-                            <p>
-                              {comment?.user_id === 3 && (
-                                <img
-                                  style={{ width: "40px" }}
-                                  src={
-                                    "https://res.cloudinary.com/dwphwqyrn/image/upload/v1683857034/avatar_1_mhmsrt.png"
-                                  }
-                                />
-                              )}
-                            </p>
-                          </div>
-                          <div className="pin-comment">
-                            <p>{comment.comment}</p>
-                          </div>
-                        </div>
-                        <div>
-                          {sessionUser &&
-                          comment &&
-                          user === comment.user_id ? (
-                            <div className="edit-and-delete-comment">
-                              <div>
-                                <button
-                                  className="comment-edit-button"
-                                  onClick={() =>
-                                    handleEditComment(pin.id, comment.id)
-                                  }
-                                >
-                                  Edit
-                                </button>
+                {comments.length != 0 ? (
+                  <div>
+                    {comments &&
+                      comments.map((comment) => {
+                        return (
+                          // <div className="pin-comments">
+                          <div key={comment.id}>
+                            <div className="avatars-and-comment">
+                              <div className="avatars">
+                                <p>
+                                  {comment?.user_id === 1 && (
+                                    <img
+                                      style={{
+                                        width: "40px",
+                                        clipPath: "circle(41%)",
+                                      }}
+                                      src={
+                                        "https://res.cloudinary.com/dwphwqyrn/image/upload/v1685589599/16147095-2CE2-4AA6-AA9E-D2F1B47D7CE6_qpx5kd.png"
+                                      }
+                                    />
+                                  )}
+                                </p>
+                                <p>
+                                  {comment?.user_id === 2 && (
+                                    <img
+                                      style={{ width: "40px" }}
+                                      src={
+                                        "https://res.cloudinary.com/dwphwqyrn/image/upload/v1683857034/avatar_2_rba8yf.jpg"
+                                      }
+                                    />
+                                  )}
+                                </p>
+                                <p>
+                                  {comment?.user_id === 3 && (
+                                    <img
+                                      style={{ width: "40px" }}
+                                      src={
+                                        "https://res.cloudinary.com/dwphwqyrn/image/upload/v1683857034/avatar_1_mhmsrt.png"
+                                      }
+                                    />
+                                  )}
+                                </p>
                               </div>
-                              <div>
-                                <button
-                                  className="comment-delete-button"
-                                  onClick={() =>
-                                    handleDeleteComment(pin.id, comment.id)
-                                  }
-                                >
-                                  Delete
-                                </button>
+                              <div className="pin-comment">
+                                <p>{comment.comment}</p>
                               </div>
                             </div>
-                          ) : (
-                            <br />
-                          )}
-                        </div>
-                      </div>
-                      // </div>
-                    );
-                  })}
+                            <div>
+                              {sessionUser &&
+                              comment &&
+                              user === comment.user_id ? (
+                                <div className="edit-and-delete-comment">
+                                  <div>
+                                    <button
+                                      className="comment-edit-button"
+                                      onClick={() =>
+                                        handleEditComment(pin.id, comment.id)
+                                      }
+                                    >
+                                      Edit
+                                    </button>
+                                  </div>
+                                  <div>
+                                    <button
+                                      className="comment-delete-button"
+                                      onClick={() =>
+                                        handleDeleteComment(pin.id, comment.id)
+                                      }
+                                    >
+                                      Delete
+                                    </button>
+                                  </div>
+                                </div>
+                              ) : (
+                                <br />
+                              )}
+                            </div>
+                          </div>
+                          // </div>
+                        );
+                      })}
+                  </div>
+                ) : (
+                  <div>No Comments</div>
+                )}
               </div>
               <div className="add-comment">
                 <button

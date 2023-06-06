@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { getAllBoards } from "../../store/board";
-import { addNewPin, getAllPins } from "../../store/pin";
+import { addNewPin, getAllPins, getPinDetails } from "../../store/pin";
 import { addPinToBoard } from "../../store/board";
 import "./CreatePinModal.css";
+import { getAllComments } from "../../store/comments";
 
 const CreatePinModal = () => {
   const history = useHistory();
@@ -83,9 +84,10 @@ const CreatePinModal = () => {
       if (selectedBoard) {
         dispatch(addPinToBoard(user, selectedBoard, addedNewPin.id));
         closeModal();
-      } else {
-        alert("Select a board first");
       }
+      // else {
+      //   alert("Select a board first");
+      // }
 
       if (addedNewPin) {
         history.push(`/pins/${addedNewPin.id}`);
