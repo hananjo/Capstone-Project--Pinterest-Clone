@@ -204,7 +204,9 @@ const Boards = () => {
           </div>
         </div>
       ) : (
-        "Please log in to view this page"
+        <div className="please-login-error-page">
+          Please log in to view this page
+        </div>
       )}
     </div>
   );

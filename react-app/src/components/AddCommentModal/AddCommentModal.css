@@ -1,12 +1,14 @@
 .add-comment-modal {
-    padding: 30px;
-    height: 200px;
+    padding: 50px;
+    height: 270px;
     width: 300px;
+    border: 2px solid black;
+    /* border-radius: 20px; */
 }
 
 .add-comment-input textarea {
  height: 130px;
- width: 300px;
+ width: 250px;
  font-size: 15px;
  border-radius: 10px;
  border: 1px solid black
@@ -26,9 +28,11 @@
     padding: 10px;
     border-radius: 20px;
     margin-top: 10px;
+    margin-bottom: 20px;
 
 }
 .comment-submit-button {
     display: flex;
-    justify-content: center
+    justify-content: center;
+
 }

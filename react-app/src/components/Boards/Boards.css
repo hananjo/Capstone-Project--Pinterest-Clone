@@ -191,3 +191,11 @@ margin-top: 20px;
     text-decoration: none;
     color: black;
 }
+
+.please-login-error-page {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    margin-top: 50px;
+
+}
