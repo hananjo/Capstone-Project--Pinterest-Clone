@@ -7,12 +7,14 @@ import { addNewPin, getAllPins, getPinDetails } from "../../store/pin";
 import { addPinToBoard } from "../../store/board";
 import "./CreatePinModal.css";
 import { getAllComments } from "../../store/comments";
+import CreateBoardLandingPage from "../CreateBoardLandingPage/CreateBoardLandingPage";
 
 const CreatePinModal = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const { id } = useParams();
+  // const { setModalContent } = useModal();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [keyword, setKeyword] = useState("");
@@ -20,6 +22,7 @@ const CreatePinModal = () => {
   const [size, setSize] = useState("");
   const [errors, setErrors] = useState([]);
   const [selectedBoard, setSelectedBoard] = useState(null);
+
   const boards = useSelector((state) => {
     return Object.values(state?.board);
   });
@@ -203,7 +206,7 @@ const CreatePinModal = () => {
                 )}
               </div>
             </label>
-            <label className="create-pin-to-board-input">
+            {/* <label className="create-pin-to-board-input">
               <div className="post-pin-input-title">Pin to a board:</div>
               <select onChange={(e) => handleBoardOptions(e)}>
                 <option value="">Select a board</option>
@@ -213,9 +216,19 @@ const CreatePinModal = () => {
                       {board?.name}
                     </option>
                   );
-                })}
-              </select>
-            </label>
+                })} */}
+            {/* {selectedBoard === "createNewBoard" ? null : (
+                  <option value="createNewBoard">+ Create new board</option>
+                )}
+                {selectedBoard === "createNewBoard" && (
+                  <button onClick={handleCreateBoard()}>
+                    {" "}
+                    + Create New Board
+                  </button>
+                )}
+                ; */}
+            {/* </select>
+            </label> */}
             <div className="post-pin-save">
               <button className="post-pin-save-button" type="submit">
                 Save

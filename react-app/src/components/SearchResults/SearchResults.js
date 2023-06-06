@@ -44,8 +44,10 @@ const SearchResults = () => {
           </div>
         </div>
       ) : (
-        <div className="search-handle-error">
-          No pins were associated with that keyword
+        <div className="search-handle-error-container">
+          <div className="search-handle-error">
+            No pins were associated with that keyword
+          </div>
         </div>
       )}
       {/* <button onClick={() => handleSearch()}>Search</button> */}
