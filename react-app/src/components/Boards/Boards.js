@@ -100,6 +100,41 @@ const Boards = () => {
             />
           </div>
           <div className="my-name">Hanan Jomaa</div>
+          <div className="social-handles-container">
+            <div>
+              <img
+                className="social-handles"
+                src={
+                  "https://res.cloudinary.com/dwphwqyrn/image/upload/v1686021690/instagram-logo_vec1ql.png"
+                }
+              />
+            </div>
+            <div>
+              <img
+                className="social-handles"
+                src={
+                  "https://res.cloudinary.com/dwphwqyrn/image/upload/v1686021690/twitter_logo_2_njdyqz.png"
+                }
+              />
+            </div>
+            <div>
+              <img
+                className="social-handles"
+                src={
+                  "https://res.cloudinary.com/dwphwqyrn/image/upload/v1686021584/tik_tok_mbiqd0.png"
+                }
+              />
+            </div>
+            <div>
+              <img
+                className="social-handles"
+                style={{ width: "30px" }}
+                src={
+                  "https://res.cloudinary.com/dwphwqyrn/image/upload/v1686021584/youtube_logo_wkzcz1.png"
+                }
+              />
+            </div>
+          </div>
           <div className="demo-username">username: demo@aa.io</div>
           <div className="adding-pins-and-boards-container">
             <div className="create-button">
