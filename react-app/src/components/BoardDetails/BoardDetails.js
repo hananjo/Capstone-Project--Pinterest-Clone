@@ -90,10 +90,16 @@ const BoardDetails = () => {
                   </div>
                 </div>
                 <div className="pins-container-board-details">
-                  {board?.pins?.map((pin) => {
-                    return (
-                      <div className="pins">
-                        {/* {sessionUser ? (
+                  {board?.pins?.length === 0 ? (
+                    <div className="empty-board-detail">
+                      Add a pin to your board!
+                    </div>
+                  ) : (
+                    <div>
+                      {board?.pins?.map((pin) => {
+                        return (
+                          <div className="pins">
+                            {/* {sessionUser ? (
                     <div className="pin-to-board">
                       <button
                         className="pin-to-board-button"
@@ -105,31 +111,33 @@ const BoardDetails = () => {
                   ) : (
                     <br />
                   )} */}
-                        <div className="grid-wrapper-2">
-                          <NavLink to={`/pins/${pin.id}`}>
-                            <div className="board-details-photos">
-                              <div className="pin-photos">
-                                <img
-                                  className="pin-images-2"
-                                  src={
-                                    pin &&
-                                    pin?.images &&
-                                    pin?.images[0]?.image_url
-                                  }
-                                  // style={{ width: "450px", height: "400px" }}
-                                />
-                              </div>
-                              <div className="pin-name-board-details">
-                                {pin?.name}
-                              </div>
-                            </div>
+                            <div className="grid-wrapper-2">
+                              <NavLink to={`/pins/${pin.id}`}>
+                                <div className="board-details-photos">
+                                  <div className="pin-photos">
+                                    <img
+                                      className="pin-images-2"
+                                      src={
+                                        pin &&
+                                        pin?.images &&
+                                        pin?.images[0]?.image_url
+                                      }
+                                      // style={{ width: "450px", height: "400px" }}
+                                    />
+                                  </div>
+                                  <div className="pin-name-board-details">
+                                    {pin?.name}
+                                  </div>
+                                </div>
 
-                            {/* <p>{pin?.images[0]?.image_url}</p> */}
-                          </NavLink>
-                        </div>
-                      </div>
-                    );
-                  })}
+                                {/* <p>{pin?.images[0]?.image_url}</p> */}
+                              </NavLink>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
                 {/* <button onClick={() => handleDeleteBoard()}>Delete Board</button> */}
               </div>

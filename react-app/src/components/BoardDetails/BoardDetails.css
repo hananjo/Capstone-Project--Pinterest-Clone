@@ -23,7 +23,7 @@
     width: 1300px;
     /* min-width: 200px; */
     margin: auto;
-    columns: 5;
+    columns: 4;
     object-fit: cover;
     column-gap: 20px;
 
@@ -90,7 +90,11 @@
 
 }
 
-
+.empty-board-detail {
+    font-size: 40px;
+    width: 1300px;
+    text-align: center;
+}
 
 .page-not-found-board-details {
     font-size: 40px;

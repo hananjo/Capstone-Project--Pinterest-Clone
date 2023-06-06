@@ -33,6 +33,7 @@ const CreatePinModal = () => {
 
   const handleBoardOptions = (e) => {
     setSelectedBoard(e.target.value);
+    console.log(setSelectedBoard, "SET SELECTED BOARD VALUE****");
   };
 
   useEffect(() => {
@@ -82,12 +83,12 @@ const CreatePinModal = () => {
       addedNewPin = await dispatch(addNewPin(pinFormInput, user));
       //   closeModal();
       if (selectedBoard) {
+        console.log(selectedBoard, "SET SELECTED BOARD VALUE****");
         dispatch(addPinToBoard(user, selectedBoard, addedNewPin.id));
         closeModal();
+      } else {
+        alert("Select a board first");
       }
-      // else {
-      //   alert("Select a board first");
-      // }
 
       if (addedNewPin) {
         history.push(`/pins/${addedNewPin.id}`);
