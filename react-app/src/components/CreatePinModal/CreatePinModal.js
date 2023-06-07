@@ -34,10 +34,10 @@ const CreatePinModal = () => {
     return state?.session?.user?.id;
   });
 
-  const handleBoardOptions = (e) => {
-    setSelectedBoard(e.target.value);
-    console.log(setSelectedBoard, "SET SELECTED BOARD VALUE****");
-  };
+  // const handleBoardOptions = (e) => {
+  //   setSelectedBoard(e.target.value);
+  //   console.log(setSelectedBoard, "SET SELECTED BOARD VALUE****");
+  // };
 
   useEffect(() => {
     dispatch(getAllBoards(user));
@@ -85,13 +85,14 @@ const CreatePinModal = () => {
       let addedNewPin;
       addedNewPin = await dispatch(addNewPin(pinFormInput, user));
       //   closeModal();
-      if (selectedBoard) {
-        console.log(selectedBoard, "SET SELECTED BOARD VALUE****");
-        dispatch(addPinToBoard(user, selectedBoard, addedNewPin.id));
-        closeModal();
-      } else {
-        alert("Select a board first");
-      }
+      // if (selectedBoard) {
+      //   console.log(selectedBoard, "SET SELECTED BOARD VALUE****");
+      //   dispatch(addPinToBoard(user, selectedBoard, addedNewPin.id));
+      //   closeModal();
+      // }
+      // else {
+      //   alert("Select a board first");
+      // }
 
       if (addedNewPin) {
         history.push(`/pins/${addedNewPin.id}`);
