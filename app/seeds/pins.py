@@ -6,26 +6,26 @@ def seed_pins():
         name='Curly hair', description='Curly girl method to get those bouncy curls you\'ve always wanted', keyword='hair, curly, hairstyle', user_id=1
     )
     updo = Pin(
-        name='Updo', description='This updo is perfect for any formal occasian, its so easy to do, you don\'t need a stylist to get this look!', keyword='updo, bridal, wedding hair', user_id=2
+        name='Updo', description='This updo is perfect for any formal occasian, its so easy to do, you don\'t need a stylist to get this look!', keyword='updo, bridal, wedding hair, blonde', user_id=2
     )
 
     princess = Pin(
-        name='Princess hair', description='Extra long hair vine, perfect for bridal. Princess feel.', keyword='princess hair, hairstyle, hair, bridal', user_id=3
+        name='Princess hair', description='Extra long hair vine, perfect for bridal. Princess feel.', keyword='princess hair, hairstyle, hair, bridal, blonde', user_id=3
     )
     half_up = Pin(
-        name='Half up half down hairstyle', description='Half up half down hairstyle is very versatile and stylish.', keyword='half up, half up half down, hair, hairstyle', user_id=1
+        name='Half up half down hairstyle', description='Half up half down hairstyle is very versatile and stylish.', keyword='half up, half up half down, hair, hairstyle, blonde', user_id=1
     )
     waves = Pin(
         name='Waves hair', description='This hair style has taken popularity in the last few years. The perfect bridal look. It\'s elegance and class all in one look.', keyword='waves, hair, hairstyle, bridal', user_id=2
     )
     money_piece = Pin(
-        name='Moneypiece', description='This money piece frames the face nicely to give you more definition in your look.', keyword='moneypiece, hair, hairstyle', user_id=3
+        name='Moneypiece', description='This money piece frames the face nicely to give you more definition in your look.', keyword='moneypiece, hair, hairstyle, blonde', user_id=3
     )
     bun = Pin (
         name='Classy bun', description='This bun will look good on every occasian, whether you\'re out shopping or going to a formal event. This look is versatile.', keyword='bun, hair, hairstyle', user_id=2
     )
     messy_bun = Pin (
-        name='Messy bun', description='The messy bun that\'s so easy and effortless to put together.', keyword='messy bun, hair, hairstyle', user_id=3
+        name='Messy bun', description='The messy bun that\'s so easy and effortless to put together.', keyword='messy bun, hair, hairstyle, blonde', user_id=3
     )
     balayage = Pin (
         name ='Balayage', description='Beautiful balayage', keyword='balayage, hair, hairstyle, blonde', user_id=2
