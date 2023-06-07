@@ -15,6 +15,7 @@ const SearchBar = () => {
     history.push("/search");
     closeModal();
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>

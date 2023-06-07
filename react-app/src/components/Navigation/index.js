@@ -59,6 +59,15 @@ function Navigation({ isLoaded }) {
                       onChange={(e) => setKeyword(e.target.value)}
                       className="search-bar"
                     ></input>
+                    <div className="cancel-search">
+                      <img
+                        style={{ width: "20px" }}
+                        onClick={() => setKeyword("")}
+                        src={
+                          "https://res.cloudinary.com/dwphwqyrn/image/upload/v1686113741/cancel_button_pvzadp.png"
+                        }
+                      />
+                    </div>
                   </div>
                   <div className="search-button">
                     <button
