@@ -14,6 +14,7 @@ function SignupFormModal() {
   const { closeModal } = useModal();
 
   const handleSubmit = async (e) => {
+    const validationErrors = [];
     e.preventDefault();
     if (password === confirmPassword) {
       const data = await dispatch(signUp(username, email, password));
@@ -23,10 +24,19 @@ function SignupFormModal() {
         closeModal();
       }
     } else {
-      setErrors([
-        "Confirm Password field must be the same as the Password field",
-      ]);
+      validationErrors.push(
+        "Confirm Password field must be the same as the Password field"
+      );
     }
+    // else {
+    //   setErrors([
+    //     "Confirm Password field must be the same as the Password field",
+    //   ]);
+    // }
+    if (!email.includes("@" && ".")) {
+      validationErrors.push("Need a valid email address");
+    }
+    setErrors(validationErrors);
   };
 
   return (

@@ -11,6 +11,7 @@ const DeleteCommentModal = ({ pinId, id }) => {
   const removeComment = async (e) => {
     e.preventDefault();
     await dispatch(deleteComment(pinId, id));
+    await dispatch(getPinDetails(pinId));
     await dispatch(getAllComments(pinId));
     closeModal();
   };

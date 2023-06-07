@@ -29,4 +29,5 @@ class Pin(db.Model):
             'user_id': self.user_id,
             'keyword': self.keyword,
             'images': [image.to_dict() for image in self.image],
+            'comments': [comment.to_dict() for comment in self.comment]
         }

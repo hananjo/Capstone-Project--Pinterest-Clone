@@ -11,6 +11,7 @@
     padding: 40px 0;
 
 }
+
 .pins-container-board-details .pin-photos {
     /* width: 100px; */
     margin: 0 0 20px;
@@ -22,9 +23,10 @@
     width: 1300px;
     /* min-width: 200px; */
     margin: auto;
-    columns: 5;
+    columns: 4;
     object-fit: cover;
     column-gap: 20px;
+
     /* background-color: black; */
     text-align: center;
     box-shadow: 0px 0px 20px rgba(0, 0, 1, 0.5);
@@ -32,7 +34,8 @@
     border: 1px solid rgb(224, 224, 224);
     margin-top: 40px;
     padding: 50px;
-}
+
+   }
 
 
 .pin-images-2 {
@@ -41,9 +44,29 @@
     max-width: 100%;
 
 
+
+
 }
 
+.pin-name-board-details {
+    margin-top: -80px;
+    margin-left: 60px;
+    font-size: 22px;
+    position: absolute;
+    /* transform: translate(-50%, -50%); */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+    color: white;
+    width: 200px;
 
+
+    }
+
+    .pins:hover .pin-name-board-details {
+        opacity: 1;
+
+    }
 
 
 .board-details-name {
@@ -65,6 +88,18 @@
     text-align: center;
     color: gray;
 
+}
+
+.empty-board-detail {
+    font-size: 40px;
+    width: 1300px;
+    text-align: center;
+}
+
+.page-not-found-board-details {
+    font-size: 40px;
+    text-align: center;
+    margin-top: 60px;
 }
 
 @media (min-width: 500px) and (max-width: 880px) {

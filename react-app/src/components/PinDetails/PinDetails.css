@@ -178,3 +178,9 @@
 .pin-to-board-button-pin-detail:hover {
     background-color: rgb(136, 42, 42);
 }
+
+
+.page-not-found {
+    font-size: 40px;
+    text-align: center;
+}

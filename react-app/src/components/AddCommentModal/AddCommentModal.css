@@ -2,7 +2,7 @@
     padding: 50px;
     height: 290px;
     width: 300px;
-    border: 2px solid black;
+    /* border: 2px solid black; */
     /* border-radius: 20px; */
 }
 
@@ -31,8 +31,13 @@
     margin-bottom: 20px;
 
 }
+.submit-comment-button:hover {
+    background-color: rgb(136, 42, 42);
+}
+
 .comment-submit-button {
     display: flex;
     justify-content: center;
+
 
 }

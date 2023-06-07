@@ -89,6 +89,10 @@ width: 200px;
     filter: brightness(50%)
 }
 
+.pin-create-button {
+    margin-bottom: -20px;
+}
+
 .pin-create-button:hover {
     background-color: rgb(245, 243, 243);
     border-radius: 45px;
@@ -97,9 +101,11 @@ width: 200px;
 .pin-create-button-container{
  display: flex;
 justify-content: flex-end;
-margin-right: 20px;
+margin-right: 50px;
 margin-top: -30px;
 margin-bottom: 30px;
+
+
 }
 @media (min-width: 500px) and (max-width: 700px) {
     .pins-container {
