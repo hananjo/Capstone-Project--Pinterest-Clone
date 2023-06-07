@@ -3,6 +3,7 @@ import { useModal } from "../../context/Modal";
 import { useState } from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import "./SearchResults.css";
+import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 const SearchResults = () => {
   // const [showModal, setShowModal] = useState(false);
   // const { setModalContent } = useModal();
@@ -28,13 +29,15 @@ const SearchResults = () => {
                 <div className="pins">
                   <div className="grid-wrapper">
                     <div>
-                      <div className="pin-photos">
-                        <img
-                          className="pin-images"
-                          src={pin?.images[0]?.image_url}
-                        />
-                      </div>
-                      <div className="pin-name-landing-page">{pin?.name}</div>
+                      <NavLink to={`/pins/${pin.id}`}>
+                        <div className="pin-photos">
+                          <img
+                            className="pin-images"
+                            src={pin?.images[0]?.image_url}
+                          />
+                        </div>
+                        <div className="pin-name-landing-page">{pin?.name}</div>
+                      </NavLink>
                     </div>
                   </div>
                 </div>

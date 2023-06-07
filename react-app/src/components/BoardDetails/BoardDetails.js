@@ -92,7 +92,7 @@ const BoardDetails = () => {
                 <div className="pins-container-board-details">
                   {board?.pins?.length === 0 ? (
                     <div className="empty-board-detail">
-                      Add a pin to your board!
+                      Your board is empty. Browse the homepage to add a pin!
                     </div>
                   ) : (
                     <div>

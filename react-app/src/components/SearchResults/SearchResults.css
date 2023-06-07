@@ -21,7 +21,7 @@
 
 @media (min-width: 500px) and (max-width: 880px) {
     .pins-container {
-       width: 750px;
+       width: 500px;
        columns: 1
     }
 }
@@ -37,5 +37,12 @@
     .pins-container {
         width: 900px;
         columns: 5
+    }
+}
+
+@media (min-width: 1381px ) {
+    .pins-container {
+        width: 1200px;
+        columns: 5;
     }
 }

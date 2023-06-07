@@ -8,6 +8,9 @@ def seed_comments():
     comment1 = Comment(
         comment='Wow I love this look! Def going to show my hairstylist this as reference!', user_id=1, pin_id=1
     )
+    comment1_user2 = Comment(
+        comment='Wow this hair is GORGEOUS! I think I am going to attempt this look', user_id=2, pin_id=1
+    )
     comment2 = Comment(
         comment='Very beautiful', user_id=2, pin_id=2
     )
@@ -123,6 +126,7 @@ def seed_comments():
 
 
     db.session.add(comment1)
+    db.session.add(comment1_user2)
     db.session.add(comment2)
     db.session.add(comment3)
     db.session.add(comment4)

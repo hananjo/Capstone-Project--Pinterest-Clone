@@ -184,3 +184,8 @@
     font-size: 40px;
     text-align: center;
 }
+
+.no-comments {
+    font-size: 18px;
+    color: gray
+}
