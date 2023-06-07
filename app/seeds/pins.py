@@ -8,6 +8,7 @@ def seed_pins():
     updo = Pin(
         name='Updo', description='This updo is perfect for any formal occasian, its so easy to do, you don\'t need a stylist to get this look!', keyword='updo, bridal, wedding hair', user_id=2
     )
+
     princess = Pin(
         name='Princess hair', description='Extra long hair vine, perfect for bridal. Princess feel.', keyword='princess hair, hairstyle, hair, bridal', user_id=3
     )
@@ -33,34 +34,36 @@ def seed_pins():
         name='Blonde hair', description='Beautiful, luscious, blonde hair', keyword='hair, hair color, hairstyle, blonde', user_id=3
     )
     bridal_dress1 = Pin (
-        name='Bridal mermaid style dress', description='', keyword='white dress, bridal dresses, wedding gown, mermaid style', user_id=2
+        name='Bridal mermaid style dress', description='The dress you\'ve always dreamt of!', keyword='white dress, bridal dresses, wedding gown, mermaid style', user_id=2
     )
     bridal_dress2 = Pin (
-        name='Bridal a line dress', description='', keyword='white dress, bridal dresses, wedding gown, a line', user_id=3
+        name='Bridal a line dress', description='The dress you\'ve always dreamt of!', keyword='white dress, bridal dresses, wedding gown, a line', user_id=3
     )
     bridal_dress3 = Pin (
-        name='Bridal ball gown dress', description='', keyword='white dress, bridal dresses, wedding gown, ball gown', user_id=2
+        name='Bridal ball gown dress', description='The dress you\'ve always dreamt of!', keyword='white dress, bridal dresses, wedding gown, ball gown', user_id=2
     )
     bridal_dress4 = Pin (
-        name='Bridal mermaid style dress', description='', keyword='white dress, bridal dresses, wedding gown, mermaid style', user_id=3
+        name='Bridal mermaid style dress', description='The dress you\'ve always dreamt of!', keyword='white dress, bridal dresses, wedding gown, mermaid style', user_id=3
     )
     bridal_dress5 = Pin (
-        name='Bridal ball gown dress', description='', keyword='white dress, bridal dresses, wedding gown, ball gown', user_id=2
+        name='Bridal ball gown dress', description='The dress you\'ve always dreamt of!', keyword='white dress, bridal dresses, wedding gown, ball gown', user_id=2
     )
     bridesmaid_dress1 = Pin (
-        name='Bridesmaid black dress', description='', keyword='dress, bridal dresses, wedding gown, black bridesmaid dress, bridesmaid dress teal ', user_id=3
+        name='Bridesmaid black dress', description='The perfect bridesmaid dress or if you\'re a guest at a wedding', keyword='dress, bridal dresses, wedding gown, black bridesmaid dress, bridesmaid dress teal ', user_id=3
     )
+
     bridesmaid_dress2 = Pin (
-        name='Bridesmaid champagne color dress', description='', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=2
+        name='Champagne color dress', description='The perfect bridesmaid dress or if you\'re a guest at a wedding', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=2
     )
+
     bridesmaid_dress3 = Pin (
-        name='Bridesmaid teal dress', description='', keyword='white dress, bridal dresses, wedding gown, teal bridesmaid dress, bridesmaid dress teal', user_id=3
+        name='Teal dress', description='The perfect bridesmaid dress or if you\'re a guest at a wedding', keyword='white dress, bridal dresses, wedding gown, teal bridesmaid dress, bridesmaid dress teal', user_id=3
     )
     bridesmaid_dress4 = Pin (
-        name='Bridal champagne color dress', description='', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=2
+        name='Bridal champagne color dress', description='The perfect bridesmaid dress or if you\'re a guest at a wedding', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=2
     )
     bridesmaid_dress5 = Pin (
-        name='Bridal soft pink dress', description='', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=3
+        name='Bridal soft pink dress', description='The perfect bridesmaid dress or if you\'re a guest at a wedding', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=3
     )
     paris_honeymoon = Pin (
         name='Paris', description='How to plan a romantic honeymoon in Paris', keyword='Paris, honeymoon destinations', user_id=2
@@ -116,7 +119,15 @@ def seed_pins():
     ring_chart = Pin (
         name='Ring cuts chart', description='Fine jewelry rings for women ', keyword='wedding rings, ring chart', user_id=3
     )
-
+    lip_makeup = Pin (
+        name='Lips Makeup', description='The perfect lip combo, items sold on our website', keyword='makeup, soft glam, lip makeup, lips', user_id=1
+    )
+    soft_glam = Pin (
+        name='Soft Glam', description='Soft glam makeup, soft elegant look on your big day', keyword='makeup, soft glam, full face', user_id=1
+    )
+    makeup_bride = Pin (
+        name='Beautiful Bridal Hair', description='Soft glam makeup, beautiful hair on this beautiful bride', keyword='makeup, soft glam, full face', user_id=1
+    )
 
     db.session.add(curly)
     db.session.add(updo)
@@ -156,6 +167,9 @@ def seed_pins():
     db.session.add(princess_cut)
     db.session.add(cushion_cut)
     db.session.add(ring_chart)
+    db.session.add(lip_makeup)
+    db.session.add(soft_glam)
+    db.session.add(makeup_bride)
 
 def undo_pins():
     if environment == "production":

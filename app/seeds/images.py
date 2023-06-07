@@ -54,7 +54,7 @@ def seed_images():
         image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1685307145/bridesmaid_dress_5_qdcst8.jpg', pin_id=17, size='large'
     )
     bridesmaid_dress3_image = Image(
-        image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1685307145/bridesmaid_dress_4_wlb6lw.jpg', pin_id=18, size='large'
+        image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1685307145/bridesmaid_dress_2_ex6btl.jpg', pin_id=18, size='large'
     )
     bridesmaid_dress4_image = Image(
         image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1685307144/bridesmaid_dress_3_qu13jw.jpg', pin_id=19, size='large'
@@ -116,8 +116,15 @@ def seed_images():
     ring_chart_image = Image (
         image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1685307145/cut_chart_rings_vtx85z.jpg', pin_id=38, size='large'
     )
-
-
+    lip_makeup_image = Image (
+        image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1686106183/lip_makeup_ifyms9.jpg', pin_id=39, size='small'
+    )
+    soft_glam_image = Image (
+        image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1686106183/soft_glam_pzxqdn.jpg', pin_id=40, size='small'
+    )
+    makeup_hair_image = Image (
+        image_url='https://res.cloudinary.com/dwphwqyrn/image/upload/v1686106183/Makeup-hair_dftybd.jpg', pin_id=41, size='large'
+    )
 
     db.session.add(curly_image)
     db.session.add(updo_image)
@@ -157,6 +164,9 @@ def seed_images():
     db.session.add(princess_cut_image)
     db.session.add(cushion_cut_image)
     db.session.add(ring_chart_image)
+    db.session.add(lip_makeup_image)
+    db.session.add(soft_glam_image)
+    db.session.add(makeup_hair_image)
 
 def undo_images():
     if environment == "production":
