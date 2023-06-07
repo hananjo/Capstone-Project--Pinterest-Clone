@@ -95,16 +95,23 @@ const LandingPage = () => {
           );
         })} */}
         {sessionUser && user ? (
-          <div className="pin-create-button-container">
-            {/* <NavLink to={`/${user}/boards`}>Profile</NavLink> */}
+          <div>
+            <div className="your-pins">
+              <NavLink className="your-pins-link" to={`/your-pins`}>
+                Your Pins &gt;
+              </NavLink>
+            </div>
+            <div className="pin-create-button-container">
+              {/* <NavLink to={`/${user}/boards`}>Profile</NavLink> */}
 
-            <NavLink to={`/create-pin`}>
-              <img
-                className="pin-create-button"
-                style={{ width: "50px" }}
-                src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685586576/add_button_icon_pc5nvr.png"
-              />
-            </NavLink>
+              <NavLink to={`/create-pin`}>
+                <img
+                  className="pin-create-button"
+                  style={{ width: "50px" }}
+                  src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685586576/add_button_icon_pc5nvr.png"
+                />
+              </NavLink>
+            </div>
           </div>
         ) : (
           <br />

@@ -43,7 +43,7 @@ def seed_pins():
         name='Bridal ball gown dress', description='The dress you\'ve always dreamt of!', keyword='white dress, bridal dresses, wedding gown, ball gown', user_id=2
     )
     bridal_dress4 = Pin (
-        name='Bridal mermaid style dress', description='The dress you\'ve always dreamt of!', keyword='white dress, bridal dresses, wedding gown, mermaid style', user_id=3
+        name='Bridal mermaid style dress', description='The dress you\'ve always dreamt of!', keyword='white dress, bridal dresses, wedding gown, mermaid style', user_id=1
     )
     bridal_dress5 = Pin (
         name='Bridal ball gown dress', description='The dress you\'ve always dreamt of!', keyword='white dress, bridal dresses, wedding gown, ball gown', user_id=2
@@ -57,7 +57,7 @@ def seed_pins():
     )
 
     bridesmaid_dress3 = Pin (
-        name='Teal dress', description='The perfect bridesmaid dress or if you\'re a guest at a wedding', keyword='white dress, bridal dresses, wedding gown, teal bridesmaid dress, bridesmaid dress teal', user_id=3
+        name='Teal dress', description='The perfect bridesmaid dress or if you\'re a guest at a wedding', keyword='white dress, bridal dresses, wedding gown, teal bridesmaid dress, bridesmaid dress teal', user_id=1
     )
     bridesmaid_dress4 = Pin (
         name='Bridal champagne color dress', description='The perfect bridesmaid dress or if you\'re a guest at a wedding', keyword='white dress, bridal dresses, wedding gown, champagne bridesmaid dress, cream bridesmaid dress, beige bridesmaid dress', user_id=2
@@ -78,13 +78,13 @@ def seed_pins():
         name='Maldives', description='How to plan a romantic honeymoon in Dubai', keyword='Dubai, honeymoon destinations', user_id=3
     )
     bali_honeymoon = Pin (
-        name='Bali', description='How to plan a romantic honeymoon in Bali', keyword='Bali, honeymoon destinations', user_id=2
+        name='Bali', description='How to plan a romantic honeymoon in Bali', keyword='Bali, honeymoon destinations', user_id=1
     )
     stage1 = Pin(
         name='Sequin Wedding Arch', description='Sequin drapping over hexagonal shape arch', keyword='staging, flowers, wedding decor', user_id=3
     )
     stage2 = Pin(
-        name='Wedding arch with pompas grass', description='Circular wedding arch with greenery and pompas grass', keyword='staging, flowers, wedding decor, wedding arch', user_id=2
+        name='Wedding arch with pompas grass', description='Circular wedding arch with greenery and pompas grass', keyword='staging, flowers, wedding decor, wedding arch', user_id=1
     )
     stage3 = Pin(
         name='Custom neon sign', description='Neon sign custom made for your backdrop or staging needs', keyword='staging, neon sign, wedding decor', user_id=3
@@ -96,7 +96,7 @@ def seed_pins():
         name='Harlow centerpiece', description='Harlow stands make an elegant piece for floral centerpieces', keyword='centerpieces, flowers, harlow stands', user_id=3
     )
     center_piece2 = Pin(
-        name='Wedding flower centerpieces', description='2023 Wedding flower trends you\'ll love', keyword='centerpieces, flowers, wedding decor', user_id=2
+        name='Wedding flower centerpieces', description='2023 Wedding flower trends you\'ll love', keyword='centerpieces, flowers, wedding decor', user_id=1
     )
     center_piece3 = Pin(
         name='Candle centerpieces', description='Candle centerpieces are an elegant and affordable option to have an elegant yet cost effective centerpiece', keyword='centerpieces, candles, wedding decor', user_id=3
@@ -108,13 +108,13 @@ def seed_pins():
         name='Halo ring', description='Halo setting beautiful ring', keyword='wedding rings, halo ring', user_id=3
     )
     vintage = Pin (
-        name='Vintage ring', description='Vintage setting beautiful ring', keyword='wedding rings, vintage ring', user_id=2
+        name='Vintage ring', description='Vintage setting beautiful ring', keyword='wedding rings, vintage ring', user_id=1
     )
     princess_cut = Pin (
         name='Princess cut ring', description='Princess cut beautiful ring', keyword='wedding rings, princess cut ring', user_id=3
     )
     cushion_cut = Pin (
-        name='Cushion cut ring', description='Cushion cut beautiful ring', keyword='wedding rings, cushion cut ring', user_id=2
+        name='Cushion cut ring', description='Cushion cut beautiful ring', keyword='wedding rings, cushion cut ring', user_id=1
     )
     ring_chart = Pin (
         name='Ring cuts chart', description='Fine jewelry rings for women ', keyword='wedding rings, ring chart', user_id=3

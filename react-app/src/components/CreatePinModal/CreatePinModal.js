@@ -8,6 +8,7 @@ import { addPinToBoard } from "../../store/board";
 import "./CreatePinModal.css";
 import { getAllComments } from "../../store/comments";
 import CreateBoardLandingPage from "../CreateBoardLandingPage/CreateBoardLandingPage";
+import UploadPicture from "../UploadPicture/UploadPicture";
 
 const CreatePinModal = () => {
   const history = useHistory();
@@ -230,6 +231,9 @@ const CreatePinModal = () => {
                 ; */}
             {/* </select>
             </label> */}
+            {/* <div>
+              <UploadPicture />
+            </div> */}
             <div className="post-pin-save">
               <button className="post-pin-save-button" type="submit">
                 Save

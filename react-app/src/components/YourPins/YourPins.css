@@ -1,8 +1,8 @@
-.landing-page {
+.my-pins {
     padding: 0px 180px;
 }
 
-.landing-page {
+.my-pins {
     /* max-width: 1224px; */
     width: 100%;
     height: auto;
@@ -10,19 +10,19 @@
     padding: 40px 0;
 }
 
-.pins {
+.my-pins {
     border-radius: 16px;
     /* position: relative; */
 
 }
 
-.pin-images {
+.my-pin-images {
     border-radius: 20px;
     height: auto;
     max-width: 100%;
 }
 
-.pins-container {
+.my-pins-container {
     width: 1300px;
     margin: auto;
     columns: 5;
@@ -35,13 +35,13 @@
     padding: 50px;
 }
 
-.pins-container .pin-photos {
+.my-pins-container .my-pin-photos {
  /* width: 100px; */
  margin: 0 0 20px;
  overflow: hidden;
 }
 
-.pin-to-board {
+.my-pin-to-board {
 margin-top: 30px;
 margin-left: 180px;
 position: absolute;
@@ -51,7 +51,7 @@ transition: opacity 0.3s ease;
 z-index: 1;
 }
 
-.pin-name-landing-page {
+.my-pin-name {
 margin-top: -80px;
 margin-left: 20px;
 font-size: 22px;
@@ -64,7 +64,7 @@ color: white;
 width: 200px;
 
 }
-.pin-to-board-button {
+.my-pin-to-board-button {
    border-radius: 20px;
    background-color: red;
    color: white;
@@ -74,31 +74,31 @@ width: 200px;
    width: 70px;
 }
 
-.pin-to-board-button:hover {
+.my-pin-to-board-button:hover {
     background-color: rgb(136, 42, 42);
 }
-.pins:hover .pin-to-board {
+.my-pins:hover .my-pin-to-board {
     opacity: 1;
 
 }
-.pins:hover .pin-name-landing-page {
+.my-pins:hover .my-pin-name {
     opacity: 1;
 }
 
-.pins:hover .pin-photos{
+.my-pins:hover .my-pin-photos{
     filter: brightness(50%)
 }
 
-.pin-create-button {
+.my-pin-create-button {
     margin-bottom: -20px;
 }
 
-.pin-create-button:hover {
+.my-pin-create-button:hover {
     background-color: rgb(245, 243, 243);
     border-radius: 45px;
 }
 
-.pin-create-button-container{
+.my-pin-create-button-container{
  display: flex;
 justify-content: flex-end;
 margin-right: 50px;
@@ -107,38 +107,18 @@ margin-bottom: 30px;
 
 
 }
-
-.your-pins-link {
-    text-decoration: none;
-    color: rgb(176, 176, 176);
-    margin-left: 1330px;
-    margin-top: 30px;
-    /* border: 2px solid rgb(227, 225, 225); */
-    border-radius: 20px;
-    /* padding: 8px; */
-    width: 130px;
-    font-size: 23px;
-
-}
-
-.your-pins-link:hover {
-    background-color: rgb(243, 240, 240);
-    color: black;
-    text-decoration: underline;
-    box-shadow: 0px 0px 20px rgba(0, 0, 1, 0.1);
-}
 @media (min-width: 500px) and (max-width: 700px) {
-    .pins-container {
+    .my-pins-container {
        width: 750px;
        columns: 1
     }
-.pin-to-board {
+.my-pin-to-board {
         margin-left: 100px;
     }
 }
 
 @media (min-width: 701px) and (max-width: 1000px ) {
-    .pins-container {
+    .my-pins-container {
         width: 750px;
         columns: 4
     }
@@ -146,14 +126,8 @@ margin-bottom: 30px;
 }
 
 @media (min-width: 1001px) and (max-width: 1380px ) {
-    .pins-container {
+    .my-pins-container {
         width: 900px;
-        columns: 5
+        columns: 7
     }
 }
-
-/* @media (max-width: 800px) {
-    .nav-bar {
-        width: 50px;
-    }
-} */

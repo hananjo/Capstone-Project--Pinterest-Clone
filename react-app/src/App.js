@@ -12,6 +12,7 @@ import PinDetails from "./components/PinDetails/PinDetails";
 import CreatePinModal from "./components/CreatePinModal/CreatePinModal";
 import UpdatePin from "./components/UpdatePin/UpdatePin";
 import SearchResults from "./components/SearchResults/SearchResults";
+import YourPins from "./components/YourPins/YourPins";
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -33,6 +34,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/create-pin" component={CreatePinModal} />
           <Route exact path="/search" component={SearchResults} />
+          <Route exact path="/your-pins" component={YourPins} />
           <Route exact path="/pins/:id" component={PinDetails} />
           <Route exact path="/pins/:id/update" component={UpdatePin} />
           <Route exact path="/:id/boards" component={Boards} />
