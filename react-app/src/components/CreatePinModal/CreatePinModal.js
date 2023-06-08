@@ -115,30 +115,34 @@ const CreatePinModal = () => {
               <h2>Create new pin</h2>
             </div>
 
-            <label className="create-pin-name-input">
-              <div className="post-pin-input-title">Name:</div>
+            <div className="create-pin-name-input">
+              {/* <div className="post-pin-input-title">Name:</div> */}
               <input
                 type="text"
+                required
                 name="name"
-                placeholder="Add your title"
+                // placeholder="Add your title"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
+              <label>Name</label>
               <div className="errors">
                 {errors?.includes("Name is required") && (
                   <div>Name is required</div>
                 )}
               </div>
-            </label>
+            </div>
             <label className="create-pin-description-input">
-              <div className="post-pin-input-title">Description:</div>
+              {/* <div className="post-pin-input-title">Description:</div> */}
               <input
                 type="text"
+                required
                 name="description"
-                placeholder="Tell everyone what your pin is about"
+                // placeholder="Tell everyone what your pin is about"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
+              <label>Description</label>
               <div className="errors">
                 {errors?.includes(
                   "Description needs 10 or more characters"
@@ -146,18 +150,20 @@ const CreatePinModal = () => {
               </div>
             </label>
             <label className="create-pin-keyword-input">
-              <div className="post-pin-input-title">Keywords:</div>
-              <div>
+              {/* <div className="post-pin-input-title">Keywords:</div> */}
+              {/* <div>
                 For search purposes, list some keywords that users might use to
                 discover your picture
-              </div>
+              </div> */}
               <input
                 type="text"
+                required
                 name="keyword"
-                placeholder="List keywords here"
+                // placeholder="List keywords here"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
               />
+              <label>Keywords</label>
               <div className="errors">
                 {errors?.includes(
                   "To make your pin accessable for other users, have at least one keyword for your pin"
@@ -170,16 +176,18 @@ const CreatePinModal = () => {
               </div>
             </label>
             <label className="create-pin-image-input">
-              <div className="post-pin-input-title">Upload an image</div>
+              {/* <div className="post-pin-input-title">Upload an image</div> */}
               <input
                 style={{ height: "40px" }}
                 type="text"
+                required
                 name="image"
-                placeholder="Post an image for your pin"
+                // placeholder="Post an image for your pin"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
                 // className="image-input-area"
               />
+              <label>Upload Image</label>
               <div className="errors">
                 {errors?.includes(
                   "Image URL must end in .png, .jpg, or .jpeg"

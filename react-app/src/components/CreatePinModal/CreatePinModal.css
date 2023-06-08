@@ -39,40 +39,42 @@
 }
 
 .create-pin-image-size-input select{
-    width: 700px;
-    height: 30px;
+    width: 650px;
+    height: 40px;
     border-radius: 10px;
     font-size: 18px;
-    background-color: rgb(239, 237, 235);
+    /* background-color: rgb(239, 237, 235); */
+
 }
 
 .create-pin-image-input input {
-    width: 700px;
-    height: 30px;
+    width: 600px;
+    height: 40px;
     border-radius: 10px;
     font-size: 18px;
     background-color: rgb(239, 237, 235);
+
 }
 
 .create-pin-keyword-input input {
-    width: 700px;
-    height: 30px;
+    width: 600px;
+    height: 40px;
     border-radius: 10px;
     font-size: 18px;
     background-color: rgb(239, 237, 235);
 }
 
 .create-pin-description-input input {
-    width: 700px;
-    height: 30px;
+    width: 600px;
+    height: 40px;
     border-radius: 10px;
     font-size: 18px;
     background-color: rgb(239, 237, 235);
 }
 
 .create-pin-name-input input {
-    width: 700px;
-    height: 30px;
+    width: 600px;
+    height: 40px;
     border-radius: 10px;
     font-size: 18px;
     background-color: rgb(239, 237, 235);
@@ -97,4 +99,196 @@
 .post-pin-save-button:hover {
     background-color: rgb(136, 42, 42);
     /* background-color: rgb(172, 170, 170); */
+}
+
+.create-pin-name-input{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.create-pin-name-input input {
+    /* outline: none; */
+    padding: 0 20px;
+    background: transparent;
+
+}
+
+.create-pin-name-input label {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.create-pin-name-input input:valid ~ label,
+.create-pin-name-input input:focus ~ label {
+
+    transform: translateX(5px) translateY(-14px);
+    font-size: 12px;
+    padding: 0 10px;
+    background: white;
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+
+}
+
+.create-pin-description-input{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.create-pin-description-input input {
+    /* outline: none; */
+    padding: 0 20px;
+    background: transparent;
+
+}
+
+.create-pin-description-input label {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.create-pin-description-input input:valid ~ label,
+.create-pin-description-input input:focus ~ label {
+
+    transform: translateX(5px) translateY(-14px);
+    font-size: 12px;
+    padding: 0 10px;
+    background: white;
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+
+}
+
+
+.create-pin-keyword-input{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.create-pin-keyword-input input {
+    /* outline: none; */
+    padding: 0 20px;
+    background: transparent;
+
+}
+
+.create-pin-keyword-input label {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.create-pin-keyword-input input:valid ~ label,
+.create-pin-keyword-input input:focus ~ label {
+
+    transform: translateX(5px) translateY(-14px);
+    font-size: 12px;
+    padding: 0 10px;
+    background: white;
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+
+}
+
+.create-pin-image-input{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.create-pin-image-input input {
+    /* outline: none; */
+    padding: 0 20px;
+    background: transparent;
+
+}
+
+.create-pin-image-input label {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.create-pin-image-input input:valid ~ label,
+.create-pin-image-input input:focus ~ label {
+
+    transform: translateX(5px) translateY(-14px);
+    font-size: 12px;
+    padding: 0 10px;
+    background: white;
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+
+}
+
+@media (min-width: 500px) and (max-width: 800px) {
+    .create-pin-name-input input {
+        width: 250px;
+    }
+    .create-pin-description-input input {
+        width: 250px;
+    }
+    .create-pin-keyword-input input {
+        width: 250px;
+
+    }
+    .create-pin-image-input input{
+        width: 250px;
+    }
+    .create-pin-image-size-input select {
+        width: 300px;
+    }
+
+}
+
+@media (min-width: 801px) and (max-width: 1000px ) {
+    .create-pin-name-input input {
+        width: 450px;
+    }
+    .create-pin-description-input input {
+        width: 450px;
+    }
+    .create-pin-keyword-input input {
+        width: 450px;
+
+    }
+    .create-pin-image-input input{
+        width: 450px;
+    }
+    .create-pin-image-size-input select {
+        width: 500px;
+    }
+
+}
+
+@media (min-width: 1001px) and (max-width: 1380px ) {
+    .create-pin-name-input input {
+        width: 500px;
+    }
+    .create-pin-description-input input {
+        width: 500px;
+    }
+    .create-pin-keyword-input input {
+        width: 500px;
+
+    }
+    .create-pin-image-input input{
+        width: 500px;
+    }
+    .create-pin-image-size-input select {
+        width: 550px;
+    }
 }
