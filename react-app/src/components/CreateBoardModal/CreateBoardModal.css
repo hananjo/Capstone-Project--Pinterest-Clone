@@ -11,7 +11,7 @@
 
 .create-board-name input {
     width: 300px;
-    height: 25px;
+    height: 40px;
     font-size: 18px;
     margin-bottom: 5px;
     border-radius: 7px;
@@ -48,4 +48,72 @@
 .create-board-submit-button:hover {
     background-color: red;
     color: white;
+}
+
+.create-board-name{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.create-board-name input {
+    /* outline: none; */
+    padding: 0 20px;
+    background: transparent;
+
+}
+
+.create-board-name label {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.create-board-name input:valid ~ label,
+.create-board-name input:focus ~ label {
+
+    transform: translateX(5px) translateY(-14px);
+    font-size: 12px;
+    padding: 0 10px;
+    background: white;
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+
+}
+
+
+.create-board-description{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.create-board-description textarea {
+    /* outline: none; */
+    padding: 0px 20px;
+    padding-top: 20px;
+    background: transparent;
+
+}
+
+.create-board-description label {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.create-board-description textarea:valid ~ label,
+.create-board-description textarea:focus ~ label {
+
+    transform: translateX(5px) translateY(-14px);
+    font-size: 12px;
+    padding: 0px 10px;
+    background: white;
+   border-left: 1px solid black;
+   border-right: 1px solid black;
+
 }
