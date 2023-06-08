@@ -124,7 +124,7 @@
 
 .create-pin-name-input input:valid ~ label,
 .create-pin-name-input input:focus ~ label {
-
+    color:rgb(83, 75, 90);
     transform: translateX(5px) translateY(-14px);
     font-size: 12px;
     padding: 0 10px;
@@ -157,7 +157,7 @@
 
 .create-pin-description-input input:valid ~ label,
 .create-pin-description-input input:focus ~ label {
-
+    color:rgb(83, 75, 90);
     transform: translateX(5px) translateY(-14px);
     font-size: 12px;
     padding: 0 10px;
@@ -191,7 +191,7 @@
 
 .create-pin-keyword-input input:valid ~ label,
 .create-pin-keyword-input input:focus ~ label {
-
+    color:rgb(83, 75, 90);
     transform: translateX(5px) translateY(-14px);
     font-size: 12px;
     padding: 0 10px;
@@ -224,7 +224,7 @@
 
 .create-pin-image-input input:valid ~ label,
 .create-pin-image-input input:focus ~ label {
-
+    color:rgb(83, 75, 90);
     transform: translateX(5px) translateY(-14px);
     font-size: 12px;
     padding: 0 10px;

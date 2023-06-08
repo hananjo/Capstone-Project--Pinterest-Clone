@@ -73,7 +73,7 @@
 
 .create-board-name input:valid ~ label,
 .create-board-name input:focus ~ label {
-
+    color:rgb(83, 75, 90);
     transform: translateX(5px) translateY(-14px);
     font-size: 12px;
     padding: 0 10px;
@@ -108,7 +108,7 @@
 
 .create-board-description textarea:valid ~ label,
 .create-board-description textarea:focus ~ label {
-
+    color:rgb(83, 75, 90);
     transform: translateX(5px) translateY(-14px);
     font-size: 12px;
     padding: 0px 10px;

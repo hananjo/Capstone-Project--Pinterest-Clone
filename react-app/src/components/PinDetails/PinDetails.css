@@ -164,8 +164,9 @@
 }
 
 .pin-to-board-button-pin-detail {
+    position: relative;
     margin-top: -40px;
-    margin-left: 800px;
+    margin-left: 900px;
     border-radius: 20px;
    background-color: red;
    color: white;
@@ -188,4 +189,29 @@
 .no-comments {
     font-size: 18px;
     color: gray
+}
+
+@media (min-width: 1000px) and (max-width: 1159px) {
+    .pin-to-board-button-pin-detail {
+        margin-left: 550px;
+    }
+}
+
+
+@media (min-width: 1160px) and (max-width: 1349px) {
+    .pin-to-board-button-pin-detail {
+        margin-left: 650px;
+    }
+}
+
+@media (min-width: 1350px) and (max-width: 1499px) {
+    .pin-to-board-button-pin-detail {
+        margin-left: 750px;
+    }
+}
+
+ @media (min-width: 1500px) and (max-width: 1600px) {
+    .pin-to-board-button-pin-detail {
+        margin-left: 850px;
+    }
 }

@@ -223,7 +223,7 @@ const PinDetails = () => {
                       })}
                   </div>
                 ) : (
-                  <div className='no-comments'>No Comments</div>
+                  <div className="no-comments">No Comments</div>
                 )}
               </div>
               {sessionUser ? (
