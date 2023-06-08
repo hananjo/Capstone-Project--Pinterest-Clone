@@ -54,11 +54,13 @@ function Navigation({ isLoaded }) {
 
                     <input
                       type="text"
+                      required
                       value={keyword}
-                      placeholder="Search pins"
+                      // placeholder="Search pins"
                       onChange={(e) => setKeyword(e.target.value)}
                       className="search-bar"
-                    ></input>
+                    />
+                    <label>Search pins</label>
                     <div className="cancel-search">
                       <img
                         style={{ width: "20px" }}
