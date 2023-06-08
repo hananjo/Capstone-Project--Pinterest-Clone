@@ -64,14 +64,16 @@ const CreateBoardLandingPage = ({ pin }) => {
         </ul> */}
           <h2>Create new board</h2>
           <label className="create-board-name">
-            <div className="create-board-name-title">Name:</div>
+            {/* <div className="create-board-name-title">Name:</div> */}
             <input
               type="text"
+              required
               name="name"
-              placeholder="What is the name of your board"
+              // placeholder="What is the name of your board"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
+            <label>Name</label>
             <div className="errors">
               {errors?.includes("Name is required") && (
                 <div>Name is required</div>
@@ -79,14 +81,16 @@ const CreateBoardLandingPage = ({ pin }) => {
             </div>
           </label>
           <label className="create-board-description">
-            <div className="create-board-description-title">Description:</div>
+            {/* <div className="create-board-description-title">Description:</div> */}
             <textarea
               type="text"
+              required
               name="description"
-              placeholder="What is your board about?"
+              // placeholder="What is your board about?"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
+            <label>Description</label>
             <div className="errors">
               {errors?.includes("Description needs 10 or more characters") && (
                 <div>Description needs 10 or more characters</div>
