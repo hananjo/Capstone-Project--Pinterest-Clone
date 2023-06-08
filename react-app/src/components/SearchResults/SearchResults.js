@@ -1,14 +1,21 @@
 import { useSelector } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { useState } from "react";
+
+import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
 import SearchBar from "../SearchBar/SearchBar";
 import "./SearchResults.css";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 const SearchResults = () => {
+  const [showModal, setShowModal] = useState(false);
   // const [showModal, setShowModal] = useState(false);
   // const { setModalContent } = useModal();
   const pins = useSelector((state) => {
     return Object.values(state?.searches);
+  });
+
+  const user = useSelector((state) => {
+    return state?.session?.user?.id;
   });
   // const openModal = () => {
   //   setShowModal(true);
@@ -18,6 +25,21 @@ const SearchResults = () => {
   //   setModalContent(<SearchBar />);
   //   openModal();
   // };
+  const { setModalContent } = useModal();
+  const sessionUser = useSelector((state) => {
+    return state?.session?.user;
+  });
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const handlePinClick = (pin) => {
+    console.log(pin, "pin selected button *****");
+    setModalContent(<AddToBoardOptionsModal pin={pin} user={user} />);
+    openModal();
+  };
+
   return (
     <div>
       {" "}
@@ -27,6 +49,18 @@ const SearchResults = () => {
             {pins?.map((pin) => {
               return (
                 <div className="pins">
+                  {sessionUser ? (
+                    <div className="pin-to-board">
+                      <button
+                        className="pin-to-board-button"
+                        onClick={() => handlePinClick(pin)}
+                      >
+                        Save
+                      </button>
+                    </div>
+                  ) : (
+                    <br />
+                  )}
                   <div className="grid-wrapper">
                     <div>
                       <NavLink to={`/pins/${pin.id}`}>
