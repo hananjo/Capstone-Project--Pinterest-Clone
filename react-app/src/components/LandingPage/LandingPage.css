@@ -150,7 +150,24 @@ margin-bottom: 30px;
         width: 900px;
         columns: 5
     }
+
 }
+
+@media (min-width: 100px) and (max-width: 1600px) {
+    .your-pins-link {
+        margin-left: 120px;
+    }
+}
+
+@media (min-width: 100px) and (max-width: 1381px) {
+    .pin-to-board {
+        margin-left: 10000px;
+    }
+    .pin-name-landing-page {
+        margin-left: 10000px;
+    }
+}
+
 
 /* @media (max-width: 800px) {
     .nav-bar {
