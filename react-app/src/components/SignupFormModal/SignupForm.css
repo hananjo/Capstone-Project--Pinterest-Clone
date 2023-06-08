@@ -2,7 +2,7 @@
     margin: 30px;
     display: flex;
     flex-direction: column;
-    height: 400px;
+    height: 430px;
     width: 300px;
 }
 
@@ -14,7 +14,7 @@
 .sign-up-inputs-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     margin-top: -10px;
 }
 
@@ -23,13 +23,13 @@
     flex-direction: column;
     justify-content: center;
     border-radius: 5px;
-    width: 290px;
-    height: 25px;
-    background-color: rgb(243, 240, 240);
+    width: 250px;
+    height: 35px;
+    background: rgb(243, 241, 241)
 
 }
 .sign-up-form-button {
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     border: 2px solid black;
@@ -50,4 +50,38 @@
     color: rgb(213, 50, 50);
     margin-top: -18px;
     margin-bottom: 20px;
+    font-size: 14px;
+}
+
+
+.sign-up-inputs{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.sign-up-inputs input {
+    /* outline: none; */
+    padding: 0 20px;
+    background: rgb(243, 241, 241)
+
+}
+
+.sign-up-inputs label {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 18px;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.sign-up-inputs input:valid ~ label,
+.sign-up-inputs input:focus ~ label {
+    color:rgb(83, 75, 90);
+    transform: translateX(5px) translateY(-14px);
+    font-size: 12px;
+    padding: 0 10px;
+    background: white;
+   border-left: 1px solid black;
+   border-right: 1px solid black;
 }

@@ -43,22 +43,24 @@ function LoginFormModal() {
           </ul>
           <div className="log-in-inputs">
             <label className="email-and-input">
-              Email
+              {/* Email */}
               <input
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+              <label>Email</label>
             </label>
             <label className="password-and-input">
-              Password
+              {/* Password */}
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <label>Password</label>
             </label>
 
             <button className="login-form-button" type="submit">

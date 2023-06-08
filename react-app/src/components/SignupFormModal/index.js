@@ -53,40 +53,44 @@ function SignupFormModal() {
           </ul>
           <div className="sign-up-inputs-container">
             <label className="sign-up-inputs">
-              Email
+              {/* Email */}
               <input
                 type="text"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
+              <label>Email</label>
             </label>
             <label className="sign-up-inputs">
-              Username
+              {/* Username */}
               <input
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
+              <label>Username</label>
             </label>
             <label className="sign-up-inputs">
-              Password
+              {/* Password */}
               <input
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <label>Password</label>
             </label>
             <label className="sign-up-inputs">
-              Confirm Password
+              {/* Confirm Password */}
               <input
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
+              <label>Confirm Password</label>
             </label>
 
             <button className="sign-up-form-button" type="submit">

@@ -40,16 +40,17 @@
 
 .create-pin-image-size-input select{
     width: 650px;
-    height: 40px;
+    height: 35px;
     border-radius: 10px;
     font-size: 18px;
+    background: rgb(243, 241, 241)
     /* background-color: rgb(239, 237, 235); */
 
 }
 
 .create-pin-image-input input {
     width: 600px;
-    height: 40px;
+    height: 35px;
     border-radius: 10px;
     font-size: 18px;
     background-color: rgb(239, 237, 235);
@@ -58,7 +59,7 @@
 
 .create-pin-keyword-input input {
     width: 600px;
-    height: 40px;
+    height: 35px;
     border-radius: 10px;
     font-size: 18px;
     background-color: rgb(239, 237, 235);
@@ -66,7 +67,7 @@
 
 .create-pin-description-input input {
     width: 600px;
-    height: 40px;
+    height: 35px;
     border-radius: 10px;
     font-size: 18px;
     background-color: rgb(239, 237, 235);
@@ -74,7 +75,7 @@
 
 .create-pin-name-input input {
     width: 600px;
-    height: 40px;
+    height: 35px;
     border-radius: 10px;
     font-size: 18px;
     background-color: rgb(239, 237, 235);
@@ -109,7 +110,7 @@
 .create-pin-name-input input {
     /* outline: none; */
     padding: 0 20px;
-    background: transparent;
+    background: rgb(243, 241, 241)
 
 }
 
@@ -142,7 +143,7 @@
 .create-pin-description-input input {
     /* outline: none; */
     padding: 0 20px;
-    background: transparent;
+    background: rgb(243, 241, 241)
 
 }
 
@@ -176,7 +177,7 @@
 .create-pin-keyword-input input {
     /* outline: none; */
     padding: 0 20px;
-    background: transparent;
+    background: rgb(243, 241, 241)
 
 }
 
@@ -209,7 +210,7 @@
 .create-pin-image-input input {
     /* outline: none; */
     padding: 0 20px;
-    background: transparent;
+    background: rgb(243, 241, 241)
 
 }
 
