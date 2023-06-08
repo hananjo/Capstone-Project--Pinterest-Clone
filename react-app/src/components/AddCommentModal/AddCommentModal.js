@@ -41,12 +41,17 @@ const AddCommentModal = ({ id }) => {
     <div className="add-comment-modal">
       <form onSubmit={handleSubmit}>
         <div className="add-comment-input">
-          <p className="add-comment-title">Leave a comment for this pin:</p>
+          {/* <p className="add-comment-title">Leave a comment for this pin:</p> */}
           <textarea
-            placeholder="Type your comment here..."
+            // placeholder="Type your comment here..."
+            type="text"
+            style={{ width: "260px" }}
+            required
             value={comment}
             onChange={(e) => setComment(e.target.value)}
-          ></textarea>
+          />
+          <label>Comment</label>
+
           <div className="errors">
             {errors?.includes("Comment field cannot be empty") && (
               <div>Comment field cannot be empty</div>

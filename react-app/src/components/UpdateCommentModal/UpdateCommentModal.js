@@ -34,6 +34,7 @@ const UpdateCommentModal = ({ pinId, id }) => {
           <p className="add-comment-title">Edit your comment for this pin:</p>
           <textarea
             placeholder="Type your comment here..."
+            style={{ width: "260px" }}
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           ></textarea>
