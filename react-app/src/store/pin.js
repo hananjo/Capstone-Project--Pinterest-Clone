@@ -39,6 +39,7 @@ export const getPinDetails = (id) => async (dispatch) => {
 };
 
 export const addNewPin = (data) => async (dispatch) => {
+  // console.log(data, "DATA****");
   const response = await fetch("/api/pins/", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

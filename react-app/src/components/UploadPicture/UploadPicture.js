@@ -1,4 +1,5 @@
 // import React, { useState } from "react";
+// import { useDispatch } from "react-redux";
 // import { useHistory } from "react-router-dom";
 
 // const UploadPicture = () => {
@@ -7,6 +8,7 @@
 //   const [imageLoading, setImageLoading] = useState(false);
 
 //   const handleSubmit = async (e) => {
+//     const dispatch = useDispatch();
 //     e.preventDefault();
 //     const formData = new FormData();
 //     formData.append("image", image);
@@ -15,14 +17,17 @@
 //     // some sort of loading message is a good idea
 //     setImageLoading(true);
 
-//     const res = await fetch("/api/images", {
+//     const res = await fetch("/api/pins/images/url", {
 //       method: "POST",
 //       body: formData,
 //     });
 //     if (res.ok) {
-//       await res.json();
+//       let url = await res.json();
+//       let image = url.url;
 //       setImageLoading(false);
-//       history.push("/images");
+
+//       await disp;
+//       history.push("/");
 //     } else {
 //       setImageLoading(false);
 //       // a real app would probably use more advanced

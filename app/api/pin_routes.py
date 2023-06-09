@@ -4,6 +4,9 @@ from flask_login import login_required, current_user
 from app.forms.pin_form import PinForm
 from app.forms.image_form import ImageForm
 from app.forms.comment_form import CommentForm
+# from app.forms.image_url_form import ImageUrlForm
+
+# from app.aws import upload_file_to_s3, get_unique_filename
 pin_routes = Blueprint('pins', __name__)
 
 @pin_routes.route('/')
@@ -72,6 +75,53 @@ def add_new_pin():
 
         return new_pin.to_dict()
     return None
+
+# @pin_routes.route('/images/url', methods=['POST'])
+# def get_url():
+#     form = ImageUrlForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     if form.validate_on_submit():
+#         image = form.data['image']
+#         image.filename = get_unique_filename(image.filename)
+#         upload = upload_file_to_s3(image)
+#     print(upload, '******************')
+#         return upload
+
+# @pin_routes.route('/', methods=['POST'])
+# def add_new_pin():
+#     form = PinForm()
+
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     if form.validate_on_submit():
+#         name = form.name.data
+#         description = form.description.data
+#         user_id = form.user_id.data
+#         keyword = form.keyword.data
+
+#         new_pin = Pin (
+#             name=name,
+#             description=description,
+#             user_id=user_id,
+#             keyword=keyword
+#         )
+
+
+#         size = form.size.data
+#         data = request.json
+#         url = data['image']
+
+#         new_image = Image(
+#             image_url=url,
+#             size=size
+#             )
+#             # db.session.add(new_image)
+#         new_pin.image.append(new_image)
+#         db.session.add(new_pin)
+#         db.session.commit()
+
+#         return new_pin.to_dict()
+#     return None
+
 
 # @pin_routes.route('/search', methods=['POST'])
 # def search_pins():

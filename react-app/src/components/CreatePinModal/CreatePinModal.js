@@ -69,9 +69,13 @@ const CreatePinModal = () => {
     }
     setErrors(validationErrors);
   }, [name, description, keyword, size, image]);
+  // const [image, setImage] = useState(null);
+  // const [imageLoading, setImageLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // const formData = new FormData();
+    // formData.append("image", image);
 
     if (!errors.length) {
       const pinFormInput = {
@@ -82,9 +86,11 @@ const CreatePinModal = () => {
         image_url: image,
         size: size,
       };
+      //aws add in
+      // let addedNewPin;
+      // addedNewPin = await dispatch(addNewPin(pinFormInput, user));
+      //aws addin
 
-      let addedNewPin;
-      addedNewPin = await dispatch(addNewPin(pinFormInput, user));
       //   closeModal();
       // if (selectedBoard) {
       //   console.log(selectedBoard, "SET SELECTED BOARD VALUE****");
@@ -95,6 +101,34 @@ const CreatePinModal = () => {
       //   alert("Select a board first");
       // }
 
+      //aws addin
+      // const res = await fetch("/api/pins/images/url", {
+      //   method: "POST",
+      //   body: formData,
+      // });
+      // if (res.ok) {
+      //   let url = await res.json();
+      //   console.log(url, "***URL***");
+      //   let image = url.url;
+      //   const pinFormInput = {
+      //     name,
+      //     description,
+      //     keyword,
+      //     user_id: user,
+      //     image_url: image,
+      //     size: size,
+      //   };
+      //   let addedNewPin;
+      //   addedNewPin = await dispatch(addNewPin(pinFormInput, user));
+
+      // if (addedNewPin) {
+      //   history.push(`/pins/${addedNewPin.id}`);
+      // }
+      //aws addin
+
+      // }
+      let addedNewPin;
+      addedNewPin = await dispatch(addNewPin(pinFormInput, user));
       if (addedNewPin) {
         history.push(`/pins/${addedNewPin.id}`);
       }
@@ -176,16 +210,13 @@ const CreatePinModal = () => {
               </div>
             </label>
             <label className="create-pin-image-input">
-              {/* <div className="post-pin-input-title">Upload an image</div> */}
               <input
                 style={{ height: "40px" }}
                 type="text"
                 required
                 name="image"
-                // placeholder="Post an image for your pin"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-                // className="image-input-area"
               />
               <label>Upload Image</label>
               <div className="errors">
@@ -239,6 +270,13 @@ const CreatePinModal = () => {
                 ; */}
             {/* </select>
             </label> */}
+
+            {/* <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImage(e.target.files[0])}
+            /> */}
+
             {/* <div>
               <UploadPicture />
             </div> */}
