@@ -7,21 +7,12 @@ import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsM
 import { getAllBoards } from "../../store/board";
 import "./LandingPage.css";
 
-// import SearchBar from "../SearchBar/SearchBar";
-// import { searchPins } from "../../store/search";
-
 const LandingPage = () => {
   const dispatch = useDispatch();
-
   const { setModalContent } = useModal();
-  // const history = useHistory()
   const [showModal, setShowModal] = useState(false);
-
   const [selectedPin, setSelectedPin] = useState(null);
-  //   const pins = useSelector((state) => {
-  //     return state?.pin;
-  //   });
-  //   console.log(pins, "PINS****");
+
   const sessionUser = useSelector((state) => {
     return state?.session?.user;
   });
@@ -31,15 +22,12 @@ const LandingPage = () => {
   const boards = useSelector((state) => {
     return Object.values(state?.board);
   });
-
-  console.log(boards, "*****BOARDS OPTIONS***");
   const user = useSelector((state) => {
     return state?.session?.user?.id;
   });
 
   useEffect(() => {
     dispatch(getAllPins());
-
     if (user) {
       dispatch(getAllBoards(user));
     }
