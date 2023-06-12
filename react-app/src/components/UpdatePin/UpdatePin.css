@@ -115,9 +115,11 @@
     color: white;
     font-weight: bold;
     padding: 10px;
-    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 10px;
 }
 
 .edit-pin-save-button:hover {
-    background-color: rgb(172, 170, 170);
+    background-color: rgb(136, 42, 42);
 }

@@ -212,3 +212,10 @@ margin-top: 20px;
 .social-handles {
     width: 20px;
 }
+
+.user-bio {
+    display: flex;
+    justify-content: center;
+    font-size: 15px;
+    color: gray
+}

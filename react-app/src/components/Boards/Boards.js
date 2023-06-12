@@ -136,6 +136,7 @@ const Boards = () => {
             </div>
           </div>
           <div className="demo-username">username: demo@aa.io</div>
+          <div className="user-bio">{user?.bio}</div>
           <div className="adding-pins-and-boards-container">
             <div className="create-button">
               <img

@@ -83,6 +83,7 @@ function Navigation({ isLoaded }) {
               </form>
             </div>
           </li>
+          {/* <div className="nav-icons-container"> */}
           <li>
             {sessionUser && user ? (
               <div className="user-icon">
@@ -107,6 +108,7 @@ function Navigation({ isLoaded }) {
               </li>
             </div>
           )}
+          {/* </div> */}
         </div>
       </ul>
     </div>

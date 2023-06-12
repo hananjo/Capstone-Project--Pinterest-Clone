@@ -1,5 +1,6 @@
 .landing-page {
     padding: 0px 180px;
+
 }
 
 .landing-page {
@@ -91,6 +92,8 @@ width: 200px;
 
 .pin-create-button {
     margin-bottom: -20px;
+
+
 }
 
 .pin-create-button:hover {
@@ -104,6 +107,7 @@ justify-content: flex-end;
 margin-right: 50px;
 margin-top: -30px;
 margin-bottom: 30px;
+
 
 
 }

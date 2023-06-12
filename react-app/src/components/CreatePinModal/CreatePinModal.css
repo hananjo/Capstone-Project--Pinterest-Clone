@@ -39,11 +39,12 @@
 }
 
 .create-pin-image-size-input select{
-    width: 650px;
+    width: 645px;
     height: 35px;
     border-radius: 10px;
     font-size: 18px;
-    background: rgb(243, 241, 241)
+    background: rgb(243, 241, 241);
+    color: rgb(120, 118, 118);
     /* background-color: rgb(239, 237, 235); */
 
 }
@@ -99,18 +100,25 @@
 
 .post-pin-save-button:hover {
     background-color: rgb(136, 42, 42);
+
     /* background-color: rgb(172, 170, 170); */
+}
+
+.post-pin-input-title {
+    margin-top: -10px;
 }
 
 .create-pin-name-input{
     position: relative;
     margin-bottom: 20px;
+
 }
 
 .create-pin-name-input input {
     /* outline: none; */
     padding: 0 20px;
-    background: rgb(243, 241, 241)
+    background: rgb(243, 241, 241);
+
 
 }
 
@@ -120,6 +128,7 @@
     left: 20px;
     font-size: 18px;
     pointer-events: none;
+    color: rgb(120, 118, 118);
     transition: 0.5s;
 }
 
@@ -153,6 +162,7 @@
     left: 20px;
     font-size: 18px;
     pointer-events: none;
+    color: rgb(120, 118, 118);
     transition: 0.5s;
 }
 
@@ -187,6 +197,7 @@
     left: 20px;
     font-size: 18px;
     pointer-events: none;
+    color: rgb(120, 118, 118);
     transition: 0.5s;
 }
 
@@ -220,6 +231,7 @@
     left: 20px;
     font-size: 18px;
     pointer-events: none;
+    color: rgb(120, 118, 118);
     transition: 0.5s;
 }
 

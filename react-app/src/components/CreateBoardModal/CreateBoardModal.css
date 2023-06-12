@@ -36,17 +36,17 @@
 }
 
 .create-board-submit-button {
-    background-color: white;
-    border: 1px solid black;
+    background-color: red;
+    /* border: 1px solid black; */
     border-radius: 7px;
     padding: 8px;
-    color: black;
+    color: white;
     font-weight: bold;
     margin-top: 20px;
 }
 
 .create-board-submit-button:hover {
-    background-color: red;
+    background-color: rgb(136, 42, 42);
     color: white;
 }
 
@@ -68,6 +68,7 @@
     left: 20px;
     font-size: 18px;
     pointer-events: none;
+    color: rgb(120, 118, 118);
     transition: 0.5s;
 }
 
@@ -103,6 +104,7 @@
     left: 20px;
     font-size: 18px;
     pointer-events: none;
+    color: rgb(120, 118, 118);
     transition: 0.5s;
 }
 
