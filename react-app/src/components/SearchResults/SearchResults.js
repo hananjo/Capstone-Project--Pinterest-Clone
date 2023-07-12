@@ -77,7 +77,7 @@ const SearchResults = () => {
                 </div>
               );
             })}
-            ;
+            <div style={{ color: "white" }}>;</div>
           </div>
         </div>
       ) : (
