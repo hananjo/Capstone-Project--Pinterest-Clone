@@ -141,6 +141,13 @@ margin-bottom: 30px;
     }
 }
 
+.loader-landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
 @media (min-width: 701px) and (max-width: 1000px ) {
     .pins-container {
         width: 750px;

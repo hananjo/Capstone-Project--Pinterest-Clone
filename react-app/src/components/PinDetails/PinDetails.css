@@ -188,7 +188,18 @@
     font-size: 18px;
     color: gray
 }
+.loading{
+    font-size: 28px;
+    font-weight: bold;
+}
+.loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -30px;
+    /* margin-left: -20px;  */
 
+}
 @media (min-width: 1000px) and (max-width: 1159px) {
     .pin-to-board-button-pin-detail {
         margin-left: 550px;

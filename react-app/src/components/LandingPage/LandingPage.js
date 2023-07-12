@@ -6,13 +6,13 @@ import { useModal } from "../../context/Modal";
 import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
 import { getAllBoards } from "../../store/board";
 import "./LandingPage.css";
-
+import BarLoader from "react-spinners/BarLoader";
 const LandingPage = () => {
   const dispatch = useDispatch();
   const { setModalContent } = useModal();
   const [showModal, setShowModal] = useState(false);
   const [selectedPin, setSelectedPin] = useState(null);
-
+  const [loading, setLoading] = useState(false);
   const sessionUser = useSelector((state) => {
     return state?.session?.user;
   });
@@ -32,6 +32,21 @@ const LandingPage = () => {
       dispatch(getAllBoards(user));
     }
   }, [dispatch, user]);
+
+  // useEffect(() => {
+  //   window.onload = () => {
+  //     setLoading(true);
+  //     setTimeout(() => {
+  //       setLoading(false);
+  //     }, 500);
+  //   };
+  // }, []);
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 350);
+  }, []);
 
   const openModal = () => {
     setShowModal(true);
@@ -82,7 +97,19 @@ const LandingPage = () => {
             </div>
           );
         })} */}
-        {sessionUser && user ? (
+        {loading ? (
+          <>
+            <div className="loader-landing">
+              <p className="loading">Loading...</p>
+              <BarLoader
+                color="#f32420"
+                height={10}
+                speedMultiplier={1}
+                width={200}
+              />
+            </div>
+          </>
+        ) : sessionUser && user ? (
           <div>
             <div className="your-pins">
               <NavLink className="your-pins-link" to={`/your-pins`}>

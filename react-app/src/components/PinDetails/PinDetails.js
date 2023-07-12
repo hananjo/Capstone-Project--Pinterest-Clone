@@ -10,14 +10,17 @@ import DeleteCommentModal from "../DeleteCommentModal/DeleteCommentModal";
 import DeletePinModal from "../DeletePinModal/DeletePinModal";
 import UpdatePin from "../UpdatePin/UpdatePin";
 import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
-
 import "./PinDetails.css";
+import BarLoader from "react-spinners/BarLoader";
+
 const PinDetails = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const { setModalContent } = useModal();
   const [showModal, setShowModal] = useState(false);
-
+  // const [isLoading, setIsLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [detailsExist, setDetailsExist] = useState(false);
   const pin = useSelector((state) => {
     return state?.pin?.details;
   });
@@ -36,6 +39,12 @@ const PinDetails = () => {
     dispatch(getAllComments(id));
   }, [dispatch, id]);
 
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1500);
+  }, []);
   // const comments = useSelector((state) => {
   //   return Object.values(state?.comment);
   // });
@@ -84,7 +93,19 @@ const PinDetails = () => {
 
   return (
     <div className="pin-detail-page-container">
-      {pin && pin?.id ? (
+      {loading ? (
+        <>
+          <div className="loader">
+            <p className="loading">Loading...</p>
+            <BarLoader
+              color="#f32420"
+              height={10}
+              speedMultiplier={1}
+              width={200}
+            />
+          </div>
+        </>
+      ) : pin && pin?.id ? (
         <div>
           {sessionUser ? (
             <div>
