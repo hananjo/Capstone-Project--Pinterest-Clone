@@ -24,6 +24,7 @@
     color: white;
     /* border: 1px solid black; */
     border-radius: 5px;
+    cursor: pointer;
 }
 .delete-yes-choices:hover{
     background-color: rgb(136, 42, 42);
@@ -36,6 +37,7 @@
     /* border: 1px solid black; */
     border-radius: 5px;
     width: 36px;
+    cursor: pointer;
 }
 
 .delete-no-choices:hover{

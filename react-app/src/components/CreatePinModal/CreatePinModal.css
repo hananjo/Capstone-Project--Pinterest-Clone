@@ -84,6 +84,7 @@
 
 .post-pin-save {
     margin-top: 20px;
+
 }
 
 .post-pin-save-button {
@@ -96,6 +97,7 @@
     padding-left: 20px;
     padding-right: 20px;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .post-pin-save-button:hover {

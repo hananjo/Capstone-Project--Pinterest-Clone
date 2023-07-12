@@ -43,6 +43,7 @@
     color: white;
     font-weight: bold;
     margin-top: 20px;
+    cursor: pointer;
 }
 
 .create-board-submit-button:hover {
