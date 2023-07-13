@@ -5,13 +5,17 @@ import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
 import { NavLink } from "react-router-dom/cjs/react-router-dom";
+import { useSelector } from "react-redux";
 import "./Navigation.css";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
-
+  const sessionUser = useSelector((state) => state?.session?.user);
+  const userId = useSelector((state) => {
+    return state?.session?.user?.id;
+  });
   const openMenu = () => {
     if (showMenu) return;
     setShowMenu(true);
@@ -21,7 +25,7 @@ function ProfileButton({ user }) {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      if (!ulRef.current.contains(e.target)) {
+      if (!ulRef.current?.contains(e.target)) {
         setShowMenu(false);
       }
     };
@@ -53,10 +57,10 @@ function ProfileButton({ user }) {
       </div>
       {/* </button> */}
       <ul className={ulClassName} ref={ulRef}>
-        {user ? (
+        {sessionUser && userId ? (
           <>
             <div className="logout-container">
-              <NavLink to={`/${user}/boards`}>
+              <NavLink to={`/${userId}/boards`}>
                 <img
                   style={{
                     clipPath: "circle(41%)",

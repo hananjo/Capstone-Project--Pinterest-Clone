@@ -114,6 +114,7 @@ const boardReducer = (state = initialState, action) => {
       delete deleteNewState[action.board.id];
       return deleteNewState;
     case ADD_PIN_TO_BOARD:
+      console.log(action.pinId, "*********ACTIONPINID");
       return {
         ...state,
         [action.boardId]: {
