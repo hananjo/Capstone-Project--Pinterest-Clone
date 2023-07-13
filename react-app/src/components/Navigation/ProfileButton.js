@@ -4,6 +4,7 @@ import { logout } from "../../store/session";
 import OpenModalButton from "../OpenModalButton";
 import LoginFormModal from "../LoginFormModal";
 import SignupFormModal from "../SignupFormModal";
+import { NavLink } from "react-router-dom/cjs/react-router-dom";
 import "./Navigation.css";
 
 function ProfileButton({ user }) {
@@ -55,6 +56,15 @@ function ProfileButton({ user }) {
         {user ? (
           <>
             <div className="logout-container">
+              <NavLink to={`/${user}/boards`}>
+                <img
+                  style={{
+                    clipPath: "circle(41%)",
+                    width: "40px",
+                  }}
+                  src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685589422/16147095-2CE2-4AA6-AA9E-D2F1B47D7CE6_qpx5kd.png"
+                />
+              </NavLink>
               <li>{user.username}</li>
               <li>{user.email}</li>
               <li>

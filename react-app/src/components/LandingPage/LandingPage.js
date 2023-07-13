@@ -116,6 +116,11 @@ const LandingPage = () => {
                 Your Pins &gt;
               </NavLink>
             </div>
+            {/* <div className="your-pins">
+              <NavLink className="your-pins-link" to={`/${user}/boards`}>
+                Your Boards &gt;
+              </NavLink>
+            </div> */}
             <div className="pin-create-button-container">
               {/* <NavLink to={`/${user}/boards`}>Profile</NavLink> */}
 

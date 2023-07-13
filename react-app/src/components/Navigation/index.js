@@ -85,7 +85,7 @@ function Navigation({ isLoaded }) {
           </li>
           {/* <div className="nav-icons-container"> */}
           <li>
-            {sessionUser && user ? (
+            {/* {sessionUser && user ? (
               <div className="user-icon">
                 <NavLink to={`/${user}/boards`}>
                   <img
@@ -99,7 +99,7 @@ function Navigation({ isLoaded }) {
               </div>
             ) : (
               <br />
-            )}
+            )} */}
           </li>
           {isLoaded && (
             <div className="profile-button">
