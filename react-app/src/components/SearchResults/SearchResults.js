@@ -81,9 +81,29 @@ const SearchResults = () => {
           </div>
         </div>
       ) : (
-        <div className="search-handle-error-container">
-          <div className="search-handle-error">
-            No pins were associated with that keyword
+        <div>
+          <div className="search-handle-error-container">
+            <div className="search-handle-error">
+              No pins were associated with that keyword
+            </div>
+          </div>
+          <div
+            style={{
+              textAlign: "center",
+              marginTop: "20px",
+              marginLeft: "-20px",
+            }}
+          >
+            <NavLink to="/">
+              <i
+                style={{ color: "red" }}
+                class="fa fa-arrow-circle-left"
+                aria-hidden="true"
+              >
+                {" "}
+                Return to homepage
+              </i>
+            </NavLink>
           </div>
         </div>
       )}
