@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router-dom";
+
 import { useModal } from "../../context/Modal";
 import { updateBoard, getAllBoards } from "../../store/board";
 
 const UpdateBoardForm = ({ boardId, userId }) => {
-  console.log(userId, boardId, "******BOARD*****USERID******ID****");
-  // const history = useHistory();
+
+
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  //   const { id } = useParams();
+
 
   const user = useSelector((state) => {
     return state.session.user.id;
@@ -19,9 +19,7 @@ const UpdateBoardForm = ({ boardId, userId }) => {
     return state?.board;
   });
 
-  // const boards = useSelector((state) => {
-  //   return Object.values(state?.board);
-  // });
+
 
   const [name, setName] = useState(boards[boardId]?.name || "");
   const [description, setDescription] = useState(
@@ -49,8 +47,7 @@ const UpdateBoardForm = ({ boardId, userId }) => {
         description,
         user_id: userId,
       };
-      console.log(boardFormInput, "*****BOARDFORMINPUT****");
-      //   console.log(boardFormInput, "BOARD FORM INPUT");
+
       let updatedBoard;
       updatedBoard = await dispatch(
         updateBoard(userId, boardId, boardFormInput)

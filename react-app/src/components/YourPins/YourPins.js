@@ -5,7 +5,6 @@ import { NavLink, useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useModal } from "../../context/Modal";
 import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
 import { getAllBoards } from "../../store/board";
-// import "./YourPins.css";
 
 const YourPins = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,6 @@ const YourPins = () => {
     return Object.values(state?.board);
   });
 
-  console.log(boards, "*****BOARDS OPTIONS***");
   const user = useSelector((state) => {
     return state?.session?.user?.id;
   });
@@ -44,7 +42,6 @@ const YourPins = () => {
   };
 
   const handlePinClick = (pin) => {
-    console.log(pin, "pin selected button *****");
     setModalContent(<AddToBoardOptionsModal pin={pin} user={user} />);
     openModal();
   };
@@ -86,15 +83,11 @@ const YourPins = () => {
                     <br />
                   )}
 
-                  <NavLink
-                    //   key={pin?.id}
-                    to={`/pins/${pin.id}`}
-                  >
+                  <NavLink to={`/pins/${pin.id}`}>
                     <div className="grid-wrapper">
                       <div className="pin-photos">
                         <img
                           src={pin && pin?.images && pin?.images[0]?.image_url}
-                          // style={{ width: "250px", height: "280px" }}
                           className="pin-images"
                         />
                       </div>

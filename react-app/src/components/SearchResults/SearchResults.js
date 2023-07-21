@@ -8,8 +8,6 @@ import "./SearchResults.css";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 const SearchResults = () => {
   const [showModal, setShowModal] = useState(false);
-  // const [showModal, setShowModal] = useState(false);
-  // const { setModalContent } = useModal();
   const pins = useSelector((state) => {
     return Object.values(state?.searches);
   });
@@ -17,14 +15,7 @@ const SearchResults = () => {
   const user = useSelector((state) => {
     return state?.session?.user?.id;
   });
-  // const openModal = () => {
-  //   setShowModal(true);
-  // };
 
-  // const handleSearch = () => {
-  //   setModalContent(<SearchBar />);
-  //   openModal();
-  // };
   const { setModalContent } = useModal();
   const sessionUser = useSelector((state) => {
     return state?.session?.user;
@@ -35,7 +26,7 @@ const SearchResults = () => {
   };
 
   const handlePinClick = (pin) => {
-    console.log(pin, "pin selected button *****");
+
     setModalContent(<AddToBoardOptionsModal pin={pin} user={user} />);
     openModal();
   };

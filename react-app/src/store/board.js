@@ -45,7 +45,7 @@ export const getAllBoards = (id) => async (dispatch) => {
   const response = await fetch(`/api/users/${id}/boards`);
   if (response.ok) {
     const list = await response.json();
-    console.log(list, "*****list");
+
     dispatch(loadBoard(list));
   }
 };
@@ -86,7 +86,7 @@ export const updateBoard = (userId, id, data) => async (dispatch) => {
 };
 
 export const deleteBoard = (userId, id) => async (dispatch) => {
-  console.log(userId, id, "THUNK DELETE");
+
   const response = await fetch(`/api/users/${userId}/boards/${id}`, {
     method: "DELETE",
   });
@@ -114,7 +114,6 @@ const boardReducer = (state = initialState, action) => {
       delete deleteNewState[action.board.id];
       return deleteNewState;
     case ADD_PIN_TO_BOARD:
-      console.log(action.pinId, "*********ACTIONPINID");
       return {
         ...state,
         [action.boardId]: {

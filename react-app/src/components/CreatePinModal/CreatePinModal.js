@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { getAllBoards } from "../../store/board";
 import { addNewPin, getAllPins, getPinDetails } from "../../store/pin";
+// import { validateImage } from "image-validator";
 import { addPinToBoard } from "../../store/board";
 import "./CreatePinModal.css";
 import { getAllComments } from "../../store/comments";
@@ -15,7 +16,6 @@ const CreatePinModal = () => {
   const dispatch = useDispatch();
   const { closeModal } = useModal();
   const { id } = useParams();
-  // const { setModalContent } = useModal();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [keyword, setKeyword] = useState("");
@@ -34,11 +34,6 @@ const CreatePinModal = () => {
   const user = useSelector((state) => {
     return state?.session?.user?.id;
   });
-
-  // const handleBoardOptions = (e) => {
-  //   setSelectedBoard(e.target.value);
-  //   console.log(setSelectedBoard, "SET SELECTED BOARD VALUE****");
-  // };
 
   useEffect(() => {
     dispatch(getAllBoards(user));
@@ -69,13 +64,11 @@ const CreatePinModal = () => {
     }
     setErrors(validationErrors);
   }, [name, description, keyword, size, image]);
-  // const [image, setImage] = useState(null);
-  // const [imageLoading, setImageLoading] = useState(false);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append("image", image);
+
 
     if (!errors.length) {
       const pinFormInput = {
@@ -86,6 +79,7 @@ const CreatePinModal = () => {
         image_url: image,
         size: size,
       };
+
       //aws add in
       // let addedNewPin;
       // addedNewPin = await dispatch(addNewPin(pinFormInput, user));
@@ -150,12 +144,10 @@ const CreatePinModal = () => {
             </div>
 
             <div className="create-pin-name-input">
-              {/* <div className="post-pin-input-title">Name:</div> */}
               <input
                 type="text"
                 required
                 name="name"
-                // placeholder="Add your title"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -167,12 +159,10 @@ const CreatePinModal = () => {
               </div>
             </div>
             <label className="create-pin-description-input">
-              {/* <div className="post-pin-input-title">Description:</div> */}
               <input
                 type="text"
                 required
                 name="description"
-                // placeholder="Tell everyone what your pin is about"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
@@ -184,16 +174,10 @@ const CreatePinModal = () => {
               </div>
             </label>
             <label className="create-pin-keyword-input">
-              {/* <div className="post-pin-input-title">Keywords:</div> */}
-              {/* <div>
-                For search purposes, list some keywords that users might use to
-                discover your picture
-              </div> */}
               <input
                 type="text"
                 required
                 name="keyword"
-                // placeholder="List keywords here"
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
               />
@@ -213,6 +197,8 @@ const CreatePinModal = () => {
               <input
                 style={{ height: "40px" }}
                 type="text"
+                // type="file"
+                accept="image/*"
                 required
                 name="image"
                 value={image}

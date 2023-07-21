@@ -33,14 +33,7 @@ const LandingPage = () => {
     }
   }, [dispatch, user]);
 
-  // useEffect(() => {
-  //   window.onload = () => {
-  //     setLoading(true);
-  //     setTimeout(() => {
-  //       setLoading(false);
-  //     }, 500);
-  //   };
-  // }, []);
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -51,52 +44,20 @@ const LandingPage = () => {
   const openModal = () => {
     setShowModal(true);
   };
-  //   const handleBoardOptions = (pin) => {
-  //     console.log(pin, "pin selected in handler******");
-  //     setSelectedPin(pin);
-  //     // setModalContent(<AddToBoardOptionsModal pin={selectedPin} user={user} />);
-  //     openModal();
-  //   };
+
 
   const handlePinClick = (pin) => {
-    console.log(pin, "pin selected button *****");
-    // setSelectedPin(pin);
-    // console.log(selectedPin, "SELECTED PIN LANDING PAGE***");
+
+
     setModalContent(<AddToBoardOptionsModal pin={pin} user={user} />);
     openModal();
   };
 
-  // const handleSearchClick = () => {
-  //   setModalContent(<SearchBar />);
-  //   openModal();
-  // };
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   dispatch(searchPins(keyword));
-  //   history.push("/search");
-  //   // closeModal();
-  // };
+
 
   return (
     <div className="landing-page">
       <div>
-        {/* {boards?.map((board) => {
-          return (
-            <div>
-              {board.name}
-              {board && board.pins[0] ? (
-                board?.pins[0]?.images[0]?.image_url
-              ) : (
-                <div>
-                  <img
-                    style={{ width: "100px" }}
-                    src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685677596/placeholder_image_e63dos.jpg"
-                  />
-                </div>
-              )}
-            </div>
-          );
-        })} */}
         {loading ? (
           <>
             <div className="loader-landing">
@@ -116,14 +77,8 @@ const LandingPage = () => {
                 Your Pins &gt;
               </NavLink>
             </div>
-            {/* <div className="your-pins">
-              <NavLink className="your-pins-link" to={`/${user}/boards`}>
-                Your Boards &gt;
-              </NavLink>
-            </div> */}
-            <div className="pin-create-button-container">
-              {/* <NavLink to={`/${user}/boards`}>Profile</NavLink> */}
 
+            <div className="pin-create-button-container">
               <NavLink to={`/create-pin`}>
                 <img
                   className="pin-create-button"
@@ -138,24 +93,10 @@ const LandingPage = () => {
         )}
       </div>
 
-      {/* <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={keyword}
-            placeholder="Search pins"
-            onChange={(e) => setKeyword(e.target.value)}
-          ></input>
-          <button>Search</button>
-        </form> */}
-      {/* <button onClick={() => handleSearchClick()}>Search</button> */}
       <div className="pins-container">
         {pins?.map((pin) => {
           return (
             <div className="pins">
-              {/* <button onClick={handleBoardOptions()}>Add Pin to Board</button> */}
-              {/* <button onClick={() => setShowModal(true)}>
-                Add Pin to Board
-              </button> */}
               {sessionUser ? (
                 <div className="pin-to-board">
                   <button
@@ -170,14 +111,13 @@ const LandingPage = () => {
               )}
 
               <NavLink
-                //   key={pin?.id}
+
                 to={`/pins/${pin.id}`}
               >
                 <div className="grid-wrapper">
                   <div className="pin-photos">
                     <img
                       src={pin && pin?.images && pin?.images[0]?.image_url}
-                      // style={{ width: "250px", height: "280px" }}
                       className="pin-images"
                     />
                   </div>

@@ -27,9 +27,7 @@ def user(id):
 
 @user_routes.route('<int:id>/boards')
 def boards(id):
-    # print(id, '***********')
     boardsQuery = Board.query.filter(Board.user_id == id)
-    # print(boardsQuery, '***boards****')
     boards = boardsQuery.all()
     boardCategories = []
     if(len(boards) > 0):
@@ -53,7 +51,6 @@ def board_details(userId, id):
 # @login_required
 
 def create_board(id):
-    # data=request.json
     user = User.query.get(id)
     print(id, user, 'PRINT ID****************')
     form = BoardForm()
@@ -87,7 +84,6 @@ def add_pin_to_board(userId, boardId, pinId):
 
     if added_pin not in board.pin:
         board.pin.append(added_pin)
-        # db.session.add(board)
         db.session.commit()
         return board.to_dict()
 

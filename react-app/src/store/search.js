@@ -6,13 +6,13 @@ const searchKeywords = (pins) => ({
 });
 
 export const searchPins = (keyword) => async (dispatch) => {
-  console.log(keyword, "KEYWORD*****");
+
   const response = await fetch("/api/pins/search", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ keyword }),
   });
-  console.log(response, "@@@@@@@ RESPONSE*****");
+
   if (response.ok) {
     const pins = await response.json();
     dispatch(searchKeywords(pins));

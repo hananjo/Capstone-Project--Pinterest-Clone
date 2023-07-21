@@ -18,7 +18,6 @@ const PinDetails = () => {
   const { id } = useParams();
   const { setModalContent } = useModal();
   const [showModal, setShowModal] = useState(false);
-  // const [isLoading, setIsLoading] = useState(true);
   const [loading, setLoading] = useState(false);
   const [detailsExist, setDetailsExist] = useState(false);
   const pin = useSelector((state) => {
@@ -31,8 +30,6 @@ const PinDetails = () => {
   const user = useSelector((state) => {
     return state?.session?.user?.id;
   });
-  console.log(pin, "PINS****");
-  console.log(pin?.description, "PIN.NAME");
 
   useEffect(() => {
     dispatch(getPinDetails(id));
@@ -45,16 +42,11 @@ const PinDetails = () => {
       setLoading(false);
     }, 1500);
   }, []);
-  // const comments = useSelector((state) => {
-  //   return Object.values(state?.comment);
-  // });
+
   const comments = useSelector((state) => {
     return state?.pin?.details?.comments;
   });
-  console.log(comments, "COMMENTS");
-  //   const pins = useSelector((state) => {
-  //     return Object.values(state?.pin);
-  //   });
+
   const openModal = () => {
     setShowModal(true);
   };
@@ -62,10 +54,8 @@ const PinDetails = () => {
   const handleAddComment = () => {
     setModalContent(<AddCommentModal id={id} />);
     openModal();
-    // dispatch(getAllComments(id));
   };
   const handleEditComment = (pinId, id) => {
-    console.log(pinId, id, "@@@@PINID AND ID @@@@@");
     setModalContent(<UpdateCommentModal pinId={pinId} id={id} />);
     openModal();
   };
@@ -84,9 +74,6 @@ const PinDetails = () => {
   };
 
   const handlePinClick = (pin) => {
-    console.log(pin, "pin selected button *****");
-    // setSelectedPin(pin);
-    // console.log(selectedPin, "SELECTED PIN LANDING PAGE***");
     setModalContent(<AddToBoardOptionsModal pin={pin} user={user} />);
     openModal();
   };
@@ -124,7 +111,6 @@ const PinDetails = () => {
               <img
                 className="pin-detail-image-2"
                 src={pin && pin?.images && pin?.images[0]?.image_url}
-                // style={{ width: "450px", height: "400px" }}
               />
             </div>
 
@@ -166,7 +152,6 @@ const PinDetails = () => {
                     {comments &&
                       comments.map((comment) => {
                         return (
-                          // <div className="pin-comments">
                           <div key={comment.id}>
                             <div className="avatars-and-comment">
                               <div className="avatars">
@@ -239,7 +224,6 @@ const PinDetails = () => {
                               )}
                             </div>
                           </div>
-                          // </div>
                         );
                       })}
                   </div>

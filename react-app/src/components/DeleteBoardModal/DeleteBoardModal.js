@@ -3,7 +3,6 @@ import { useModal } from "../../context/Modal";
 import { deleteBoard, getAllBoards } from "../../store/board";
 
 const DeleteBoardModal = ({ boardId, userId }) => {
-  console.log(boardId, userId, "*****DELETE *******");
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 

@@ -10,7 +10,7 @@ const UpdateCommentModal = ({ pinId, id }) => {
   const user = useSelector((state) => state.session.user.id);
 
   const commentSelected = useSelector((state) => state?.comment);
-  console.log(commentSelected, "SELECTED COMMENT STATE*****");
+
   const [comment, setComment] = useState(commentSelected[id]?.comment || "");
 
   const handleSubmit = async (e) => {
@@ -21,7 +21,7 @@ const UpdateCommentModal = ({ pinId, id }) => {
       user_id: user,
       pin_id: id,
     };
-    console.log(newCommentInput, "NEW COMMENT******");
+
     await dispatch(updateComment(pinId, id, newCommentInput));
     await dispatch(getPinDetails(pinId));
     closeModal();

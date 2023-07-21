@@ -30,7 +30,7 @@ const AddCommentModal = ({ id }) => {
         pin_id: id,
       };
 
-      console.log(newCommentInput, "NEW COMMENT******");
+
       await dispatch(addNewComment(newCommentInput, id));
       await dispatch(getPinDetails(id));
       closeModal();
@@ -41,9 +41,9 @@ const AddCommentModal = ({ id }) => {
     <div className="add-comment-modal">
       <form onSubmit={handleSubmit}>
         <div className="add-comment-input">
-          {/* <p className="add-comment-title">Leave a comment for this pin:</p> */}
+
           <textarea
-            // placeholder="Type your comment here..."
+
             type="text"
             style={{ width: "260px" }}
             required

@@ -28,11 +28,7 @@ function SignupFormModal() {
         "Confirm Password field must be the same as the Password field"
       );
     }
-    // else {
-    //   setErrors([
-    //     "Confirm Password field must be the same as the Password field",
-    //   ]);
-    // }
+
     if (!email.includes("@" && ".")) {
       validationErrors.push("Need a valid email address");
     }

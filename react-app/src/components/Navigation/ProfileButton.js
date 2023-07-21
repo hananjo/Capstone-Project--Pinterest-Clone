@@ -45,17 +45,13 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      {/* <button > */}
       <div className="profile-icon">
         <img
-          // className="profile-button"
           style={{ width: "40px" }}
           onClick={openMenu}
           src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685590785/profile-icon_ozzohk.png"
         />
-        {/* <i className="fas fa-user-circle" /> */}
       </div>
-      {/* </button> */}
       <ul className={ulClassName} ref={ulRef}>
         {sessionUser && userId ? (
           <>

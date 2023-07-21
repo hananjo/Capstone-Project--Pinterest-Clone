@@ -14,7 +14,7 @@ const Boards = () => {
   const { id } = useParams();
   const { setModalContent } = useModal();
   const [showMenu, setShowMenu] = useState(false);
-  // const ulRef = useRef();
+
   const [showModal, setShowModal] = useState(false);
   const history = useHistory();
 
@@ -35,7 +35,7 @@ const Boards = () => {
   const openModal = () => {
     setShowModal(true);
   };
-  console.log("BOARDS****", boards);
+
   useEffect(() => {
     dispatch(getAllBoards(id));
   }, [dispatch, id]);
@@ -44,9 +44,8 @@ const Boards = () => {
     if (!showMenu) return;
 
     const closeMenu = (e) => {
-      // if (!ulRef.current.contains(e.target)) {
       setShowMenu(false);
-      // }
+
     };
 
     document.addEventListener("click", closeMenu);
@@ -61,12 +60,7 @@ const Boards = () => {
   };
 
   const handleUpdateBoard = (boardId, userId) => {
-    // console.log(
-    //   userId,
-    //   boardId,
 
-    //   "111******BOARD*****USERID******ID****"
-    // );
     setModalContent(<UpdateBoardForm boardId={boardId} userId={userId} />);
     openModal();
   };
@@ -79,10 +73,7 @@ const Boards = () => {
   const handleCreatePin = () => {
     history.push("/create-pin");
   };
-  // const handleCreatePin = () => {
-  //   setModalContent(<CreatePinModal />);
-  //   openModal();
-  // };
+
   return (
     <div>
       {sessionUser && user ? (

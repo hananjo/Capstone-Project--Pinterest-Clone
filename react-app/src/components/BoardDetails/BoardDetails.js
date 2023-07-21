@@ -7,26 +7,15 @@ import "./BoardDetails.css";
 import { getAllBoards } from "../../store/board";
 import { useModal } from "../../context/Modal";
 import AddToBoardOptionsModal from "../AddToBoardOptionsModal/AddToBoardOptionsModal";
-// import { deleteBoard } from "../../store/board";
-// import { useModal } from "../../context/Modal";
 
 const BoardDetails = () => {
-  // const { setModalContent } = useModal();
   const history = useHistory();
   const dispatch = useDispatch();
-  // const [showModal, setShowModal] = useState(false);
+
   const { userId, id } = useParams();
-  // const { setModalContent } = useModal();
-  console.log(userId, id, "USERID");
-  // const sessionUser = useSelector((state) => {
-  //   return state?.session?.user;
-  // });
-  //   const user = useSelector((state) => {
-  //     return state.session.user.id;
-  //   });
-  // const user = useSelector((state) => {
-  //   return state?.session?.user?.id;
-  // });
+
+
+
   const sessionUser = useSelector((state) => {
     return state?.session?.user;
   });
@@ -37,31 +26,11 @@ const BoardDetails = () => {
   const board = useSelector((state) => {
     return state?.board.details;
   });
-  console.log(board, "BOARD DETAIL STATE");
+
   useEffect(() => {
     dispatch(getBoardDetails(userId, id));
-    // if (user) {
-    //   dispatch(getAllBoards(user));
-    // }
   }, [dispatch, userId, id]);
 
-  // const openModal = () => {
-  //   setShowModal(true);
-  // };
-
-  // const handlePinClick = (pin) => {
-  //   console.log(pin, "pin selected button *****");
-  //   // setSelectedPin(pin);
-  //   // console.log(selectedPin, "SELECTED PIN LANDING PAGE***");
-  //   setModalContent(<AddToBoardOptionsModal pin={pin} user={user} />);
-  //   openModal();
-  // };
-
-  // const handleDeleteBoard = () => {
-  //   setModalContent(<DeleteBoardDetailModal />);
-  //   dispatch(deleteBoard(userId, id));
-  //   history.push(`/${userId}/boards`);
-  // };
   return (
     <div>
       {sessionUser && user ? (
@@ -129,8 +98,6 @@ const BoardDetails = () => {
                                     {pin?.name}
                                   </div>
                                 </div>
-
-                                {/* <p>{pin?.images[0]?.image_url}</p> */}
                               </NavLink>
                             </div>
                           </div>

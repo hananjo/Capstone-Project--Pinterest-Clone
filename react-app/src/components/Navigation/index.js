@@ -21,7 +21,6 @@ function Navigation({ isLoaded }) {
     e.preventDefault();
     dispatch(searchPins(keyword));
     history.push("/search");
-    // closeModal();
   };
   return (
     <div className="nav-bar">
@@ -56,7 +55,6 @@ function Navigation({ isLoaded }) {
                       type="text"
                       required
                       value={keyword}
-                      // placeholder="Search pins"
                       onChange={(e) => setKeyword(e.target.value)}
                       className="search-bar"
                     />
@@ -83,23 +81,9 @@ function Navigation({ isLoaded }) {
               </form>
             </div>
           </li>
-          {/* <div className="nav-icons-container"> */}
+
           <li>
-            {/* {sessionUser && user ? (
-              <div className="user-icon">
-                <NavLink to={`/${user}/boards`}>
-                  <img
-                    style={{
-                      clipPath: "circle(41%)",
-                      width: "40px",
-                    }}
-                    src="https://res.cloudinary.com/dwphwqyrn/image/upload/v1685589422/16147095-2CE2-4AA6-AA9E-D2F1B47D7CE6_qpx5kd.png"
-                  />
-                </NavLink>
-              </div>
-            ) : (
-              <br />
-            )} */}
+
           </li>
           {isLoaded && (
             <div className="profile-button">
@@ -108,7 +92,7 @@ function Navigation({ isLoaded }) {
               </li>
             </div>
           )}
-          {/* </div> */}
+
         </div>
       </ul>
     </div>

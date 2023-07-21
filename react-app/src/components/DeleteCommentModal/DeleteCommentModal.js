@@ -4,7 +4,6 @@ import { getPinDetails } from "../../store/pin";
 import { deleteComment, getAllComments } from "../../store/comments";
 import "./DeleteCommentModal.css";
 const DeleteCommentModal = ({ pinId, id }) => {
-  console.log(pinId, "PINID*****");
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 

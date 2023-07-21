@@ -25,7 +25,7 @@ export const getAllComments = (id) => async (dispatch) => {
 };
 
 export const addNewComment = (data, id) => async (dispatch) => {
-  console.log(id, data, "DATA AND ID *********");
+
   const response = await fetch(`/api/pins/${id}/comments`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -39,7 +39,7 @@ export const addNewComment = (data, id) => async (dispatch) => {
 };
 
 export const updateComment = (pinId, id, data) => async (dispatch) => {
-  console.log(data, " *****UPDATE DATA****");
+
   const response = await fetch(`/api/pins/${pinId}/comments/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

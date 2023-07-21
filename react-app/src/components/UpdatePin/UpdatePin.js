@@ -9,7 +9,6 @@ import "./UpdatePin.css";
 const UpdatePin = ({ id }) => {
   const history = useHistory();
   const dispatch = useDispatch();
-  // const { id } = useParams();
 
   const pins = useSelector((state) => {
     return state?.pin.details;
@@ -49,7 +48,6 @@ const UpdatePin = ({ id }) => {
     setErrors(validationErrors);
   }, [name, description, keyword, size, image]);
 
-  console.log(errors, "ERRORS @@@@@@");
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -65,16 +63,8 @@ const UpdatePin = ({ id }) => {
 
       let updatedPin;
       updatedPin = await dispatch(updatePin(id, pinFormInput));
-      //   closeModal();
-      //   if (selectedBoard) {
-      //     dispatch(addPinToBoard(user, selectedBoard, addedNewPin.id));
-      //     closeModal();
-      //   } else {
-      //     alert("Select a board first");
-      //   }
 
       if (updatedPin) {
-        // history.push(`/pins/${id}`);
         await dispatch(getPinDetails(id));
         closeModal();
       }
@@ -162,7 +152,6 @@ const UpdatePin = ({ id }) => {
             placeholder="Post an image for your pin"
             value={image}
             onChange={(e) => setImage(e.target.value)}
-            // className="image-input-area"
           />
           <div className="errors">
             {errors?.includes("Image URL must end in .png, .jpg, or .jpeg") && (
