@@ -21,6 +21,7 @@ function Navigation({ isLoaded }) {
     e.preventDefault();
     dispatch(searchPins(keyword));
     history.push("/search");
+    setKeyword("");
   };
   return (
     <div className="nav-bar">
@@ -82,9 +83,7 @@ function Navigation({ isLoaded }) {
             </div>
           </li>
 
-          <li>
-
-          </li>
+          <li></li>
           {isLoaded && (
             <div className="profile-button">
               <li>
@@ -92,7 +91,6 @@ function Navigation({ isLoaded }) {
               </li>
             </div>
           )}
-
         </div>
       </ul>
     </div>
