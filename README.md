@@ -4,11 +4,11 @@
 
 ## Frontend:
 
-React, Redux, Javascript
+- React, Redux, Javascript
 
 ## Backend:
 
-Python, SQLAlchemey
+- Python, SQLAlchemey
 
 ## Hosting and Deployement:
 
