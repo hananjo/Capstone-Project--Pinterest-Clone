@@ -37,6 +37,7 @@
     height: 35px;
     border-radius: 10px;
     background-color: rgb(243, 240, 240);
+    outline-color: rgb(124, 186, 186)
  }
 
  .password-and-input {
@@ -49,6 +50,7 @@
    height: 35px;
    border-radius: 10px;
    background-color: rgb(243, 240, 240);
+   outline-color: rgb(124, 186, 186)
  }
 
  .login-form-button {

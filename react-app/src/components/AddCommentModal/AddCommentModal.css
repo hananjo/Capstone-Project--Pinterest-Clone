@@ -6,6 +6,16 @@
     /* border-radius: 20px; */
 }
 
+.comment-container-new {
+    margin-top: 13px;
+}
+
+.add-comment-title-new {
+    margin-top: -5px;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
 .add-comment-input textarea {
  height: 130px;
  width: 250px;

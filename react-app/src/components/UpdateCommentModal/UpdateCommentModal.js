@@ -12,19 +12,27 @@ const UpdateCommentModal = ({ pinId, id }) => {
   const commentSelected = useSelector((state) => state?.comment);
 
   const [comment, setComment] = useState(commentSelected[id]?.comment || "");
-
+  const [errors, setErrors] = useState([]);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newCommentInput = {
-      comment: comment,
-      user_id: user,
-      pin_id: id,
-    };
+    const validationErrors = [];
 
-    await dispatch(updateComment(pinId, id, newCommentInput));
-    await dispatch(getPinDetails(pinId));
-    closeModal();
+    if (!comment.length) {
+      validationErrors.push("Comment field cannot be empty");
+    }
+    setErrors(validationErrors);
+
+    if (!validationErrors.length) {
+      const newCommentInput = {
+        comment: comment,
+        user_id: user,
+        pin_id: id,
+      };
+      await dispatch(updateComment(pinId, id, newCommentInput));
+      await dispatch(getPinDetails(pinId));
+      closeModal();
+    }
   };
 
   return (
@@ -38,6 +46,11 @@ const UpdateCommentModal = ({ pinId, id }) => {
             value={comment}
             onChange={(e) => setComment(e.target.value)}
           ></textarea>
+          <div className="errors">
+            {errors?.includes("Comment field cannot be empty") && (
+              <div>Comment field cannot be empty</div>
+            )}
+          </div>
         </div>
         <div className="comment-submit-button">
           <button className="submit-comment-button" type="submit">
