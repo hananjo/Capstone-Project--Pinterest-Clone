@@ -17,7 +17,20 @@ const CreateBoardModal = () => {
     return state.session.user.id;
   });
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   const validationErrors = [];
+  //   if (!name.length) {
+  //     validationErrors.push("Name is required");
+  //   }
+  //   if (description.length < 10) {
+  //     validationErrors.push("Description needs 10 or more characters");
+  //   }
+  //   setErrors(validationErrors);
+  // }, [name, description]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
     const validationErrors = [];
     if (!name.length) {
       validationErrors.push("Name is required");
@@ -26,12 +39,8 @@ const CreateBoardModal = () => {
       validationErrors.push("Description needs 10 or more characters");
     }
     setErrors(validationErrors);
-  }, [name, description]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!errors.length) {
+    if (!validationErrors.length) {
       const boardFormInput = {
         name,
         description,

@@ -23,23 +23,28 @@
 .edit-keyword-pin-input input {
     width: 400px;
     border-radius: 5px;
+    outline-color: rgb(124, 186, 186)
 }
 
 .edit-keyword-pin-input {
     margin-top: 10px;
+    outline-color: rgb(124, 186, 186)
 }
 .edit-upload-pin-input input {
     width: 400px;
     border-radius: 5px;
+    outline-color: rgb(124, 186, 186)
 }
 
 .edit-upload-pin-input {
     margin-top: 10px;
+
 }
 
 .edit-image-file-size-select select {
     width: 400px;
     border-radius: 5px;
+    outline-color: rgb(124, 186, 186)
 }
 
 .edit-image-file-size-select {
@@ -50,6 +55,7 @@
     width: 400px;
     border-radius: 5px;
     height: 100px;
+    outline-color: rgb(124, 186, 186)
 }
 
 .edit-pin-description-input {
@@ -58,6 +64,7 @@
 .edit-pin-name-input input {
     width: 400px;
     border-radius: 5px;
+    outline-color: rgb(124, 186, 186)
 }
 
 .errors {
